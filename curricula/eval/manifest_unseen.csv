@@ -1,0 +1,7 @@
+routes_xml,scenarios_json,route_index,steps,label,stagnation,reward_mode,speed_bonus,steer_penalty,speed_scale,prog_scale,cost_limit_init,lambda_alpha0,lambda_alpha0_after,lambda_alpha0_ramp_after,delta_clip_mult,actor_dropout_start,actor_dropout_end,actor_dropout_decay_steps,enable_traffic,n_traffic,bonus_coef,red_moving_thresh_ms,progress_warmup_steps,success_completion_pct
+curricula/eval/Town04_eval_straight.xml,curricula/simple/none.json,0,0,eval_unseen_T04_straight,,,,,,,,,,,,,,,0,0,,,
+curricula/eval/Town04_eval_straight.xml,curricula/simple/none.json,0,0,eval_unseen_T04_straight_traffic,,,,,,,,,,,,,,,1,6,,3.0,,
+curricula/eval/Town06_eval_curve.xml,curricula/simple/none.json,0,0,eval_unseen_T06_curve,,,,,,,,,,,,,,,0,0,,,
+curricula/eval/Town06_eval_curve.xml,curricula/simple/none.json,0,0,eval_unseen_T06_curve_traffic,,,,,,,,,,,,,,,1,8,,3.0,,
+curricula/eval/Town05_eval_turn.xml,curricula/simple/none.json,0,0,eval_unseen_T05_turn,,,,,,,,,,,,,,,0,0,,,
+curricula/eval/Town05_eval_turn.xml,curricula/simple/none.json,0,0,eval_unseen_T05_turn_traffic,,,,,,,,,,,,,,,1,6,,3.0,,

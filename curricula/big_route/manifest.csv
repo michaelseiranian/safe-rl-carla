@@ -1,0 +1,8 @@
+# six segments extracted from custom evaluation routes
+routes_xml,scenarios_json,route_index,steps,label,stagnation
+curricula/eval_routes.xml,curricula/simple/none.json,0,100000,T05_seg-1,450
+curricula/eval_routes.xml,curricula/simple/none.json,1,100000,T02_seg-1,450
+curricula/eval_routes.xml,curricula/simple/none.json,2,100000,T04_long_loop,600
+curricula/eval_routes.xml,curricula/simple/none.json,3,100000,T02_seg-2,450
+curricula/eval_routes.xml,curricula/simple/none.json,4,75000,T01_rain,400
+curricula/eval_routes.xml,curricula/simple/none.json,5,100000,T05_seg-2,500

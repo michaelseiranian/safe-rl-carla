@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git check-ignore:*)",
+      "Bash(git rm:*)",
+      "Bash(git add:*)",
+      "Bash(git init:*)",
+      "Bash(git reset:*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"\"\"Checking: {}\"\"\"\"; git diff --cached -- \"\"\"\"{}\"\"\"\" | grep -iE \"\"\"\"(Michael|r56081|michaelseiranian|csf3)\"\"\"\" | head -2 || true')",
+      "Bash(git commit:*)",
+      "Bash(git log:*)",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git branch:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

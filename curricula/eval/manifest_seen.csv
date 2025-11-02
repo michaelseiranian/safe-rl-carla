@@ -1,0 +1,13 @@
+routes_xml,scenarios_json,route_index,steps,label,stagnation,reward_mode,speed_bonus,steer_penalty,speed_scale,prog_scale,cost_limit_init,lambda_alpha0,lambda_alpha0_after,lambda_alpha0_ramp_after,delta_clip_mult,actor_dropout_start,actor_dropout_end,actor_dropout_decay_steps,enable_traffic,n_traffic,bonus_coef,red_moving_thresh_ms,progress_warmup_steps,success_completion_pct
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,0,eval_seen_T01_no_traffic,,,,,,,,,,,,,,,0,0,,,
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,0,eval_seen_T01_traffic_lite,,,,,,,,,,,,,,,1,6,,3.0,,
+curricula/simple/Town02_tjunction.xml,curricula/simple/none.json,0,0,eval_seen_T02_no_traffic,,,,,,,,,,,,,,,0,0,,,
+curricula/simple/Town02_tjunction.xml,curricula/simple/none.json,0,0,eval_seen_T02_traffic_lite,,,,,,,,,,,,,,,1,6,,3.0,,
+curricula/simple/Town03_curve.xml,curricula/simple/none.json,0,0,eval_seen_T03_no_traffic,,,,,,,,,,,,,,,0,0,,,
+curricula/simple/Town03_curve.xml,curricula/simple/none.json,0,0,eval_seen_T03_traffic_lite,,,,,,,,,,,,,,,1,8,,3.0,,
+curricula/medium/Town03_s_bend_medium.xml,curricula/simple/none.json,0,0,eval_seen_T03_medium_no_traffic,,,,,,,,,,,,,,,0,0,,,
+curricula/medium/Town03_s_bend_medium.xml,curricula/simple/none.json,0,0,eval_seen_T03_medium_traffic_lite,,,,,,,,,,,,,,,1,8,,3.0,,
+curricula/medium/Town02_turn_then_bend.xml,curricula/simple/none.json,0,0,eval_seen_T02_medium_no_traffic,,,,,,,,,,,,,,,0,0,,,
+curricula/medium/Town02_turn_then_bend.xml,curricula/simple/none.json,0,0,eval_seen_T02_medium_traffic_lite,,,,,,,,,,,,,,,1,6,,3.0,,
+curricula/medium/Town05_two_curves_short.xml,curricula/simple/none.json,0,0,eval_seen_T05_medium_no_traffic,,,,,,,,,,,,,,,0,0,,,
+curricula/medium/Town05_two_curves_short.xml,curricula/simple/none.json,0,0,eval_seen_T05_medium_traffic_lite,,,,,,,,,,,,,,,1,8,,3.0,,

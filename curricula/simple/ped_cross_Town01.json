@@ -1,0 +1,25 @@
+{
+  "available_scenarios": [
+    {
+      "Town01": [
+        {
+          "scenario_type": "PedestrianCrossing",
+          "available_event_configurations": [
+            {
+              "transform": {
+                "x": 312.855,
+                "y": 326.61,
+                "z": 0.0,
+                "yaw": 180.0
+              },
+              "other_config": {
+                "crossing_distance": 8.0,
+                "walker_speed": 1.4
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

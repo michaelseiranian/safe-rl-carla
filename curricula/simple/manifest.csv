@@ -1,0 +1,5 @@
+routes_xml,scenarios_json,steps,label,stagnation
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,7500,bootstrap_lane,400
+#curricula/simple/Town01_straight.xml,curricula/simple/ped_cross_Town01.json,10000,ped_crossing,300
+#curricula/simple/Town03_curve.xml,curricula/simple/none.json,10000,gentle_curve,300
+#curricula/simple/Town02_tjunction.xml,curricula/simple/none.json,15000,t_junction,300

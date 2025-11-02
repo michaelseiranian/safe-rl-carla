@@ -1,0 +1,28 @@
+# safe-rl-carla/curricula/simple_first/manifest.csv
+# Phases: A) T01 basics → B) T02 junction → C) T03 curves → D) Medium bridge (no-traffic → traffic-lite)
+routes_xml,scenarios_json,route_index,steps,label,stagnation,reward_mode,speed_bonus,steer_penalty,speed_scale,prog_scale,cost_limit_init,lambda_alpha0,lambda_alpha0_after,lambda_alpha0_ramp_after,delta_clip_mult,actor_dropout_start,actor_dropout_end,actor_dropout_decay_steps,enable_traffic,n_traffic,bonus_coef,red_moving_thresh_ms,progress_warmup_steps,success_completion_pct
+
+# ── Phase A : Town01 straight ───────────────────────────────────────────────────────────
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,8000,bootstrap_T01_10pct,400,blend,0.30,0.05,0.25,100.0,0.05,1e-04,,,1.0,0.30,0.20,15000,0,0,0.05,,,10
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,8000,bootstrap_T01_25pct,400,blend,0.30,0.05,0.25,10.0,0.05,5e-05,,,1.0,0.30,0.20,15000,0,0,0,,,25
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,8000,bootstrap_T01_50pct,400,blend,0.30,0.05,0.25,10.0,0.05,5e-05,,,1.0,0.30,0.20,15000,0,0,0,,,50
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,25000,bootstrap_T01,400,blend,0.30,0.05,0.25,10.0,0.05,5e-05,,,1.0,0.30,0.20,15000,0,0,0,,,99
+curricula/simple/Town01_straight.xml,curricula/simple/none.json,0,25000,traffic_lite_T01,350,blend,0.30,0.05,0.25,10.0,0.08,5e-05,,,0.5,0.15,0.10,18000,1,6,0.01,3.0,,99
+
+# ── Phase B : Town02 T-junction ─────────────────────────────────────────────────────────
+curricula/simple/Town02_tjunction.xml,curricula/simple/none.json,0,25000,T02_tjunction_no_traffic,350,blend,0.30,0.05,0.25,10.0,0.05,5e-05,,,1.0,0.30,0.20,15000,0,0,0,,,99
+curricula/simple/Town02_tjunction.xml,curricula/simple/none.json,0,25000,traffic_lite_T02,350,blend,0.30,0.05,0.25,10.0,0.08,5e-05,,,0.5,0.15,0.10,22000,1,8,0.01,3.0,,99
+
+# ── Phase C : Town03 curves ─────────────────────────────────────────────────────────────
+curricula/simple/Town03_curve.xml,curricula/simple/none.json,0,25000,T03_curve_blend,350,blend,0.30,0.05,0.25,10.0,0.05,5e-05,3e-04,25000,1.0,0.0,0.0,0,0,0,0,,,99
+curricula/simple/Town03_curve.xml,curricula/simple/none.json,0,15000,T03_curve_blend_2,350,blend,0.20,0.05,0.25,10.0,0.05,5e-05,3e-04,20000,1.0,0.0,0.0,0,0,0,0,,,99
+curricula/simple/Town03_curve.xml,curricula/simple/none.json,0,15000,T03_curve_traffic_blend,350,blend,0.20,0.05,0.25,10.0,0.08,5e-05,3e-04,20000,0.5,0.15,0.10,22000,1,8,0.01,3.0,,99
+
+# ── Phase D : Medium-length bridges / compound curves ───────────────────────────────────
+curricula/medium/Town03_s_bend_medium.xml,curricula/simple/none.json,0,80000,T03_s_bend_med,400,blend,0.30,0.05,0.25,10.0,0.08,5e-05,3e-04,20000,1.0,0.0,0.0,0,0,0,0,,,99
+curricula/medium/Town02_turn_then_bend.xml,curricula/simple/none.json,0,40000,T02_turn_bend_med_warm,400,blend,0.30,0.05,0.25,10.0,0.08,5e-05,3e-04,20000,1.0,0.0,0.0,0,0,0,0,,,99
+curricula/medium/Town02_turn_then_bend.xml,curricula/simple/none.json,0,40000,traffic_T02_turn_bend_med,400,blend,0.30,0.05,0.25,10.0,0.08,5e-05,3e-04,22000,0.5,0.15,0.10,22000,1,6,0.01,3.0,,99
+curricula/medium/Town05_two_curves_short.xml,curricula/simple/none.json,0,60000,T05_two_curves_med_warm,450,blend,0.30,0.05,0.25,10.0,0.08,5e-05,3e-04,25000,1.0,0.0,0.0,0,0,0,0,,,99
+curricula/medium/Town05_two_curves_short.xml,curricula/simple/none.json,0,60000,traffic_T05_two_curves_med,500,blend,0.30,0.05,0.25,10.0,0.08,5e-05,3e-04,40000,0.5,0.15,0.10,40000,1,8,0.01,3.0,,99
+
+# total steps 459000

@@ -1,0 +1,10 @@
+# safe-rl-carla/curricula/manifest.csv:
+routes_xml,scenarios_json,steps,label,stagnation
+leaderboard/data/training/routes/Scenario1/Town01_Scenario1.xml,leaderboard/data/training/scenarios/Scenario1/Town01_Scenario1.json,100000,bootstrap_town01_straight,400
+leaderboard/data/training/routes/Scenario1/Town02_Scenario1.xml,leaderboard/data/training/scenarios/Scenario1/Town02_Scenario1.json,100000,bootstrap_town02_straight,400
+leaderboard/data/training/routes/Scenario3/Town03_Scenario3.xml,leaderboard/data/training/scenarios/Scenario3/Town03_Scenario3.json,250000,medium_intersections_town03,100
+leaderboard/data/training/routes/Scenario4/Town05_Scenario4.xml,leaderboard/data/training/scenarios/Scenario4/Town05_Scenario4.json,300000,medium_night_town05,100
+leaderboard/data/training/routes/Scenario7/Town06_Scenario7.xml,leaderboard/data/training/scenarios/Scenario7/Town06_Scenario7.json,350000,hard_roundabouts_town06,100
+leaderboard/data/training/routes/Scenario10/Town10HD_Scenario10.xml,leaderboard/data/training/scenarios/Scenario10/Town10HD_Scenario10.json,400000,hard_dense_hd,100
+# (optional) brief encoder‑adaptation pass on your eval split
+# curricula/eval_routes.xml,leaderboard/data/longest6/eval_scenarios.json,100000,adapt_eval_routes,100
