@@ -130,12 +130,17 @@ def test_scheduler_never_exceeds_cap_and_skips_duplicates(tmp_path, monkeypatch)
     q = tmp_path / "q"
     q.mkdir()
     monkeypatch.setattr(L, "QDIR", str(q))
-    for name in ("QUEUE", "CAP", "PIDFILE", "QLOG"):
+    for name in ("QUEUE", "CAP", "PIDFILE", "QLOG", "PAUSED", "POWER"):
         monkeypatch.setattr(L, name, str(q / {"QUEUE": ".queue.jsonl", "CAP": ".queue.cap",
-                                               "PIDFILE": ".queue.pid", "QLOG": ".queue.log"}[name]))
+                                               "PIDFILE": ".queue.pid", "QLOG": ".queue.log",
+                                               "PAUSED": ".queue.paused", "POWER": ".queue.power"}[name]))
     live = ["/v/bin/python3 -m lagu.train --env E --arm x --seed 9 --out /o "]      # python3, not python
     spawned = []
     monkeypatch.setattr(L, "live_trainers", lambda: list(live))
+    monkeypatch.setattr(L, "trainer_pids", lambda: [1])
+    monkeypatch.setattr(L, "on_mains", lambda: True)
+    monkeypatch.setattr(L, "signal_all", lambda pids, sig: None)
+    monkeypatch.setattr(L.shutil, "which", lambda name: None)
     monkeypatch.setattr(L, "spawn", lambda spec: spawned.append(spec["stem"]) or 1)
     monkeypatch.setattr(L.time, "sleep", lambda s: (_ for _ in ()).throw(SystemExit))
 
