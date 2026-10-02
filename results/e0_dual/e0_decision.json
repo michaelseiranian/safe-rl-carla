@@ -253,11 +253,11 @@
  "complete": true,
  "e0_ext": {
   "seed_mean_return": [
-   null,
-   null,
-   null
+   24.506416179036655,
+   24.914224070821675,
+   24.483907933387698
   ],
-  "complete": false,
+  "complete": true,
   "move_window_to_end_step": false
  }
 }

@@ -414,8 +414,17 @@ Filled in at the gates; each entry is committed before the next wave that depend
   | `lagu_nogate-tt-l4e-7` | 0.994 / 0.884 | 0.28 | 0.435 |
   | `lagu_nogate-omsw-l4e-7` | 0.967 / 0.808 | -78.68 | 0.706 |
 
-- E0-ext window decision (G2, 2M only): `TBD`
-- D and E1 engagement over 25k-300k; G2 branch taken: `TBD`
+- E0-ext window decision (G2, 2M only): **keep the 2M window**. The three selection seeds of
+  `lagu_nogate-tt-l2e-6` have mean `eval_return` 24.51, 24.91 and 24.48 over 1.6M-2.0M, none
+  below 5. Computed 2026-10-02 21:33:36 UTC by re-running `lagu.analyze --e0-rule`, which filled
+  only the E0-ext block of `results/e0_dual/e0_decision.json` (every other entry is unchanged).
+- D and E1 engagement over 25k-300k; G2 branch taken: **D = 1.12158** (the printed value; 1.121585
+  to six decimals) and **engagement = 0.8497**, from the 15 finished `lagu-tt` runs (seeds
+  100-114) with `lagu.analyze results/gate --budget-D lagu-tt`, 2026-10-02 21:33:30 UTC.
+  Engagement is at least 10% and D is at most 2.4, so E2 is enqueued at the front of the queue:
+  `lagu_nogate-tt-match` (delta0 = 1.12158, seeds 100-114) and `lagu-tt-ggrad` (seeds 100-109),
+  2M steps, with the `lagu/PLAN.md` Wave 3 commands, checkpointing every 100k (section 16,
+  item 3).
 - Extensions run (G3): `TBD`
 
 ## 16. Deviations
