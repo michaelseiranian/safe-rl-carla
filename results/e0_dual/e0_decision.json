@@ -1,0 +1,263 @@
+{
+ "end_step": 1000000,
+ "cells": {
+  "lagu_nogate-omsw-l4e-7": {
+   "env": "SafetyPointGoal1-v0",
+   "seeds": [
+    0,
+    1,
+    2
+   ],
+   "window_steps": [
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ]
+   ],
+   "complete": true,
+   "lambda_lr": 4e-07,
+   "kind": "omsw",
+   "calib": 0.6826106470522594,
+   "calib_seed": [
+    0.8022391244506403,
+    null,
+    0.8696168990617879
+   ],
+   "return": 16.56563463936964,
+   "return_seed": [
+    25.038740414403556,
+    -0.021305307202423816,
+    24.679468810907785
+   ],
+   "lambda": 0.18207826034328792,
+   "gap": -0.17811917970837396,
+   "lambda_600k": 0.1310379411485235,
+   "lambda_end": 0.1944003144425627,
+   "cost": 28.291666666666668,
+   "train_cost": 36.63833333333333,
+   "train_cost_250_400k": 36.54,
+   "diverged_seeds": [],
+   "would_engage": 0.9667335345936667,
+   "would_engage_25_300k": 0.8076974418391668,
+   "qbar_avg": -78.6763442378694,
+   "abs_qbar_avg_median_after_300k": 0.7064705830198527,
+   "a": false,
+   "b": false,
+   "c": true,
+   "d": true
+  },
+  "lagu_nogate-tt-l1e-5": {
+   "env": "SafetyPointGoal1-v0",
+   "seeds": [
+    0,
+    1,
+    2
+   ],
+   "window_steps": [
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ]
+   ],
+   "complete": true,
+   "lambda_lr": 1e-05,
+   "kind": "tt",
+   "calib": 0.8275797428135605,
+   "calib_seed": [
+    0.875783498688622,
+    0.7243384612963119,
+    0.8418304625826903
+   ],
+   "return": 13.263076467765073,
+   "return_seed": [
+    15.210349147716821,
+    0.0197643933083939,
+    24.559115862269998
+   ],
+   "lambda": 0.33790212621114174,
+   "gap": 0.4959950639382098,
+   "lambda_600k": 0.10656404355032402,
+   "lambda_end": 0.6593270101657996,
+   "cost": 34.775,
+   "train_cost": 62.83333333333334,
+   "train_cost_250_400k": 42.296666666666674,
+   "diverged_seeds": [],
+   "would_engage": 0.9943761352683868,
+   "would_engage_25_300k": 0.9230605578223113,
+   "qbar_avg": -3.9989414863545196,
+   "abs_qbar_avg_median_after_300k": 1.4845232036876679,
+   "a": false,
+   "b": false,
+   "c": true,
+   "d": true
+  },
+  "lagu_nogate-tt-l2e-6": {
+   "env": "SafetyPointGoal1-v0",
+   "seeds": [
+    0,
+    1,
+    2
+   ],
+   "window_steps": [
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ]
+   ],
+   "complete": true,
+   "lambda_lr": 2e-06,
+   "kind": "tt",
+   "calib": 0.7287067033017021,
+   "calib_seed": [
+    0.59463247229951,
+    0.9119825891711076,
+    0.7001167380894903
+   ],
+   "return": 21.215102663197268,
+   "return_seed": [
+    19.531794575596614,
+    20.551764202387123,
+    23.561749211608074
+   ],
+   "lambda": 0.4073573891058479,
+   "gap": 0.9816895505515579,
+   "lambda_600k": 0.15526468471129937,
+   "lambda_end": 0.4843224814043605,
+   "cost": 50.875,
+   "train_cost": 47.73,
+   "train_cost_250_400k": 45.89666666666667,
+   "diverged_seeds": [],
+   "would_engage": 0.9720177049738656,
+   "would_engage_25_300k": 0.9482339133693517,
+   "qbar_avg": -1.4338167550613496,
+   "abs_qbar_avg_median_after_300k": 0.8341285166585446,
+   "a": true,
+   "b": true,
+   "c": true,
+   "d": false
+  },
+  "lagu_nogate-tt-l4e-7": {
+   "env": "SafetyPointGoal1-v0",
+   "seeds": [
+    0,
+    1,
+    2
+   ],
+   "window_steps": [
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ],
+    [
+     850000,
+     900000,
+     950000,
+     1000000
+    ]
+   ],
+   "complete": true,
+   "lambda_lr": 4e-07,
+   "kind": "tt",
+   "calib": 0.6376926768140984,
+   "calib_seed": [
+    0.48773366239488464,
+    0.7084845958551158,
+    0.8124963096894776
+   ],
+   "return": 22.597879101055835,
+   "return_seed": [
+    22.48728368204958,
+    24.43031243566807,
+    20.876041185449843
+   ],
+   "lambda": 0.23649855569869616,
+   "gap": 0.8290755381746404,
+   "lambda_600k": 0.185859935215504,
+   "lambda_end": 0.24841917059182542,
+   "cost": 49.81666666666667,
+   "train_cost": 48.13999999999999,
+   "train_cost_250_400k": 48.21666666666667,
+   "diverged_seeds": [],
+   "would_engage": 0.994156567990992,
+   "would_engage_25_300k": 0.8843819248108811,
+   "qbar_avg": 0.2803509992788866,
+   "abs_qbar_avg_median_after_300k": 0.4353213543301821,
+   "a": false,
+   "b": true,
+   "c": true,
+   "d": false
+  }
+ },
+ "healthy": [
+  "lagu_nogate-tt-l2e-6"
+ ],
+ "binds": [
+  "lagu_nogate-omsw-l4e-7",
+  "lagu_nogate-tt-l1e-5"
+ ],
+ "outcome": "iv",
+ "chosen": "lagu_nogate-tt-l2e-6",
+ "lambda_lr": 2e-06,
+ "steps": 2000000,
+ "reason": "some cells bind but none is healthy: fastest healthy cell at 2x steps; lead with the negative result",
+ "complete": true,
+ "e0_ext": {
+  "seed_mean_return": [
+   null,
+   null,
+   null
+  ],
+  "complete": false,
+  "move_window_to_end_step": false
+ }
+}
