@@ -7,7 +7,8 @@ is then entered in section 15 and committed as `prereg-v1.1` before any confirma
 sections 1-14 are not edited; every change goes into section 16 (Deviations) with its date and
 reason.
 
-**Analysis code commit**: `TBD` (full SHA). Analysis code means `lagu/analyze.py`,
+**Analysis code commit**: c515eb23709f9d60c41c9a00a20874374ca377e5 (full SHA; the `prereg-v1`
+commit itself, entered 2026-10-02, see section 16). Analysis code means `lagu/analyze.py`,
 `lagu/evaluate.py` and `lagu/certify.py`. They are committed first and that commit's SHA is entered
 here; this file is then committed and tagged `prereg-v1` with the analysis code unchanged. (A
 commit cannot contain its own SHA, so the tagged commit is not the one named here.)
@@ -394,13 +395,45 @@ steps in a different code base, and no hypothesis is tested against them.
 
 Filled in at the gates; each entry is committed before the next wave that depends on it.
 
-- W0 certificate (G1): `TBD`
-- E0 outcome class (i)-(v), chosen cell, λ-lr (LR), step budget (STEPS): `TBD` (tag `prereg-v1.1`)
-- E0 `would_engage` and `qbar_avg`: `TBD`
+- W0 certificate (G1): **PASS**, 2026-09-29 19:38:57 UTC (`results/certify/certificate.md`).
+  Under the fixed λ (2 seeds) and the episodic dual (2 seeds), `lagu` and `lagu_nogate` are
+  bit-identical (0 of 241 or 245 tensors differ, no CSV column differs). Both positive controls
+  differ: the state-wise dual (193 of 241 tensors; λ 0.759 vs 0.453) and the gate gradient (196 of
+  245).
+- E0 outcome class (i)-(v), chosen cell, λ-lr (LR), step budget (STEPS): **(iv)**,
+  `lagu_nogate-tt-l2e-6`, LR = 2e-6, STEPS = 2000000. Decided 2026-09-30 00:23:10 UTC by
+  `lagu.analyze --e0-rule` (`results/e0_dual/e0_decision.json`); its hash entered
+  `results/PREREG_SHA256.txt` at 00:23:52 UTC, before Wave 2. No tag `prereg-v1.1` was made
+  (section 16, item 1).
+- E0 `would_engage` and `qbar_avg` (from `e0_decision.json`):
+
+  | cell | `would_engage` (run / 25k-300k) | `qbar_avg` | median \|`qbar_avg`\| after 300k |
+  |---|---|---|---|
+  | `lagu_nogate-tt-l1e-5` | 0.994 / 0.923 | -4.00 | 1.485 |
+  | `lagu_nogate-tt-l2e-6` | 0.972 / 0.948 | -1.43 | 0.834 |
+  | `lagu_nogate-tt-l4e-7` | 0.994 / 0.884 | 0.28 | 0.435 |
+  | `lagu_nogate-omsw-l4e-7` | 0.967 / 0.808 | -78.68 | 0.706 |
+
 - E0-ext window decision (G2, 2M only): `TBD`
 - D and E1 engagement over 25k-300k; G2 branch taken: `TBD`
 - Extensions run (G3): `TBD`
 
 ## 16. Deviations
 
-None yet.
+**2026-10-02**
+
+1. *Tag timing.* `prereg-v1` was made and pushed on 2026-10-02, not before Wave 1, and no
+   `prereg-v1.1` was made. Wave 1 (2026-09-29 18:52:52 UTC) and Wave 2 (2026-09-30 00:24:02 UTC)
+   were launched against a local hash record, `results/PREREG_SHA256.txt` (written 2026-09-29
+   18:52:43 UTC; E0 decision appended 2026-09-30 00:23:52 UTC), which is published in the
+   `prereg-v1` commit; every file it lists matches there. The analysis code commit named above is
+   that commit itself, entered here afterwards. The `prereg-v1` tag message lists what had been
+   seen by then.
+2. *Resumed E1 runs.* A reboot on 2026-10-01 killed the 12 runs then in progress (frozen since
+   2026-09-30 11:05 UTC at the author's request): `lagu-tt` s109-s114 and `lagu_nogate-tt`
+   s100-s105. They resume from their checkpoints with `resumed` = 1 (section 11), so 12 of the 15
+   E1 pairs contain a resumed run and the section 6 sensitivity analysis keeps seeds 106-108 only.
+3. *Checkpoint period.* From 2026-10-02, resumed and queued runs checkpoint every 100k steps, not
+   every 250k (section 11). Checkpointing does not change the training computation.
+4. *Power-aware queue.* From 2026-10-02 the queue freezes trainers on battery power and unfreezes
+   them on mains (SIGSTOP/SIGCONT). This does not change the training computation.
