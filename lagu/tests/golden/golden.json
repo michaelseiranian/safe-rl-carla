@@ -1,0 +1,22 @@
+{
+ "td3lag": {
+  "hash": "4624384dce1fcaec0f1f15051abd9c4aa525cc1b3a2b7f30e67cd822c3fb23ed",
+  "lambda": 0.21337205529212952
+ },
+ "lagu": {
+  "hash": "32399f40a9faa0f7fd77f60580d43749ddc34ba819ee86cca7c5f85bd0a6fc87",
+  "lambda": 0.365970660581952
+ },
+ "lagu_nogate": {
+  "hash": "c9240c81c65d13f41f604dd7266e826bba296c917405f51d2187e97d6bcd2320",
+  "lambda": 0.33374886049656205
+ },
+ "lagu_nobonus": {
+  "hash": "36feb731e67cc0527048b0bf9979259394844a0c53adad7922f528c247833845",
+  "lambda": 0.36155152775114396
+ },
+ "lagu_gategrad": {
+  "hash": "88935e8200d7fd4b9b84eb9f472f76cdae6ea752062ffb00ccab41bed7e00557",
+  "lambda": 0.3658600195788312
+ }
+}
