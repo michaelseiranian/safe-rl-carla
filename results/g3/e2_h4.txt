@@ -1,0 +1,24 @@
+== lagu-tt - lagu_nogate-tt-match  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [2000000]
+  pairs 15 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  return A 5.42  B 7.86  A-B -2.44  95% [-6.93, 1.87]  90% [-6.18, 1.23]  Wilcoxon p=0.3894  TOST(+-2.5) no
+  cost   A 34.46  B 47.31  A-B -12.85  95% [-32.62, 9.89]  90% [-29.63, 5.91]  Wilcoxon p=0.1354  TOST(+-5.0) no
+  collapses (return < 5 or diverged): A 9  B 7  Fisher p=0.7152
+  verdict: Inconclusive
+  sensitivity without the pairs containing a resumed run (seeds [109, 110, 111, 112, 113, 114]):
+    pairs 9 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108]
+    return A 6.86  B 7.00  A-B -0.14  95% [-5.88, 5.26]  90% [-4.97, 4.43]  Wilcoxon p=1.0000  TOST(+-2.5) no
+    cost   A 35.13  B 46.14  A-B -11.02  95% [-40.03, 22.87]  90% [-35.76, 16.12]  Wilcoxon p=0.3594  TOST(+-5.0) no
+    collapses (return < 5 or diverged): A 4  B 5  Fisher p=1.0000
+    verdict: Inconclusive
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                  5.496     8.023    -2.526  [-7.024, 1.875]     0.359  15
+    window_cost                   28.071    40.444   -12.373  [-25.103, -0.944]   0.083  15
+    cum_cost                   73937.933 85121.400 -11183.467  [-25145.087, 2431.070]  0.169  15
+    cum_cost_500k              17903.000 17575.600   327.400  [-3428.552, 3932.048]  0.679  15
+    lambda_avg                     0.316     0.255     0.061  [-0.059, 0.186]     0.421  15
+    lambda_shadow                  0.012     0.429    -0.417  [-0.833, -0.131]    0.001  15
+    engagement                     0.850     0.000     0.850  [0.801, 0.893]      0.000  15
+    would_engage                   0.952     0.905     0.047  [-0.054, 0.194]     0.890  15
+    qc_avg                         0.662     1.197    -0.535  [-1.380, 0.208]     0.389  15
+    calib                          0.912     0.639     0.272  [-0.652, 1.489]     0.524  15
+wrote results/g3/e2_h4.json

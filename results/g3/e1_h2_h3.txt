@@ -1,0 +1,25 @@
+== lagu-tt - lagu_nogate-tt  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [2000000]
+  pairs 15 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  return A 5.42  B 15.59  A-B -10.17  95% [-16.08, -3.80]  90% [-15.23, -4.84]  Wilcoxon p=0.0067  TOST(+-2.5) no
+  cost   A 34.46  B 37.77  A-B -3.31  95% [-18.75, 16.70]  90% [-16.94, 13.05]  Wilcoxon p=0.3894  TOST(+-5.0) no
+  collapses (return < 5 or diverged): A 9  B 3  Fisher p=0.0604
+  verdict: Hurts
+  sensitivity without the pairs containing a resumed run (seeds [100, 101, 102, 103, 104, 105, 109, 110, 111, 112, 113, 114]):
+    pairs 3 (left out, non-finite: 0)  seeds [106, 107, 108]
+    return A 3.28  B 19.14  A-B -15.86  95% [-21.19, -11.17]  90% [-19.20, -12.52]  Wilcoxon p=0.2500  TOST(+-2.5) no
+    cost   A 57.24  B 36.25  A-B 20.99  95% [-27.61, 98.79]  90% [-21.15, 63.12]  Wilcoxon p=1.0000  TOST(+-5.0) no
+    collapses (return < 5 or diverged): A 2  B 0  Fisher p=0.4000
+    verdict: Inconclusive
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                  5.496    16.131   -10.635  [-16.736, -4.074]   0.007  15
+    window_cost                   28.071    38.383   -10.312  [-19.621, -0.442]   0.083  15
+    cum_cost                   73937.933 85283.000 -11345.067  [-28631.582, 6435.635]  0.135  15
+    cum_cost_500k              17903.000 24044.667 -6141.667  [-11970.472, -1321.243]  0.022  15
+    lambda_avg                     0.316   197.149  -196.833  [-590.496, 0.114]   0.934  15
+    lambda_shadow                  0.012   599.397  -599.386  [-1797.671, -0.192]  0.000  15
+    engagement                     0.850     0.000     0.850  [0.801, 0.893]      0.000  15
+    would_engage                   0.952     0.937     0.015  [-0.063, 0.111]     0.804  15
+    qc_avg                         0.662   435.794  -435.132  [-1302.529, -1.071]  0.000  15
+    calib                          0.912    74.882   -73.970  [-222.842, 1.129]   0.599  15
+== H2 lagu-tt vs lagu_nogate-tt SafetyPointGoal1-v0: engagement(A, 25k-300k) 0.850; time-avg lambda A 0.3160 B 197.1493, median diff 0.0072, one-sided Wilcoxon p=0.4670 (n=15, unadjusted) -> not_confirmed
+wrote results/g3/e1_h2_h3.json

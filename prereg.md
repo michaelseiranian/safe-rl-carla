@@ -425,7 +425,13 @@ Filled in at the gates; each entry is committed before the next wave that depend
   `lagu_nogate-tt-match` (delta0 = 1.12158, seeds 100-114) and `lagu-tt-ggrad` (seeds 100-109),
   2M steps, with the `lagu/PLAN.md` Wave 3 commands, checkpointing every 100k (section 16,
   item 3).
-- Extensions run (G3): `TBD`
+- Extensions run (G3): computed 2026-10-09 15:48 UTC with the `lagu/PLAN.md` G3 commands, after
+  `lagu.evaluate` had written the held-out endpoint of every E1, E1b, E2 and E3 run. H3 on the 15 E1
+  pairs is **Hurts** (only the collapse clause fires: 9 vs 3 collapsed runs), so H3 gets no
+  extension. H4 on the 15 E2 pairs is **Inconclusive**, so section 10.5 gives it one extension:
+  `lagu-tt` and `lagu_nogate-tt-match` (delta0 = 1.12158) on seeds 115-119, 2M steps (10 runs; the
+  `lagu` runs are shared with the H3 arm but H3's verdict stays on its 15 pairs). The final H4
+  verdict and the Holm family are computed when these finish.
 
 ## 16. Deviations
 
