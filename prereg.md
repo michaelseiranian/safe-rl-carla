@@ -5,7 +5,7 @@ committed and tagged `prereg-v1` before Wave 1 (the certificate W0 and E0) start
 is then entered in section 15 and committed as `prereg-v1.1` before any confirmatory run
 (seeds 100 and up) starts. The author pushes both tags to a public remote. After `prereg-v1`,
 sections 1-14 are not edited; every change goes into section 16 (Deviations) with its date and
-reason.
+reason. (The tag was in fact made later; see section 16, item 1.)
 
 **Analysis code commit**: c515eb23709f9d60c41c9a00a20874374ca377e5 (full SHA; the `prereg-v1`
 commit itself, entered 2026-10-02, see section 16). Analysis code means `lagu/analyze.py`,
@@ -452,3 +452,42 @@ Filled in at the gates; each entry is committed before the next wave that depend
    every 250k (section 11). Checkpointing does not change the training computation.
 4. *Power-aware queue.* From 2026-10-02 the queue freezes trainers on battery power and unfreezes
    them on mains (SIGSTOP/SIGCONT). This does not change the training computation.
+
+**2026-10-09** (written before any outcome of the H4 extension, E4 or X1 was read)
+
+5. *Reporting commitments.*
+   - H4 is reported as bounds (both 95% intervals, plus the time course) whatever its final label.
+     E2 compares two budget schedules, the gate's falling mean budget against a constant equal to
+     its whole-run average, so it cannot show that adaptive and uniform tightening are equivalent.
+     The "E2 matched-budget equivalence" section planned in `lagu/PLAN.md` is withdrawn.
+   - H3 stays at its 15 pairs. No `lagu_nogate-tt` run is made on seeds 115-119; the collapse count
+     of `lagu-tt` s115-s119 is reported descriptively.
+   - A contrast is computed only after checking that every run in it has a held-out file (the
+     analysis falls back to in-training rows for the whole contrast when one is missing). Section
+     15's G3 entry overstates the coverage: `td3lag-lit` s105-s109 finished after that evaluation
+     pass and are evaluated before any descriptive TD3-Lag comparison.
+   - The section 9 |Q̄| prediction is evaluated on `lagu-tt` seeds 100-114 (the E1 seeds), with
+     seeds 100-119 as a sensitivity check.
+   - A run not at its final step at the results freeze (23 Oct) is reported as unfinished and its
+     pair is left out, with the count stated.
+   - Every mechanism analysis (time courses, per-seed forensics, dose plots, other horizons) is
+     exploratory, is shown as full curves rather than chosen windows, and is reported whichever way
+     it comes out. `lagu/probe.py` is committed before it reads any snapshot.
+6. *E4 runs as pre-registered* (the queue is empty; section 10.6 and `lagu/PLAN.md` Gate G4):
+   `lagu_nogate` with δ0 ∈ {1.75, 1.25} and `lagu` with T ∈ {0.035, 0.14}, the E1 recipe, seeds
+   100-107, 2M steps. Stated in advance: T = 0.14 lies below the median gate ratio of the E1 critics
+   (about 0.2-0.4), so the T family varies how strongly the gate tightens rather than how selectively;
+   with 8 seeds, monotonicity of arm means is reported descriptively.
+7. *Exploratory add-on X1: the gate at the paper's dose, in the literal recipe.* In E1 the gate
+   fired on 85-95% of samples and cut the mean budget to about 0.45 δ0, far below the paper's Fig.
+   5(d) as we read it (about 0.76-0.88 δ0); in E1b it was nearly off after 300k (about 0.97 δ0). No arm has
+   tested a moderate gate. Design: `lagu` with T = 0.03, literal recipe, seeds 100-109, 1M steps,
+   tag `lit-T03`, in `results/gate_literal_x`. T was chosen from critic quantities only: on 18,000
+   on-policy states of `lagu_nogate-lit` (seeds 100-105, snapshots at 300k, 600k and 1M), T = 0.03
+   gives engagement 0.41 and a mean budget of 0.85 δ0; no outcome column was used. When those runs
+   finish, `lagu_nogate` with δ0 = D* (the printed `--budget-D lagu-lit-T03` of that directory),
+   same seeds and steps, tag `lit-match`. Contrasts, paired by seed against the existing E1b
+   `lagu_nogate-lit`: gate vs ungated, gate vs matched, and matched vs ungated, with the section 6
+   statistics and section 7 labels. Prediction (Proposition 1, with the literal dual nearly inert
+   in E1b): no practically relevant difference in any contrast. No X1 outcome is read before all
+   X1 runs finish; X1 is reported whichever way it comes out and is not part of the Holm family.
