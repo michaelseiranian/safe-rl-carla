@@ -520,3 +520,18 @@ Filled in at the gates; each entry is committed before the next wave that depend
    engagement over 25k-300k was 0.81, higher than the 0.41 estimated from the 300k-1M snapshots,
    as early uncertainty is larger. `lagu_nogate` with δ0 = 2.14758 (tag `lit-match`, seeds
    100-109, 1M) is queued at the front. No X1 outcome has been read.
+9. *X1 results (exploratory, all reported).* Computed 2026-10-10 15:10 UTC after `lagu.evaluate`
+   wrote a held-out file for every X1 run; 10 seed pairs each against E1b's `lagu_nogate-lit`,
+   1M steps, section 6 statistics, no multiplicity correction. Held-out means: gate (T = 0.03)
+   return 27.46, cost 49.97; matched (δ0 = 2.14758) 26.66, 47.97; ungated 26.98, 50.82. No run in
+   any arm has cost ≤ 25.
+   - Gate vs ungated: Equivalent, as predicted. Return +0.48, 95% [-0.05, 1.06]; cost -0.85,
+     95% [-3.15, 1.93]; time-averaged λ medians 0.032 vs 0.031.
+   - Gate vs matched: labelled Helps through the return clause (return +0.80, 95% [0.19, 1.40]),
+     but the gate also has higher cost (+2.00, 95% [-0.03, 4.39]). We read this as a small
+     trade-off, not as a benefit of adaptivity.
+   - Matched vs ungated: labelled Helps through the cost clause. Cost -2.85, 95% [-5.12, -0.68];
+     return -0.32, 95% [-0.70, 0.06]; λ medians 0.040 vs 0.031.
+   At the same average budget, the gate spends its tightening early and leaves λ and outcomes at
+   the ungated level, while the uniform cut raises λ a little and lowers realised cost by about
+   6%; every arm stays about twice over the limit.

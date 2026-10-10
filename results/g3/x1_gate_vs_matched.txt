@@ -1,0 +1,19 @@
+== lagu-lit-T03 - lagu_nogate-lit-match  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [1000000]
+  pairs 10 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+  return A 27.46  B 26.66  A-B 0.80  95% [0.19, 1.40]  90% [0.30, 1.30]  Wilcoxon p=0.0371  TOST(+-2.5) yes
+  cost   A 49.97  B 47.97  A-B 2.00  95% [-0.03, 4.39]  90% [0.22, 3.98]  Wilcoxon p=0.2656  TOST(+-5.0) yes
+  collapses (return < 5 or diverged): A 0  B 0  Fisher p=1.0000
+  verdict: Helps
+  sensitivity: no pair contains a resumed run
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                 27.337    26.317     1.020  [0.441, 1.611]      0.010  10
+    window_cost                   52.964    54.876    -1.912  [-5.544, 1.770]     0.432  10
+    cum_cost                   52644.500 53149.600  -505.100  [-1914.100, 975.902]  0.432  10
+    cum_cost_500k              25975.600 26848.700  -873.100  [-1947.610, 376.010]  0.131  10
+    lambda_avg                     0.035     0.042    -0.007  [-0.014, -0.001]    0.160  10
+    lambda_shadow                  0.019     0.076    -0.057  [-0.080, -0.033]    0.002  10
+    engagement                     0.813     0.000     0.813  [0.772, 0.853]      0.002  10
+    would_engage                   0.200     0.044     0.156  [0.121, 0.189]      0.002  10
+    qc_avg                         2.352     2.179     0.173  [0.139, 0.208]      0.002  10
+    calib                          0.443     0.405     0.038  [0.001, 0.079]      0.193  10
+wrote results/g3/x1_gate_vs_matched.json

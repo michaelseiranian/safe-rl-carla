@@ -1,0 +1,7 @@
+usage: analyze.py [-h] [--env ENV] [--seeds SEEDS [SEEDS ...]]
+                  [--end-step END_STEP] [--boot BOOT] [--boot-seed BOOT_SEED]
+                  [--e0-rule] [--budget-D LABEL] [--pair A B] [--h2 A B]
+                  [--h5 [LABEL ...]] [--unpaired A B] [--prereg PREREG_MD]
+                  [--tag TAG] [--json PATH]
+                  [dirs ...]
+analyze.py: error: argument --pair: expected 2 arguments
