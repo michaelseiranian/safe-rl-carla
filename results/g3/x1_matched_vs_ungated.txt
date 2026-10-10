@@ -1,0 +1,19 @@
+== lagu_nogate-lit-match - lagu_nogate-lit  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [1000000]
+  pairs 10 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+  return A 26.66  B 26.98  A-B -0.32  95% [-0.70, 0.06]  90% [-0.65, 0.00]  Wilcoxon p=0.1309  TOST(+-2.5) yes
+  cost   A 47.97  B 50.82  A-B -2.85  95% [-5.12, -0.68]  90% [-4.74, -1.01]  Wilcoxon p=0.0840  TOST(+-5.0) yes
+  collapses (return < 5 or diverged): A 0  B 0  Fisher p=1.0000
+  verdict: Helps
+  sensitivity: no pair contains a resumed run
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                 26.317    27.074    -0.757  [-1.305, -0.234]    0.027  10
+    window_cost                   54.876    53.804     1.072  [-2.030, 4.216]     0.695  10
+    cum_cost                   53149.600 53605.400  -455.800  [-1729.517, 808.252]  0.492  10
+    cum_cost_500k              26848.700 26876.200   -27.500  [-1077.503, 986.502]  0.770  10
+    lambda_avg                     0.042     0.038     0.004  [-0.007, 0.012]     0.193  10
+    lambda_shadow                  0.076     0.061     0.015  [-0.014, 0.046]     0.492  10
+    engagement                     0.000     0.000     0.000  [0.000, 0.000]      1.000  10
+    would_engage                   0.044     0.034     0.009  [-0.014, 0.037]     0.432  10
+    qc_avg                         2.179     2.511    -0.333  [-0.382, -0.283]    0.002  10
+    calib                          0.405     0.439    -0.034  [-0.068, 0.008]     0.084  10
+wrote results/g3/x1_matched_vs_ungated.json

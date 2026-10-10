@@ -5,7 +5,7 @@ committed and tagged `prereg-v1` before Wave 1 (the certificate W0 and E0) start
 is then entered in section 15 and committed as `prereg-v1.1` before any confirmatory run
 (seeds 100 and up) starts. The author pushes both tags to a public remote. After `prereg-v1`,
 sections 1-14 are not edited; every change goes into section 16 (Deviations) with its date and
-reason.
+reason. (The tag was in fact made later; see section 16, item 1.)
 
 **Analysis code commit**: c515eb23709f9d60c41c9a00a20874374ca377e5 (full SHA; the `prereg-v1`
 commit itself, entered 2026-10-02, see section 16). Analysis code means `lagu/analyze.py`,
@@ -425,7 +425,34 @@ Filled in at the gates; each entry is committed before the next wave that depend
   `lagu_nogate-tt-match` (delta0 = 1.12158, seeds 100-114) and `lagu-tt-ggrad` (seeds 100-109),
   2M steps, with the `lagu/PLAN.md` Wave 3 commands, checkpointing every 100k (section 16,
   item 3).
-- Extensions run (G3): `TBD`
+- Extensions run (G3): computed 2026-10-09 15:48 UTC with the `lagu/PLAN.md` G3 commands, after
+  `lagu.evaluate` had written the held-out endpoint of every E1, E1b, E2 and E3 run. H3 on the 15 E1
+  pairs is **Hurts** (only the collapse clause fires: 9 vs 3 collapsed runs), so H3 gets no
+  extension. H4 on the 15 E2 pairs is **Inconclusive**, so section 10.5 gives it one extension:
+  `lagu-tt` and `lagu_nogate-tt-match` (delta0 = 1.12158) on seeds 115-119, 2M steps (10 runs; the
+  `lagu` runs are shared with the H3 arm but H3's verdict stays on its 15 pairs). The final H4
+  verdict and the Holm family are computed when these finish.
+- Final confirmatory analysis: 2026-10-10 00:55 UTC, `lagu.analyze --prereg prereg.md results/gate
+  results/gate_literal results/gate_x` at commit 6b28b15, after checking that every run in every
+  contrast had a held-out file (`prereg_results.json`; printout in `results/g3/prereg_final.txt`).
+  Holm-adjusted p: H2 E1 1.0, H2 E1b 1.0, H3 return 0.040, H3 cost 1.0, H4 return 1.0, H4 cost 1.0,
+  H5 `lagu-lit` 0.008, H5 `lagu_nogate-lit` 0.008.
+  - H2: not confirmed (E1 and E1b).
+  - H3 (15 pairs): Hurts, so confirmed by the section 8 rule. Return 5.42 vs 15.59, difference
+    -10.17, 95% [-16.08, -3.80]; cost 34.46 vs 37.77, difference -3.31, 95% [-18.75, 16.70];
+    collapsed runs 9 vs 3 (Fisher 0.06). Only the collapse clause fires.
+  - H4 (20 pairs): Inconclusive with both 95% intervals containing 0, which the section 8 rule
+    counts as confirmed. Return 4.24 vs 5.79, difference -1.55, 95% [-5.24, 1.93]; cost 32.85 vs
+    39.87, difference -7.02, 95% [-23.18, 10.00]; collapsed runs 14 vs 12 (Fisher 0.74). Under
+    section 16 item 5 it is reported as these bounds, not as equivalence.
+  - H5: partially supported. Both literal-recipe arms meet every literal part (held-out cost IQM
+    49.3 and 50.6, calibration 0.46 and 0.44, gap within a quarter of δ0); the E1 `lagu_nogate`
+    calibration band fails (pooled 112.96, 95% [0.31, 336.9]; 0.50 without the one run whose
+    critics blew up, which stays in under section 11).
+  - Descriptive (section 16 item 5): every one of the 10 extension runs collapsed (`lagu-tt` and
+    `lagu_nogate-tt-match`, seeds 115-119), against 9/15 and 7/15 on seeds 100-114. Code, config
+    and launch arguments match the earlier seeds, none was resumed, and training reads the clock
+    only to log speed; no systematic cause was found.
 
 ## 16. Deviations
 
@@ -446,3 +473,65 @@ Filled in at the gates; each entry is committed before the next wave that depend
    every 250k (section 11). Checkpointing does not change the training computation.
 4. *Power-aware queue.* From 2026-10-02 the queue freezes trainers on battery power and unfreezes
    them on mains (SIGSTOP/SIGCONT). This does not change the training computation.
+
+**2026-10-09** (written before any outcome of the H4 extension, E4 or X1 was read)
+
+5. *Reporting commitments.*
+   - H4 is reported as bounds (both 95% intervals, plus the time course) whatever its final label.
+     E2 compares two budget schedules, the gate's falling mean budget against a constant equal to
+     its whole-run average, so it cannot show that adaptive and uniform tightening are equivalent.
+     The "E2 matched-budget equivalence" section planned in `lagu/PLAN.md` is withdrawn.
+   - H3 stays at its 15 pairs. No `lagu_nogate-tt` run is made on seeds 115-119; the collapse count
+     of `lagu-tt` s115-s119 is reported descriptively.
+   - A contrast is computed only after checking that every run in it has a held-out file (the
+     analysis falls back to in-training rows for the whole contrast when one is missing). Section
+     15's G3 entry overstates the coverage: `td3lag-lit` s105-s109 finished after that evaluation
+     pass and are evaluated before any descriptive TD3-Lag comparison.
+   - The section 9 |Q̄| prediction is evaluated on `lagu-tt` seeds 100-114 (the E1 seeds), with
+     seeds 100-119 as a sensitivity check.
+   - A run not at its final step at the results freeze (23 Oct) is reported as unfinished and its
+     pair is left out, with the count stated.
+   - Every mechanism analysis (time courses, per-seed forensics, dose plots, other horizons) is
+     exploratory, is shown as full curves rather than chosen windows, and is reported whichever way
+     it comes out. `lagu/probe.py` is committed before it reads any snapshot.
+6. *E4 runs as pre-registered* (the queue is empty; section 10.6 and `lagu/PLAN.md` Gate G4):
+   `lagu_nogate` with δ0 ∈ {1.75, 1.25} and `lagu` with T ∈ {0.035, 0.14}, the E1 recipe, seeds
+   100-107, 2M steps. Stated in advance: T = 0.14 lies below the median gate ratio of the E1 critics
+   (about 0.2-0.4), so the T family varies how strongly the gate tightens rather than how selectively;
+   with 8 seeds, monotonicity of arm means is reported descriptively.
+7. *Exploratory add-on X1: the gate at the paper's dose, in the literal recipe.* In E1 the gate
+   fired on 85-95% of samples and cut the mean budget to about 0.45 δ0, far below the paper's Fig.
+   5(d) as we read it (about 0.76-0.88 δ0); in E1b it was nearly off after 300k (about 0.97 δ0). No arm has
+   tested a moderate gate. Design: `lagu` with T = 0.03, literal recipe, seeds 100-109, 1M steps,
+   tag `lit-T03`, in `results/gate_literal_x`. T was chosen from critic quantities only: on 18,000
+   on-policy states of `lagu_nogate-lit` (seeds 100-105, snapshots at 300k, 600k and 1M), T = 0.03
+   gives engagement 0.41 and a mean budget of 0.85 δ0; no outcome column was used. When those runs
+   finish, `lagu_nogate` with δ0 = D* (the printed `--budget-D lagu-lit-T03` of that directory),
+   same seeds and steps, tag `lit-match`. Contrasts, paired by seed against the existing E1b
+   `lagu_nogate-lit`: gate vs ungated, gate vs matched, and matched vs ungated, with the section 6
+   statistics and section 7 labels. Prediction (Proposition 1, with the literal dual nearly inert
+   in E1b): no practically relevant difference in any contrast. No X1 outcome is read before all
+   X1 runs finish; X1 is reported whichever way it comes out and is not part of the Holm family.
+
+**2026-10-10**
+
+8. *X1 matched budget.* With all 10 `lagu-lit-T03` runs finished, `--budget-D lagu-lit-T03` on
+   `results/gate_literal_x` printed D* = 2.14758 (0.859 δ0, the declared dose of about 0.85 δ0);
+   engagement over 25k-300k was 0.81, higher than the 0.41 estimated from the 300k-1M snapshots,
+   as early uncertainty is larger. `lagu_nogate` with δ0 = 2.14758 (tag `lit-match`, seeds
+   100-109, 1M) is queued at the front. No X1 outcome has been read.
+9. *X1 results (exploratory, all reported).* Computed 2026-10-10 15:10 UTC after `lagu.evaluate`
+   wrote a held-out file for every X1 run; 10 seed pairs each against E1b's `lagu_nogate-lit`,
+   1M steps, section 6 statistics, no multiplicity correction. Held-out means: gate (T = 0.03)
+   return 27.46, cost 49.97; matched (δ0 = 2.14758) 26.66, 47.97; ungated 26.98, 50.82. No run in
+   any arm has cost ≤ 25.
+   - Gate vs ungated: Equivalent, as predicted. Return +0.48, 95% [-0.05, 1.06]; cost -0.85,
+     95% [-3.15, 1.93]; time-averaged λ medians 0.032 vs 0.031.
+   - Gate vs matched: labelled Helps through the return clause (return +0.80, 95% [0.19, 1.40]),
+     but the gate also has higher cost (+2.00, 95% [-0.03, 4.39]). We read this as a small
+     trade-off, not as a benefit of adaptivity.
+   - Matched vs ungated: labelled Helps through the cost clause. Cost -2.85, 95% [-5.12, -0.68];
+     return -0.32, 95% [-0.70, 0.06]; λ medians 0.040 vs 0.031.
+   At the same average budget, the gate spends its tightening early and leaves λ and outcomes at
+   the ungated level, while the uniform cut raises λ a little and lowers realised cost by about
+   6%; every arm stays about twice over the limit.

@@ -1,0 +1,14 @@
+Holm family (prereg.md 6):
+  H2_E1                        p=0.4670  Holm=1.0000  
+  H2_E1b                       p=0.5000  Holm=1.0000  
+  H3_return                    p=0.0067  Holm=0.0403  reject
+  H3_cost                      p=0.3894  Holm=1.0000  
+  H4_return                    p=0.4749  Holm=1.0000  
+  H4_cost                      p=0.2774  Holm=1.0000  
+  H5_lagu-lit                  p=0.0010  Holm=0.0078  reject
+  H5_lagu_nogate-lit           p=0.0010  Holm=0.0078  reject
+H2: not_confirmed
+H3: confirmed (verdict Hurts)
+H4: confirmed (verdict Inconclusive)
+H5: partially_supported
+wrote /Users/michaelseiranian/Desktop/safe-rl-carla/prereg_results.json
