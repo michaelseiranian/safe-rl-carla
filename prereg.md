@@ -512,3 +512,11 @@ Filled in at the gates; each entry is committed before the next wave that depend
    statistics and section 7 labels. Prediction (Proposition 1, with the literal dual nearly inert
    in E1b): no practically relevant difference in any contrast. No X1 outcome is read before all
    X1 runs finish; X1 is reported whichever way it comes out and is not part of the Holm family.
+
+**2026-10-10**
+
+8. *X1 matched budget.* With all 10 `lagu-lit-T03` runs finished, `--budget-D lagu-lit-T03` on
+   `results/gate_literal_x` printed D* = 2.14758 (0.859 δ0, the declared dose of about 0.85 δ0);
+   engagement over 25k-300k was 0.81, higher than the 0.41 estimated from the 300k-1M snapshots,
+   as early uncertainty is larger. `lagu_nogate` with δ0 = 2.14758 (tag `lit-match`, seeds
+   100-109, 1M) is queued at the front. No X1 outcome has been read.
