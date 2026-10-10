@@ -432,6 +432,27 @@ Filled in at the gates; each entry is committed before the next wave that depend
   `lagu-tt` and `lagu_nogate-tt-match` (delta0 = 1.12158) on seeds 115-119, 2M steps (10 runs; the
   `lagu` runs are shared with the H3 arm but H3's verdict stays on its 15 pairs). The final H4
   verdict and the Holm family are computed when these finish.
+- Final confirmatory analysis: 2026-10-10 00:55 UTC, `lagu.analyze --prereg prereg.md results/gate
+  results/gate_literal results/gate_x` at commit 6b28b15, after checking that every run in every
+  contrast had a held-out file (`prereg_results.json`; printout in `results/g3/prereg_final.txt`).
+  Holm-adjusted p: H2 E1 1.0, H2 E1b 1.0, H3 return 0.040, H3 cost 1.0, H4 return 1.0, H4 cost 1.0,
+  H5 `lagu-lit` 0.008, H5 `lagu_nogate-lit` 0.008.
+  - H2: not confirmed (E1 and E1b).
+  - H3 (15 pairs): Hurts, so confirmed by the section 8 rule. Return 5.42 vs 15.59, difference
+    -10.17, 95% [-16.08, -3.80]; cost 34.46 vs 37.77, difference -3.31, 95% [-18.75, 16.70];
+    collapsed runs 9 vs 3 (Fisher 0.06). Only the collapse clause fires.
+  - H4 (20 pairs): Inconclusive with both 95% intervals containing 0, which the section 8 rule
+    counts as confirmed. Return 4.24 vs 5.79, difference -1.55, 95% [-5.24, 1.93]; cost 32.85 vs
+    39.87, difference -7.02, 95% [-23.18, 10.00]; collapsed runs 14 vs 12 (Fisher 0.74). Under
+    section 16 item 5 it is reported as these bounds, not as equivalence.
+  - H5: partially supported. Both literal-recipe arms meet every literal part (held-out cost IQM
+    49.3 and 50.6, calibration 0.46 and 0.44, gap within a quarter of δ0); the E1 `lagu_nogate`
+    calibration band fails (pooled 112.96, 95% [0.31, 336.9]; 0.50 without the one run whose
+    critics blew up, which stays in under section 11).
+  - Descriptive (section 16 item 5): every one of the 10 extension runs collapsed (`lagu-tt` and
+    `lagu_nogate-tt-match`, seeds 115-119), against 9/15 and 7/15 on seeds 100-114. Code, config
+    and launch arguments match the earlier seeds, none was resumed, and training reads the clock
+    only to log speed; no systematic cause was found.
 
 ## 16. Deviations
 
