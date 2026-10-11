@@ -44,7 +44,7 @@ deleted once a run is finished and analysed.
 |---|---|---|
 | Ensemble | M = 3 members, each a TD3 twin pair with its own target (Eq. 12) | same, with independent target-smoothing noise per member; Q_bar and Q_eu from the members' first heads (Eq. 10-11) |
 | Exploratory update | maximise Q_bar + sqrt(Q_eu) with prob c(x) = max(0.1, 1 - x/3e5), x = the vehicle's incremental training steps (Eq. 13, 15) | same, x = environment steps |
-| Adaptive constraint | delta_ada = delta0 if sqrt(Q_eu)/Q_bar < T else delta0 T / ratio, T = 0.07 (Eq. 16) | same; the ratio uses abs(Q_bar) + 1e-6. `--gate-grad 1` lets the actor gradient flow through delta_ada via sqrt(Q_eu) only (the paper does not say; default detached, in which case delta_ada is a constant in Eq. 17 and the gate acts on the policy only through lambda) |
+| Adaptive constraint | delta_ada = delta0 if sqrt(Q_eu)/Q_bar < T else delta0 T / ratio, T = 0.07 (Eq. 16) | differs in one detail: the port divides by abs(Q_bar) + 1e-6, Eq. 16 by the signed Q_bar. Under the literal recipe Q_bar > 0 on almost every state, so this changes nothing; under the `tt` recipe Q_bar <= 0 on about 62-71% of on-policy states and abs(Q_bar) makes the gate fire far more often (results/paper/gate_dose, exploratory). `--gate-grad 1` lets the actor gradient flow through delta_ada via sqrt(Q_eu) only (the paper does not say; default detached, in which case delta_ada is a constant in Eq. 17 and the gate acts on the policy only through lambda) |
 | Dual update | lambda += 1e-5 E[Q_c - delta] (Eq. 9, 18), in critic units | `--dual statewise` (default), batch mean, clipped at 0. `--dual episodic` is OmniSafe's convention (Adam on lambda (J_c - limit), J_c = mean realised cost of the last `--jc-window` training episodes). `--dual fixed` holds lambda at `--lambda-init` |
 | Cost critic | single critic, Eq. 14 | single by default; `--cost-twin 1 --cost-clamp 1` gives a pessimistic max-of-twins critic (results/lr_sweep2: it overestimates and collapses the policy) |
 | Networks | two hidden layers of 256, Adam 3e-4 for policy, value and cost, gamma 0.99, Glorot init | same, PyTorch default init (identical for every arm) |
@@ -82,7 +82,7 @@ one step per policy update, clipped at 0) and delta0 = cost_limit / horizon / (1
 | Cost TD target | target actor + smoothing noise | target actor + smoothing noise | online actor, no noise |
 | Random warm-up steps | 10k | 10k | 25k |
 | Replay | 500k | 500k | 1M |
-| Differs from the paper in | nothing | actor and critic step sizes; lambda_lr unless E0 picks 1e-5 | step sizes, clip, loss scaling, cost target, warm-up, replay |
+| Differs from the paper in | cost-target smoothing noise (Eq. 14 has none); PyTorch default init instead of Glorot; delta_ada detached (the paper is silent); abs(Q_bar) in the gate ratio (no effect under this recipe) | actor and critic step sizes; lambda_lr unless E0 picks 1e-5 | step sizes, clip, loss scaling, cost target, warm-up, replay |
 | Used in | E1b (H2, H5) | E0; E1-E4 (H2-H4) | E0 bridge cell; E1-E4 only if E0 chooses it (outcome (ii), or (iii)/(iv) when no `tt` cell is healthy) |
 
 * `tt` keeps everything of the literal recipe except the step sizes. The actor and critic step
@@ -98,8 +98,11 @@ one step per policy update, clipped at 0) and delta0 = cost_limit / horizon / (1
 ## Diagnosis so far (results/lr_sweep, results/lr_sweep2)
 
 * The update is bit-identical to an independent TD3-Lag step; the replay buffer is intact.
-* On SafetyPointGoal1 the cost critic's action gradient is about 9x the reward critic's, so any
-  lambda above roughly 0.1-0.15 makes the actor minimise cost alone. It learns a near-stationary
+* On SafetyPointGoal1 the cost critic's action gradient is about 9x the reward critic's, so at the
+  paper's step sizes any lambda above roughly 0.1-0.15 makes the actor minimise cost alone. (Later
+  correction, 2026-10-11: this threshold holds for the paper's step sizes only. Under the `tt`
+  recipe the ungated learner tolerated lambda up to about 0.4; see the paper draft and
+  results/paper for the exploratory numbers.) It learns a near-stationary
   policy (median 0.5 mm per step), return falls to ~0, and the reward critic then diverges negative
   through TD3's min-of-twins bias. Dividing the loss by (1 + lambda) does not change this under Adam.
 * The paper's state-wise dual compares a single off-policy cost critic, which reads about half the

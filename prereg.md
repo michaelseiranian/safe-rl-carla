@@ -558,3 +558,13 @@ Filled in at the gates; each entry is committed before the next wave that depend
     eligibility and a pre-declared K = 3,000 sensitivity) are fixed in the protocol; no study
     snapshot, CSV or held-out file was read while writing it. The result is EXPLORATORY and is
     reported whichever way it comes out.
+12. *Correction to item 10.* "In both families a tighter critic-unit budget lowers return and adds
+    collapses" holds for the δ0 family only. In the T family, return and collapses are not monotone:
+    T = 0.07 and T = 0.14 give return 6.3 and 6.0 with 4/8 and 6/8 collapsed runs.
+13. *Gate-gradient arm (`lagu-tt-ggrad`, an extension under section 13; descriptive).* Seeds 100-109,
+    held-out endpoint, computed 2026-10-11. Against `lagu_nogate-tt`: return 7.74 vs 16.83,
+    difference -9.09, 95% [-15.06, -2.59]; cost 33.12 vs 36.20, difference -3.08, 95% [-14.00, 7.52];
+    collapsed runs 4 vs 1. Against `lagu-tt` (the detached gate): return difference +1.35, 95%
+    [-3.59, 5.89]; cost difference +1.34, 95% [-27.51, 22.15]; collapsed runs 4 vs 5. Letting the
+    actor gradient flow through the gate (via the uncertainty term only) does not change the picture
+    under this recipe.
