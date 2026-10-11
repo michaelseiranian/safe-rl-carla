@@ -547,3 +547,14 @@ Filled in at the gates; each entry is committed before the next wave that depend
     The section 9 E4 prediction (both monotone in each knob) is not supported as a whole. In both
     families a tighter critic-unit budget lowers return and adds collapses without lowering
     realised cost; the intervals are wide (cost intervals span about 20-40 units).
+
+**2026-10-11**
+
+11. *Gradient-parity probe committed before it reads any study data.* The section 9 gradient-parity
+    prediction is operationalised in `lagu/probe.py` (SHA-256 26b6431caa6d7e69f182151555893473db05236ca68112323b3b8f4cdc036ec9)
+    with its protocol in `results/paper/probe-author/PROTOCOL.md`, both committed in this commit. It
+    was written after all training, not after Wave 1 as `lagu/PLAN.md` says. Its choices (how
+    "frozen" and "within a factor of 2" are read, the sets, the λ grid, three repetitions per λ,
+    eligibility and a pre-declared K = 3,000 sensitivity) are fixed in the protocol; no study
+    snapshot, CSV or held-out file was read while writing it. The result is EXPLORATORY and is
+    reported whichever way it comes out.
