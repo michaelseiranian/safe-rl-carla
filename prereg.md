@@ -535,3 +535,15 @@ Filled in at the gates; each entry is committed before the next wave that depend
    At the same average budget, the gate spends its tightening early and leaves λ and outcomes at
    the ungated level, while the uniform cut raises λ a little and lowers realised cost by about
    6%; every arm stays about twice over the limit.
+10. *E4 results (descriptive, as stated in item 6).* Computed 2026-10-11 after `lagu.evaluate`
+    wrote a held-out file for every E4 run (`results/g3/e4_dose.py`, output `e4_dose.txt`); arm
+    means over seeds 100-107, 95% bootstrap intervals over seeds.
+    - δ0 family (`lagu_nogate`, δ0 = 2.5 / 1.75 / 1.25): return 16.4 / 11.3 / 7.9 and collapsed
+      runs 1/8 / 3/8 / 5/8, so return is monotone; cost 36.9 / 34.7 / 41.6 is not. The E2 matched
+      arm (δ0 = 1.12, outside the family) sits at return 7.9, cost 46.9.
+    - T family (`lagu`, T = 0.035 / 0.07 / 0.14; mean budget 0.33 / 0.44 / 0.57 of 2.5): return
+      1.9 / 6.3 / 6.0 and collapsed runs 7/8 / 4/8 / 6/8, so return is not monotone; cost 43.2 /
+      35.3 / 32.9 is monotone, falling as the gate loosens.
+    The section 9 E4 prediction (both monotone in each knob) is not supported as a whole. In both
+    families a tighter critic-unit budget lowers return and adds collapses without lowering
+    realised cost; the intervals are wide (cost intervals span about 20-40 units).
