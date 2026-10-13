@@ -568,3 +568,15 @@ Filled in at the gates; each entry is committed before the next wave that depend
     [-3.59, 5.89]; cost difference +1.34, 95% [-27.51, 22.15]; collapsed runs 4 vs 5. Letting the
     actor gradient flow through the gate (via the uncertainty term only) does not change the picture
     under this recipe.
+
+**2026-10-13**
+
+14. *Gradient-parity probe result (EXPLORATORY; section 9, item 11).* `lagu/probe.py` at
+    26b6431c ran to completion with exit status 0 (all 325 declared files present, no failed job;
+    output `results/probe/`, summary `results/probe_summary.txt`). Overall label: SUPPORTED. S1
+    (`lagu_nogate-lit`, 10 of 10 checkpoints eligible): median ρ = λ_half/λ* of 1.42, 95% [1.35,
+    1.61]. S2 (`lagu_nogate-tt`, 8 of 15 eligible): 1.26, 95% [0.83, 1.63]. Pre-declared K = 3,000
+    sensitivity (descriptive): S1 would read INCONCLUSIVE (1.79, 95% interval up to 2.11), S2
+    SUPPORTED (1.28). Descriptive table: under the literal recipe the trained λ stays at about
+    0.3-0.6 of λ* throughout training; under the E1 recipe it is above λ* in 9-13 of 15 runs at
+    every 250k checkpoint.
