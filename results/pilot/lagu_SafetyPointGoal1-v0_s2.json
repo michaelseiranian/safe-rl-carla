@@ -1,0 +1,40 @@
+{
+  "args": {
+    "env": "SafetyPointGoal1-v0",
+    "arm": "lagu",
+    "seed": 2,
+    "steps": 1000000,
+    "start_steps": 10000,
+    "eval_every": 50000,
+    "eval_episodes": 10,
+    "cost_limit": 25.0,
+    "replay": 500000,
+    "T": null,
+    "delta0": null,
+    "hidden": 256,
+    "out": "results/pilot"
+  },
+  "cfg": {
+    "M": 3,
+    "hidden": 256,
+    "gamma": 0.99,
+    "tau": 0.005,
+    "lr": 0.0003,
+    "lambda_lr": 1e-05,
+    "batch": 256,
+    "policy_delay": 2,
+    "target_noise": 0.2,
+    "target_clip": 0.5,
+    "delta0": 2.499999999999998,
+    "T": 0.07,
+    "c0": 0.1,
+    "Tc": 300000,
+    "use_bonus": true,
+    "use_gate": true,
+    "action_noise": 0.0,
+    "ratio_eps": 1e-06
+  },
+  "horizon": 1000,
+  "obs_dim": 60,
+  "act_dim": 2
+}

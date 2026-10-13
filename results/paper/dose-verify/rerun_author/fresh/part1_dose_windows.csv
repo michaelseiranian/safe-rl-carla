@@ -1,0 +1,39 @@
+key,arm,dir,tag,env,extra,seeds,n_seeds,T,delta0,window,eng,eng_lo,eng_hi,all,all_lo,all_hi,risk,risk_lo,risk_hi
+E1,lagu-tt T=0.07 (E1),results/gate,lagu-tt,SafetyPointGoal1-v0,False,100-114,15,0.07,2.5,25k-300k,0.849662,0.800753,0.8932,0.709938,0.674889,0.741352,0.433171,0.364401,0.494859
+E1,lagu-tt T=0.07 (E1),results/gate,lagu-tt,SafetyPointGoal1-v0,False,100-114,15,0.07,2.5,300k-1M,0.874097,0.831927,0.910666,0.467168,0.424883,0.514498,0.407908,0.360946,0.460475
+E1,lagu-tt T=0.07 (E1),results/gate,lagu-tt,SafetyPointGoal1-v0,False,100-114,15,0.07,2.5,1M-2M,0.950633,0.909048,0.976989,0.359882,0.315829,0.413763,0.288713,0.239699,0.348543
+E1,lagu-tt T=0.07 (E1),results/gate,lagu-tt,SafetyPointGoal1-v0,False,100-114,15,0.07,2.5,whole run,0.912977,0.874859,0.941817,0.448634,0.411201,0.493712,0.346226,0.301832,0.399624
+E1all,"lagu-tt T=0.07, s100-119 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-119,20,0.07,2.5,25k-300k,0.838656,0.795649,0.87879,0.711849,0.681027,0.740622,0.437009,0.376869,0.4934
+E1all,"lagu-tt T=0.07, s100-119 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-119,20,0.07,2.5,300k-1M,0.87196,0.828836,0.911474,0.461833,0.412377,0.511451,0.402006,0.347117,0.457121
+E1all,"lagu-tt T=0.07, s100-119 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-119,20,0.07,2.5,1M-2M,0.931233,0.883161,0.972032,0.374247,0.312437,0.443241,0.304649,0.235813,0.381289
+E1all,"lagu-tt T=0.07, s100-119 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-119,20,0.07,2.5,whole run,0.900796,0.857567,0.938252,0.454254,0.404975,0.507734,0.352899,0.29449,0.416322
+E1e4,"lagu-tt T=0.07, s100-107 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-107,8,0.07,2.5,25k-300k,0.871331,0.814318,0.928608,0.691425,0.638917,0.73631,0.396642,0.293441,0.4848
+E1e4,"lagu-tt T=0.07, s100-107 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-107,8,0.07,2.5,300k-1M,0.870553,0.801721,0.929066,0.471056,0.409478,0.544409,0.41232,0.343941,0.4938
+E1e4,"lagu-tt T=0.07, s100-107 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-107,8,0.07,2.5,1M-2M,0.938572,0.866573,0.986587,0.354418,0.28187,0.447881,0.282569,0.202046,0.386222
+E1e4,"lagu-tt T=0.07, s100-107 [extra]",results/gate,lagu-tt,SafetyPointGoal1-v0,True,100-107,8,0.07,2.5,whole run,0.907094,0.841091,0.957346,0.444558,0.38427,0.520618,0.341362,0.26989,0.431524
+T035,lagu-tt-T035 T=0.035 (E4),results/gate,lagu-tt-T035,SafetyPointGoal1-v0,False,100-107,8,0.035,2.5,25k-300k,0.936518,0.898173,0.969712,0.619273,0.570375,0.668397,0.255564,0.160116,0.351888
+T035,lagu-tt-T035 T=0.035 (E4),results/gate,lagu-tt-T035,SafetyPointGoal1-v0,False,100-107,8,0.035,2.5,300k-1M,0.959619,0.943258,0.973825,0.32326,0.282191,0.362713,0.248112,0.202469,0.291945
+T035,lagu-tt-T035 T=0.035 (E4),results/gate,lagu-tt-T035,SafetyPointGoal1-v0,False,100-107,8,0.035,2.5,1M-2M,0.981366,0.956698,0.996289,0.243868,0.187057,0.324756,0.159715,0.0967469,0.249366
+T035,lagu-tt-T035 T=0.035 (E4),results/gate,lagu-tt-T035,SafetyPointGoal1-v0,False,100-107,8,0.035,2.5,whole run,0.969238,0.948655,0.98288,0.326502,0.284091,0.383098,0.201372,0.15103,0.268444
+T14,lagu-tt-T14 T=0.14 (E4),results/gate,lagu-tt-T14,SafetyPointGoal1-v0,False,100-107,8,0.14,2.5,25k-300k,0.662159,0.485799,0.839359,0.770956,0.676367,0.85808,0.552149,0.366758,0.72268
+T14,lagu-tt-T14 T=0.14 (E4),results/gate,lagu-tt-T14,SafetyPointGoal1-v0,False,100-107,8,0.14,2.5,300k-1M,0.731354,0.579731,0.872799,0.588955,0.459123,0.709754,0.54331,0.39897,0.677543
+T14,lagu-tt-T14 T=0.14 (E4),results/gate,lagu-tt-T14,SafetyPointGoal1-v0,False,100-107,8,0.14,2.5,1M-2M,0.857652,0.723389,0.960718,0.499092,0.389087,0.626074,0.443345,0.321209,0.584343
+T14,lagu-tt-T14 T=0.14 (E4),results/gate,lagu-tt-T14,SafetyPointGoal1-v0,False,100-107,8,0.14,2.5,whole run,0.79296,0.656265,0.909395,0.570321,0.469449,0.67958,0.49049,0.370881,0.620032
+ggrad,lagu-tt-ggrad gate_grad=1 [extra],results/gate,lagu-tt-ggrad,SafetyPointGoal1-v0,True,100-109,10,0.07,2.5,25k-300k,0.791536,0.717858,0.860706,0.734047,0.692916,0.773949,0.480055,0.399436,0.558206
+ggrad,lagu-tt-ggrad gate_grad=1 [extra],results/gate,lagu-tt-ggrad,SafetyPointGoal1-v0,True,100-109,10,0.07,2.5,300k-1M,0.791888,0.729326,0.855904,0.551655,0.493044,0.60726,0.501843,0.436844,0.563534
+ggrad,lagu-tt-ggrad gate_grad=1 [extra],results/gate,lagu-tt-ggrad,SafetyPointGoal1-v0,True,100-109,10,0.07,2.5,1M-2M,0.923107,0.855633,0.974322,0.386371,0.312358,0.468658,0.31818,0.235876,0.409711
+ggrad,lagu-tt-ggrad gate_grad=1 [extra],results/gate,lagu-tt-ggrad,SafetyPointGoal1-v0,True,100-109,10,0.07,2.5,whole run,0.862222,0.802703,0.915252,0.495178,0.438317,0.557829,0.40143,0.334101,0.475682
+lit,lagu-lit T=0.07 (E1b),results/gate_literal,lagu-lit,SafetyPointGoal1-v0,False,100-109,10,0.07,2.5,25k-300k,0.466882,0.374529,0.596813,0.879698,0.812089,0.922201,0.764807,0.632348,0.84797
+lit,lagu-lit T=0.07 (E1b),results/gate_literal,lagu-lit,SafetyPointGoal1-v0,False,100-109,10,0.07,2.5,300k-1M,0.0664837,0.0473179,0.0876201,0.978742,0.971804,0.985064,0.97638,0.968664,0.983407
+lit,lagu-lit T=0.07 (E1b),results/gate_literal,lagu-lit,SafetyPointGoal1-v0,False,100-109,10,0.07,2.5,whole run,0.142791,0.11143,0.181158,0.949729,0.925729,0.965919,0.936058,0.905524,0.956654
+litT03,lagu-lit-T03 T=0.03 (X1),results/gate_literal_x,lagu-lit-T03,SafetyPointGoal1-v0,False,100-109,10,0.03,2.5,25k-300k,0.813022,0.771728,0.852645,0.765007,0.741502,0.788995,0.540583,0.494557,0.587658
+litT03,lagu-lit-T03 T=0.03 (X1),results/gate_literal_x,lagu-lit-T03,SafetyPointGoal1-v0,False,100-109,10,0.03,2.5,300k-1M,0.306005,0.260088,0.35829,0.897986,0.870523,0.920574,0.886652,0.856144,0.911749
+litT03,lagu-lit-T03 T=0.03 (X1),results/gate_literal_x,lagu-lit-T03,SafetyPointGoal1-v0,False,100-109,10,0.03,2.5,whole run,0.402632,0.359678,0.450277,0.859033,0.834123,0.880486,0.820699,0.78904,0.847981
+car,lagu-tt CarGoal1 (E3),results/gate_x,lagu-tt,SafetyCarGoal1-v0,False,100-109,10,0.07,2.5,25k-300k,0.860891,0.813035,0.912543,0.68594,0.63081,0.730565,0.386004,0.278245,0.473058
+car,lagu-tt CarGoal1 (E3),results/gate_x,lagu-tt,SafetyCarGoal1-v0,False,100-109,10,0.07,2.5,300k-1M,0.904897,0.851961,0.951935,0.415866,0.335388,0.499335,0.350967,0.26143,0.443727
+car,lagu-tt CarGoal1 (E3),results/gate_x,lagu-tt,SafetyCarGoal1-v0,False,100-109,10,0.07,2.5,1M-2M,0.979355,0.968224,0.989888,0.311426,0.257308,0.360424,0.234906,0.17483,0.289434
+car,lagu-tt CarGoal1 (E3),results/gate_x,lagu-tt,SafetyCarGoal1-v0,False,100-109,10,0.07,2.5,whole run,0.940935,0.917408,0.96355,0.402741,0.348677,0.451488,0.291827,0.227818,0.349562
+circle,lagu-tt PointCircle1 (E3),results/gate_x,lagu-tt,SafetyPointCircle1-v0,False,100-109,10,0.07,5,25k-300k,0.379495,0.192971,0.599643,0.851276,0.732881,0.943836,0.70924,0.476981,0.890216
+circle,lagu-tt PointCircle1 (E3),results/gate_x,lagu-tt,SafetyPointCircle1-v0,False,100-109,10,0.07,5,300k-1M,0.226897,0.0388287,0.490042,0.841527,0.646664,0.983357,0.82392,0.607431,0.981503
+circle,lagu-tt PointCircle1 (E3),results/gate_x,lagu-tt,SafetyPointCircle1-v0,False,100-109,10,0.07,5,1M-2M,0.243907,0.0574712,0.476706,0.841202,0.656174,0.980449,0.823555,0.617947,0.978272
+circle,lagu-tt PointCircle1 (E3),results/gate_x,lagu-tt,SafetyPointCircle1-v0,False,100-109,10,0.07,5,whole run,0.249506,0.067325,0.476721,0.842784,0.668869,0.971833,0.813589,0.607373,0.966608

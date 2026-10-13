@@ -1,0 +1,22 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+[lagu-tt_SafetyPointGoal1-v0_s0] step=1000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=131
+[lagu-tt_SafetyPointGoal1-v0_s0] step=2000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=137
+[lagu-tt_SafetyPointGoal1-v0_s0] step=3000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=138
+[lagu-tt_SafetyPointGoal1-v0_s0] step=4000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=138
+[lagu-tt_SafetyPointGoal1-v0_s0] step=5000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=139
+[lagu-tt_SafetyPointGoal1-v0_s0] step=6000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=138
+[lagu-tt_SafetyPointGoal1-v0_s0] step=7000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=137
+[lagu-tt_SafetyPointGoal1-v0_s0] step=8000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=136
+[lagu-tt_SafetyPointGoal1-v0_s0] step=9000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=129
+[lagu-tt_SafetyPointGoal1-v0_s0] step=10000 ret=-2.2 cost=7.0 viol=0.00 lam=0 eng=0.000 qc/mc=-0.15/0.59 sps=69
+[lagu-tt_SafetyPointGoal1-v0_s0] step=11000 ret=-0.3 cost=59.9 viol=0.40 lam=0 eng=1.000 qc/mc=-0.14/2.16 sps=62
+[lagu-tt_SafetyPointGoal1-v0_s0] step=12000 ret=-27.8 cost=3.2 viol=0.00 lam=0 eng=1.000 qc/mc=0.53/0.30 sps=75
+[lagu-tt_SafetyPointGoal1-v0_s0] step=13000 ret=-0.3 cost=23.3 viol=0.30 lam=0 eng=1.000 qc/mc=0.02/2.96 sps=78
+[lagu-tt_SafetyPointGoal1-v0_s0] step=14000 ret=-0.8 cost=47.3 viol=0.50 lam=0 eng=1.000 qc/mc=-0.02/4.63 sps=77
+[lagu-tt_SafetyPointGoal1-v0_s0] step=15000 ret=0.1 cost=32.0 viol=0.30 lam=0 eng=1.000 qc/mc=-0.09/3.55 sps=79
+[lagu-tt_SafetyPointGoal1-v0_s0] step=16000 ret=-0.3 cost=43.3 viol=0.30 lam=0 eng=1.000 qc/mc=-0.05/4.66 sps=79
+[lagu-tt_SafetyPointGoal1-v0_s0] step=17000 ret=1.5 cost=75.1 viol=0.90 lam=0 eng=1.000 qc/mc=0.11/6.70 sps=79
+[lagu-tt_SafetyPointGoal1-v0_s0] step=18000 ret=-5.4 cost=7.6 viol=0.10 lam=0 eng=0.999 qc/mc=0.33/0.97 sps=80
+[lagu-tt_SafetyPointGoal1-v0_s0] step=19000 ret=1.1 cost=193.0 viol=0.80 lam=0 eng=1.000 qc/mc=0.66/19.20 sps=82
+[lagu-tt_SafetyPointGoal1-v0_s0] step=20000 ret=0.6 cost=282.4 viol=0.70 lam=0 eng=1.000 qc/mc=0.49/27.84 sps=82

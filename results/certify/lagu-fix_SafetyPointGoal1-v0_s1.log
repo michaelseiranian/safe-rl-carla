@@ -1,0 +1,5 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+[lagu-fix_SafetyPointGoal1-v0_s1] step=50000 ret=16.2 cost=71.3 viol=0.80 lam=0.1 eng=0.930 qc/mc=0.74/6.08 sps=65
+[lagu-fix_SafetyPointGoal1-v0_s1] step=100000 ret=11.6 cost=33.9 viol=0.50 lam=0.1 eng=0.907 qc/mc=-6.93/5.17 sps=51
+[lagu-fix_SafetyPointGoal1-v0_s1] step=150000 ret=2.1 cost=121.5 viol=0.40 lam=0.1 eng=0.979 qc/mc=-25.28/13.94 sps=51

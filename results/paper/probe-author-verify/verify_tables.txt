@@ -1,0 +1,140 @@
+DESCRIPTIVE verification of results/paper/probe-author (no study snapshot, CSV, heldout.json or study .json is read)
+run 2026-10-11 10:17:50
+
+== V1 [DESCRIPTIVE] file hashes
+  probe.py     715afadee7184d6dafae70c1a6463fab72428f19404545024ce8d756c80e187e
+  PROTOCOL.md  43a380203d3873ac180aa0d815226ced3ee2f4a4e24b58afd0f6755ea8244ed8
+  make.py      dfc2a19933551349c90ff5270727ec782b6b48fefcfc885a9db759cde6d339f5
+  probe.py equals the reported SHA-256 715afade...: True
+  lagu/probe.py exists in the repository (should not, until committed): False
+
+== V2 [DESCRIPTIVE] static audit of probe.py
+  every file-reading call (line: call):
+     137: open(path, 'rb')
+     147: open(stem + '.json')
+     148: json.load(f)
+     149: torch.load(ckpt_path(stem, step), weights_only=True)
+     318: open(f)
+     319: json.load(fh)
+     334: open(job_file(out, res) + '.tmp', 'w')
+     599: open(os.path.join(a.out, 'probe_tables.txt'), 'w')
+     601: open(os.path.join(a.out, 'probe.json'), 'w')
+  lines mentioning '.csv', 'heldout.json' or 'read_csv': [(17, "heldout.json, no other run. Each file's SHA-256 is recorded.")]
+  PROTOCOL constants against the report: all match
+
+== V3 [DESCRIPTIVE] declared checkpoint sets (own enumeration from prereg sections 3, 15, 16; os.stat only)
+  own: 45 main + 280 trajectory jobs; probe.declared_jobs: 45 + 280; identical sets: True
+  runs declared in more than one set (would expose the cache-label bug the author fixed): 0
+  existence and last access (os.stat; 'today' = accessed on 2026-10-11 local, by anyone):
+    set  snapshots exist/declared, today, latest    json                       csv                        heldout.json               ckpt.pt
+    S1   40/40, 0 today, 10-09 19:33                10/10, 0 today, 10-09 19:30 10/10, 0 today, 10-09 18:59 10/10, 0 today, 10-09 19:51 0
+    S2   120/120, 7 today, 10-11 09:35              15/15, 0 today, 10-09 19:21 15/15, 0 today, 10-04 06:05 15/15, 0 today, 10-09 19:48 0
+    S3a  40/40, 0 today, 10-10 04:55                10/10, 0 today, 10-09 19:48 10/10, 0 today, 10-09 20:22 10/10, 0 today, 10-10 04:55 0
+    S3b  80/80, 0 today, 10-09 19:27                10/10, 0 today, 10-09 19:24 10/10, 0 today, 10-04 09:29 10/10, 0 today, 10-09 19:48 0
+  declared MAIN checkpoints accessed today: 0; declared trajectory snapshots accessed today: 7 -> [('S2', 1000000)] seeds ['s105', 's107', 's108', 's110', 's111', 's113', 's114']
+  lagu_nogate-tt: every snapshot step read today (step: n runs), declared or not: {100000: 1, 300000: 10, 600000: 15, 1000000: 7, 1200000: 15}
+  lagu_nogate-lit: every snapshot step read today (step: n runs), declared or not: {100000: 1, 300000: 4, 600000: 10}
+  other analysis scripts under results/paper and the scratchpad (copies of the lagu package excluded) that compute gradients or actor updates: none
+
+== V4 [DESCRIPTIVE] --dry-run as `python -m lagu.probe` from a scratch mirror, under a file-open audit hook
+    | lagu_nogate  M=3: lambda*=0.863 |gQbar|=0.0105 |gQc|=0.0122 cos=-0.03 sat=0.00; actor update 1.93 ms -> 19 s per lambda (K=10,000); critics frozen OK
+    | td3lag       M=1: lambda*=0.7139 |gQbar|=0.0119 |gQc|=0.0167 cos=0.02 sat=0.00; actor update 1.09 ms -> 11 s per lambda (K=10,000); critics frozen OK
+    | grid: 22 values, 0 then 0.001 .. 100.0; halving_point, log2_rho, verdict and spearman pass their synthetic checks
+    | dry run OK (no file read, no environment built)
+  exit 0; files opened: 2583; under /Users/michaelseiranian/Desktop/safe-rl-carla/results: none
+  arm           dry-run lambda*  own float64 lambda*  reported
+  lagu_nogate             0.863             0.863053     0.863
+  td3lag                 0.7139             0.713869     0.714
+
+== V5 [DESCRIPTIVE] the author's make.py, scratch path redirected to this task's scratchpad
+  ran in 83 s (one line differs from the original: the scratch path)
+    | lagu_nogate  M=3: lambda*=0.863 |gQbar|=0.0105 |gQc|=0.0122 cos=-0.03 sat=0.00; actor update 1.93 ms -> 19 s per lambda (K=10,000); critics frozen OK
+    | td3lag       M=1: lambda*=0.7139 |gQbar|=0.0119 |gQc|=0.0167 cos=0.02 sat=0.00; actor update 1.25 ms -> 13 s per lambda (K=10,000); critics frozen OK
+    | OVERALL gradient-parity prediction [EXPLORATORY, outside the Holm family]: INCONCLUSIVE (S1 NOT EVALUABLE, S2 NOT EVALUABLE)
+    | 20-episode probe-state rollout 13.1 s (20000 states); 20-episode held-out play 12.7 s; hidden-256 M=3 actor update 1.22 ms -> 25 s per lambda
+    | upper bound for --prereg (45 checkpoints x full 22-point grid, no early stop, plus 280 trajectory snapshots): 8.4 CPU-hours, 2.8 h wall at 3 workers
+  retrained scratch snapshots bit-identical to the author's: True (4 files)
+  quick_stems/probe_tables.txt identical to the author's: True
+  quick_prereg_path job files: numeric fields identical to the author's: True 
+
+== V6 [DESCRIPTIVE] own re-derivation on the scratch models, --quick constants (plumbing only, not the study)
+  checkpoint                                   quantity          probe          own    |diff|
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      lambda*       0.0201338    0.0201338   2.8e-09
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      cos          -0.0523803   -0.0523803   5.0e-08
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      R_ckpt          10.6634      10.6634   0.0e+00
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      R0              12.0055      12.0055   0.0e+00
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      R(0.01)         16.8445      16.8445   7.1e-15
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      R(0.1)          12.9511      12.9511   5.3e-15
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      R(1.0)          11.6794      11.6794   1.1e-14
+  td3lag-scr_SafetyPointGoal1-v0_s7@20000      R(10.0)         10.7447      10.7447   0.0e+00
+  snapshot keys: ['actor', 'cfg', 'cost', 'cost2', 'lambda', 'members', 'step'] (no replay, target networks or optimizer state)
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      lambda*       0.0201338    0.0201338   2.8e-09
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      cos          -0.0523803   -0.0523803   5.0e-08
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      R_ckpt          10.6634      10.6634   0.0e+00
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      R0              12.0055      12.0055   0.0e+00
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      R(0.01)         16.8445      16.8445   7.1e-15
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      R(0.1)          12.9511      12.9511   5.3e-15
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      R(1.0)          11.6794      11.6794   1.1e-14
+  td3lag-scr_SafetyPointGoal1-v0_s7@final      R(10.0)         10.7447      10.7447   0.0e+00
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 lambda*        0.264053     0.264053   6.4e-09
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 cos           -0.204503    -0.204503   3.7e-08
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 R_ckpt          2.59344      2.59344   3.6e-15
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 R0              2.12493      2.12493   1.3e-15
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 R(0.01)         2.83539      2.83539   4.4e-16
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 R(0.1)          6.23161      6.23161   6.2e-15
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 R(1.0)          4.04242      4.04242   3.6e-15
+  lagu_nogate-scr_SafetyPointGoal1-v0_s7@20000 R(10.0)         5.94962      5.94962   8.0e-15
+    same, heads read separate (s, a) copies    R(0.01)         2.83539      2.70292   1.3e-01
+    same, heads read separate (s, a) copies    R(0.1)          6.23161      5.03746   1.2e+00
+    same, heads read separate (s, a) copies    R(1.0)          4.04242       2.7183   1.3e+00
+    same, heads read separate (s, a) copies    R(10.0)         5.94962      2.43632   3.5e+00
+  (separate copies change only the float summation order of the action gradient: actor parameters differ by ~1e-7 after 200 steps, yet 2-episode returns move by up to several units on this untrained model)
+  td3lag: snapshot 20000.pt and final .pt hold identical actor/members/cost tensors: True
+  lagu_nogate: snapshot 20000.pt and final .pt hold identical actor/members/cost tensors: True
+
+== V7 [DESCRIPTIVE] `python -m lagu.probe --stems ... --quick --workers 2` (spawned workers)
+  jobs written: 2; probe_sha256 recorded = mirrored lagu/probe.py = reported: True
+    lagu_nogate-scr_SafetyPointGoal1-v0_s7@final: lambda* 0.264053
+    td3lag-scr_SafetyPointGoal1-v0_s7@20000: lambda* 0.0201338
+
+== V8 [DESCRIPTIVE] --prereg end to end, FULL protocol, fake root with two scratch checkpoints under declared names
+  ran in 189 s, exit 0
+    | Table S1 [EXPLORATORY (prereg section 9 prediction)]: per checkpoint, co-primary
+    |   lagu_nogate-lit_SafetyPointGoal1-v0_s100@1000000         0 0.004819  0.03137   0.17   0.1537   0.1729  0.16    2.06    1.59          -        - no: R_ckpt < min_return; R0 < min_return
+    | Table S2 [EXPLORATORY (prereg section 9 prediction)]: per checkpoint, co-primary
+    | Table S3a [DESCRIPTIVE]: per checkpoint, descriptive
+    |   td3lag-lit_SafetyPointGoal1-v0_s100@1000000            0  0.01033   0.5018  -0.01  0.02059  0.03519  0.21    5.43    3.25          -        - no: R_ckpt < min_return; R0 < min_return
+    | Table S3b [DESCRIPTIVE]: per checkpoint, descriptive
+    | OVERALL gradient-parity prediction [EXPLORATORY, outside the Holm family]: INCONCLUSIVE (S1 NOT EVALUABLE, S2 NOT EVALUABLE)
+    | (plus 43 main and 272 trajectory jobs reported 'missing'; exit status 0 although every co-primary checkpoint is missing)
+  files opened under the fake root: 10 -> ['results/gate_literal/lagu_nogate-lit_SafetyPointGoal1-v0_s100.json', 'results/gate_literal/lagu_nogate-lit_SafetyPointGoal1-v0_s100.snap/<step>.pt', 'results/gate_literal/td3lag-lit_SafetyPointGoal1-v0_s100.json', 'results/gate_literal/td3lag-lit_SafetyPointGoal1-v0_s100.snap/<step>.pt']
+  files opened under /Users/michaelseiranian/Desktop/safe-rl-carla/results: none
+  checkpoint                                     quantity         probe          own    |diff|
+  lagu_nogate-lit_SafetyPointGoal1-v0_s100@1M    n_states         20000        20000   0.0e+00
+  lagu_nogate-lit_SafetyPointGoal1-v0_s100@1M    lambda*       0.153652     0.153652   1.1e-08
+  lagu_nogate-lit_SafetyPointGoal1-v0_s100@1M    R_ckpt         2.06418      2.06418   8.9e-16
+  lagu_nogate-lit_SafetyPointGoal1-v0_s100@1M    R0              1.5915       1.5915   1.8e-15
+                                                 eligible: probe False (R_ckpt < min_return; R0 < min_return), own rule False
+  td3lag-lit_SafetyPointGoal1-v0_s100@1M         n_states         20000        20000   0.0e+00
+  td3lag-lit_SafetyPointGoal1-v0_s100@1M         lambda*       0.020589     0.020589   2.6e-09
+  td3lag-lit_SafetyPointGoal1-v0_s100@1M         R_ckpt         5.43071      5.43071   8.9e-16
+  td3lag-lit_SafetyPointGoal1-v0_s100@1M         R0             3.24949      3.24949   2.2e-15
+                                                 eligible: probe False (R_ckpt < min_return; R0 < min_return), own rule False
+
+== V9 [DESCRIPTIVE] decision-rule functions against own re-implementations
+  halving_point vs own (20,000 random curves on the 21-point grid): 0 mismatches
+  stop rule (two consecutive R <= R0/4) never changes lambda_half (same 20,000 curves): 0 changes
+  log2_rho with censoring imputed at 0.0005 / 200 (2,000 cases): 0 mismatches
+  verdict vs own bootstrap (300 random sets, n 0-15): 0 mismatches; labels seen {'NOT EVALUABLE': 99, 'REFUTED': 68, 'INCONCLUSIVE': 111, 'SUPPORTED': 22}
+  spearman (average ranks for ties) vs own (500 cases): 0 mismatches
+  even-n example rho = [1.0, 2.0, 8.0, 9.0]: code reports 2**median(log2 rho) = 4.000; arithmetic median of rho = 5.000 (the docstring says median of log2 rho; the summary says median of rho)
+  overall label from summarise() for each (S1, S2) pair of per-set labels:
+    S1 \ S2             SUPPORTED        REFUTED   INCONCLUSIVE  NOT EVALUABLE
+    SUPPORTED           SUPPORTED        REFUTED   INCONCLUSIVE   INCONCLUSIVE
+    REFUTED               REFUTED        REFUTED        REFUTED        REFUTED
+    INCONCLUSIVE     INCONCLUSIVE        REFUTED   INCONCLUSIVE   INCONCLUSIVE
+    NOT EVALUABLE    INCONCLUSIVE        REFUTED   INCONCLUSIVE   INCONCLUSIVE
+
+== V10 [DESCRIPTIVE] own timing and the upper bound of the --prereg run
+  hidden-256, M=3 actor update 1.17 ms; 20-episode rollout of a hidden-256 actor 13.0 s; per lambda 25 s
+  upper bound: author's formula (2 evaluations + 22 lambdas per checkpoint) 8.3 CPU-h; with the count corrected (R_ckpt once; R0 is the first of the 22 grid values) 8.1 CPU-h; reported 9.2

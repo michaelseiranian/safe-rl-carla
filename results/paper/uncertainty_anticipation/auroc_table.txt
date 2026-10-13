@@ -1,0 +1,92 @@
+EXPLORATORY - does the gate's uncertainty signal anticipate cost? (not confirmatory)
+SafetyPointGoal1-v0, final snapshot of each run, 10 deterministic held-out episodes per run (layouts 11000-11009).
+y_k(t) = 1 if any cost in steps t+1..t+k. Pooled AUROC with 95% seed-cluster bootstrap (runs resampled, 10,000 resamples, rng 0); per-run AUROC median (runs where defined / runs).
+
+== EXPLORATORY: context per arm (mean over runs of the 10 episodes)
+  arm              runs  return   cost steps with c>0 y10 rate y50 rate  runs with no cost
+  lagu-tt            15     3.2   44.5          0.044    0.049    0.066                  2
+  lagu_nogate-tt     15    15.6   37.0          0.037    0.057    0.140                  1
+  lagu-lit           10    27.6   54.4          0.054    0.087    0.221                  0
+  lagu_nogate-lit    10    26.2   44.2          0.044    0.071    0.178                  0
+  lagu-lit-T03       10    27.9   48.9          0.049    0.080    0.206                  0
+
+== EXPLORATORY: AUROC for cost within the next k = 10 steps
+  arm              predictor                       pooled AUROC [95% CI]  per-run median (n)         minus Q_c [95% CI]
+  lagu-tt          ratio = sqrt(Q_eu)/|Q_bar|     0.641 [0.536, 0.768]       0.653 (13/15)   +0.043 [-0.087, +0.167]
+  lagu-tt          sqrt(Q_eu)                     0.561 [0.433, 0.691]       0.576 (13/15)   -0.037 [-0.178, +0.090]
+  lagu-tt          Q_c                            0.598 [0.479, 0.731]       0.679 (13/15)                (reference)
+  lagu-tt          -Q_bar                         0.534 [0.389, 0.657]       0.404 (13/15)   -0.064 [-0.222, +0.050]
+
+  lagu_nogate-tt   ratio = sqrt(Q_eu)/|Q_bar|     0.557 [0.475, 0.649]       0.487 (14/15)   -0.183 [-0.283, -0.060]
+  lagu_nogate-tt   sqrt(Q_eu)                     0.529 [0.437, 0.609]       0.452 (14/15)   -0.212 [-0.330, -0.102]
+  lagu_nogate-tt   Q_c                            0.741 [0.672, 0.792]       0.739 (14/15)                (reference)
+  lagu_nogate-tt   -Q_bar                         0.443 [0.350, 0.508]       0.380 (14/15)   -0.297 [-0.428, -0.171]
+
+  lagu-lit         ratio = sqrt(Q_eu)/|Q_bar|     0.441 [0.403, 0.492]       0.417 (10/10)   -0.304 [-0.376, -0.210]
+  lagu-lit         sqrt(Q_eu)                     0.467 [0.432, 0.509]       0.461 (10/10)   -0.278 [-0.347, -0.193]
+  lagu-lit         Q_c                            0.745 [0.701, 0.781]       0.775 (10/10)                (reference)
+  lagu-lit         -Q_bar                         0.398 [0.365, 0.454]       0.390 (10/10)   -0.347 [-0.410, -0.248]
+
+  lagu_nogate-lit  ratio = sqrt(Q_eu)/|Q_bar|     0.421 [0.401, 0.439]       0.403 (10/10)   -0.309 [-0.376, -0.255]
+  lagu_nogate-lit  sqrt(Q_eu)                     0.441 [0.425, 0.456]       0.434 (10/10)   -0.290 [-0.350, -0.240]
+  lagu_nogate-lit  Q_c                            0.731 [0.683, 0.786]       0.766 (10/10)                (reference)
+  lagu_nogate-lit  -Q_bar                         0.411 [0.376, 0.439]       0.388 (10/10)   -0.320 [-0.407, -0.248]
+
+  lagu-lit-T03     ratio = sqrt(Q_eu)/|Q_bar|     0.443 [0.422, 0.464]       0.452 (10/10)   -0.310 [-0.335, -0.287]
+  lagu-lit-T03     sqrt(Q_eu)                     0.472 [0.451, 0.493]       0.482 (10/10)   -0.281 [-0.303, -0.260]
+  lagu-lit-T03     Q_c                            0.753 [0.732, 0.776]       0.760 (10/10)                (reference)
+  lagu-lit-T03     -Q_bar                         0.390 [0.374, 0.405]       0.398 (10/10)   -0.363 [-0.399, -0.334]
+
+
+== EXPLORATORY: AUROC for cost within the next k = 50 steps
+  arm              predictor                       pooled AUROC [95% CI]  per-run median (n)         minus Q_c [95% CI]
+  lagu-tt          ratio = sqrt(Q_eu)/|Q_bar|     0.644 [0.556, 0.749]       0.682 (13/15)   +0.021 [-0.081, +0.116]
+  lagu-tt          sqrt(Q_eu)                     0.513 [0.397, 0.634]       0.548 (13/15)   -0.110 [-0.235, -0.001]
+  lagu-tt          Q_c                            0.623 [0.534, 0.729]       0.686 (13/15)                (reference)
+  lagu-tt          -Q_bar                         0.475 [0.346, 0.602]       0.403 (13/15)   -0.148 [-0.293, -0.043]
+
+  lagu_nogate-tt   ratio = sqrt(Q_eu)/|Q_bar|     0.568 [0.485, 0.659]       0.517 (14/15)   -0.202 [-0.302, -0.088]
+  lagu_nogate-tt   sqrt(Q_eu)                     0.514 [0.396, 0.608]       0.401 (14/15)   -0.256 [-0.401, -0.130]
+  lagu_nogate-tt   Q_c                            0.770 [0.702, 0.816]       0.748 (14/15)                (reference)
+  lagu_nogate-tt   -Q_bar                         0.440 [0.336, 0.518]       0.412 (14/15)   -0.329 [-0.468, -0.190]
+
+  lagu-lit         ratio = sqrt(Q_eu)/|Q_bar|     0.447 [0.409, 0.490]       0.435 (10/10)   -0.297 [-0.371, -0.212]
+  lagu-lit         sqrt(Q_eu)                     0.441 [0.407, 0.478]       0.436 (10/10)   -0.303 [-0.373, -0.225]
+  lagu-lit         Q_c                            0.744 [0.701, 0.785]       0.753 (10/10)                (reference)
+  lagu-lit         -Q_bar                         0.540 [0.519, 0.570]       0.558 (10/10)   -0.204 [-0.261, -0.133]
+
+  lagu_nogate-lit  ratio = sqrt(Q_eu)/|Q_bar|     0.419 [0.399, 0.437]       0.408 (10/10)   -0.347 [-0.399, -0.304]
+  lagu_nogate-lit  sqrt(Q_eu)                     0.415 [0.398, 0.431]       0.407 (10/10)   -0.352 [-0.399, -0.311]
+  lagu_nogate-lit  Q_c                            0.766 [0.732, 0.804]       0.784 (10/10)                (reference)
+  lagu_nogate-lit  -Q_bar                         0.516 [0.495, 0.534]       0.505 (10/10)   -0.250 [-0.306, -0.203]
+
+  lagu-lit-T03     ratio = sqrt(Q_eu)/|Q_bar|     0.447 [0.431, 0.463]       0.431 (10/10)   -0.298 [-0.327, -0.270]
+  lagu-lit-T03     sqrt(Q_eu)                     0.446 [0.429, 0.461]       0.434 (10/10)   -0.299 [-0.328, -0.272]
+  lagu-lit-T03     Q_c                            0.745 [0.716, 0.776]       0.754 (10/10)                (reference)
+  lagu-lit-T03     -Q_bar                         0.526 [0.518, 0.536]       0.539 (10/10)   -0.219 [-0.256, -0.182]
+
+
+== EXPLORATORY: gate threshold. Fraction of usable steps with ratio >= T; rate of y_k among them vs the others; relative risk (RR) with 95% seed-cluster bootstrap
+  arm                  T   k frac >= T rate >= T  rate < T              RR [95% CI]  boot inf  boot 0/0
+  lagu-tt           0.03  10     0.994     0.049     0.009     5.16 [  0.62,    inf]      1156        10
+  lagu-tt           0.03  50     0.995     0.066     0.008     8.54 [  2.37,    inf]      1182        10
+  lagu-tt           0.07  10     0.959     0.050     0.010     5.10 [  2.51,  16.88]       100        10
+  lagu-tt           0.07  50     0.960     0.068     0.012     5.51 [  2.89,    inf]       343        10
+  lagu_nogate-tt    0.03  10     0.967     0.056     0.067     0.84 [  0.65,    inf]       342         0
+  lagu_nogate-tt    0.03  50     0.967     0.138     0.189     0.73 [  0.55,   7.27]        87         0
+  lagu_nogate-tt    0.07  10     0.924     0.057     0.056     1.02 [  0.72,  20.27]        20         0
+  lagu_nogate-tt    0.07  50     0.925     0.139     0.155     0.90 [  0.61,   8.48]         0         0
+  lagu-lit          0.03  10     0.258     0.064     0.095     0.68 [  0.40,   1.01]         0         0
+  lagu-lit          0.03  50     0.260     0.177     0.237     0.75 [  0.53,   0.97]         0         0
+  lagu-lit          0.07  10     0.043     0.087     0.087     1.00 [  0.10,   2.06]         0         0
+  lagu-lit          0.07  50     0.043     0.254     0.220     1.15 [  0.52,   1.68]         0         0
+  lagu_nogate-lit   0.03  10     0.274     0.044     0.081     0.55 [  0.43,   0.67]         0         0
+  lagu_nogate-lit   0.03  50     0.275     0.115     0.201     0.57 [  0.44,   0.67]         0         0
+  lagu_nogate-lit   0.07  10     0.049     0.019     0.073     0.26 [  0.08,   0.44]         0         0
+  lagu_nogate-lit   0.07  50     0.049     0.056     0.184     0.30 [  0.14,   0.52]         0         0
+  lagu-lit-T03      0.03  10     0.207     0.052     0.088     0.59 [  0.48,   0.69]         0         0
+  lagu-lit-T03      0.03  50     0.206     0.145     0.222     0.66 [  0.56,   0.75]         0         0
+  lagu-lit-T03      0.07  10     0.025     0.022     0.082     0.27 [  0.13,   0.45]         0         0
+  lagu-lit-T03      0.07  50     0.026     0.100     0.209     0.48 [  0.35,   0.63]         0         0
+
+Notes: ratio is computed for the ungated arms too (the gate's would-be quantity). An undefined bootstrap resample (AUROC: no positive or no negative step; RR: 0/0) is dropped from its interval (counts in auroc_table.csv and in the 'boot 0/0' column); an RR resample with no cost after any unflagged step is +inf and stays in ('boot inf').
