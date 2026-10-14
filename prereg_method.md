@@ -1238,7 +1238,7 @@ v0 (the opt-in smoke files run with `SAFE2_SMOKE=1`).
 
 Filled in at each gate. Every entry is committed and pushed before the stage that depends on it.
 
-- `method-v0` pushed (UTC): `TBD`
+- `method-v0` pushed (UTC): 2026-10-14 10:14:53 (tag time; commit c0faadb; pushed with the branch `method` on 2026-10-14)
 - Stage 0:
   - G0a mean return and cost;
   - G0b recall, false alarms and Spearman (number of states), and the replay identity result:
