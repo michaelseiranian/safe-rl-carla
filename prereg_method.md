@@ -1239,10 +1239,20 @@ v0 (the opt-in smoke files run with `SAFE2_SMOKE=1`).
 Filled in at each gate. Every entry is committed and pushed before the stage that depends on it.
 
 - `method-v0` pushed (UTC): 2026-10-14 10:14:53 (tag time; commit c0faadb; pushed with the branch `method` on 2026-10-14)
-- Stage 0:
-  - G0a mean return and cost;
-  - G0b recall, false alarms and Spearman (number of states), and the replay identity result:
-  `TBD`
+- Stage 0 (2026-10-14, on the P1 B1 runs, seeds 0-2):
+  - G0a (oracle ceiling, 90 episodes on layouts 90000+): mean return 13.97, mean cost 18.97
+    (seeds 0/1/2: 12.30/20.90, 14.49/14.97, 15.11/21.03; about 148-166 interventions per
+    episode). The threshold is return ≥ max(18, R_B*(P1) + 6) at cost ≤ 25, so G0a fails
+    whatever R_B*(P1) turns out to be; the formal decision is recorded at `method-v0.5`.
+  - G0b replay identity: identical for all three seeds.
+  - G0b (i): pooled recall 0.971 (714 of 735 entries), mean false-alarm steps per held-out
+    episode 336.17 against the limit of 30: FAIL.
+  - G0b (ii): Spearman 0.287 on 1,200 near-hazard states against the required 0.7: FAIL.
+  - Decision: **BVS is killed at Stage 0** (section 5; kill rule 8.2). BVS-U, BVS-disc and PHS
+    are not run, the primary family is empty and no confirmatory claim will be made. The study
+    reports the baseline pool, SHL (exploratory) and these gates (sections 5, 12, 18).
+  - Outputs: `results/method/stage0/g0a.json`, `g0b.json`, logs `results/method/stage0_g0a.log`
+    and `stage0_g0b.log`; S0-1 and S0-4 (exploratory/descriptive) in `results/method/stage0/`.
 - P1 baselines:
   - baseline scores, top 3, seeds 3-5 scores;
   - B*, L*, Sauté*, R_B*(P1), R_ref(PointGoal1);

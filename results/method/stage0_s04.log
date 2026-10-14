@@ -1,0 +1,9 @@
+s04 td3lag-omni_SafetyPointGoal1-v0_s0: share 0.827 (100 episodes)
+s04 td3lag-omni_SafetyPointGoal1-v0_s1: share 0.868 (100 episodes)
+s04 td3lag-omni_SafetyPointGoal1-v0_s2: share 0.796 (100 episodes)
+s04 td3lag-omni-fix03_SafetyPointGoal1-v0_s1: share 0.875 (100 episodes)
+s04 td3lag-fix005_SafetyPointGoal1-v0_s0: share 0.922 (100 episodes)
+s04 lagu_nogate-omsw-l4e-7_SafetyPointGoal1-v0_s0: share 0.805 (100 episodes)
+s04 lagu_nogate-tt-l2e-6_SafetyPointGoal1-v0_s0: share 0.849 (100 episodes)
+s04 lagu_nogate-tt-l4e-7_SafetyPointGoal1-v0_s0: share 0.834 (100 episodes)
+$PY -m safe2.probe s04 --nep 100 --runs          6.53s user 1.64s system 92% cpu 8.822 total

@@ -1,0 +1,354 @@
+{
+ "probe": "s04",
+ "analysis": "descriptive (S0-4; kill rule 8.4 reads 'share')",
+ "runs": {
+  "td3lag-omni_SafetyPointGoal1-v0_s0": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.39873993396759033,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8273149728775024,
+   "share_states_quiet": 0.85432,
+   "quiet": {
+    "frac": 0.85432,
+    "n": 42716,
+    "grad_qc_median": 0.06561259180307388,
+    "grad_qbar_median": 0.02416541427373886,
+    "penalty_over_reward_median": 1.054344892501831,
+    "frac_penalty_dominates": 0.5208352842026407
+   },
+   "imminent": {
+    "frac": 0.03276,
+    "n": 1638,
+    "grad_qc_median": 0.08557144552469254,
+    "grad_qbar_median": 0.01903548277914524,
+    "penalty_over_reward_median": 1.7836027145385742,
+    "frac_penalty_dominates": 0.7289377289377289
+   },
+   "in_hazard": {
+    "frac": 0.0516,
+    "n": 2580,
+    "grad_qc_median": 0.06629303097724915,
+    "grad_qbar_median": 0.020137546584010124,
+    "penalty_over_reward_median": 1.3070284128189087,
+    "frac_penalty_dominates": 0.5968992248062015
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.06735600531101227,
+    "grad_qbar_median": 0.02331831119954586,
+    "penalty_over_reward_median": 1.121809482574463,
+    "frac_penalty_dominates": 0.54624
+   }
+  },
+  "td3lag-omni_SafetyPointGoal1-v0_s1": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni_SafetyPointGoal1-v0_s1.ckpt.pt",
+   "lambda": 0.39877715706825256,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.86766117811203,
+   "share_states_quiet": 0.86648,
+   "quiet": {
+    "frac": 0.86648,
+    "n": 43324,
+    "grad_qc_median": 0.104612797498703,
+    "grad_qbar_median": 0.01696421578526497,
+    "penalty_over_reward_median": 2.426968574523926,
+    "frac_penalty_dominates": 0.8154602529775644
+   },
+   "imminent": {
+    "frac": 0.03068,
+    "n": 1534,
+    "grad_qc_median": 0.10683420300483704,
+    "grad_qbar_median": 0.01495998352766037,
+    "penalty_over_reward_median": 2.800509452819824,
+    "frac_penalty_dominates": 0.878748370273794
+   },
+   "in_hazard": {
+    "frac": 0.04324,
+    "n": 2162,
+    "grad_qc_median": 0.09786036610603333,
+    "grad_qbar_median": 0.013531418517231941,
+    "penalty_over_reward_median": 2.945211887359619,
+    "frac_penalty_dominates": 0.8432007400555042
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.10481477528810501,
+    "grad_qbar_median": 0.016609057784080505,
+    "penalty_over_reward_median": 2.4881081581115723,
+    "frac_penalty_dominates": 0.82224
+   }
+  },
+  "td3lag-omni_SafetyPointGoal1-v0_s2": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni_SafetyPointGoal1-v0_s2.ckpt.pt",
+   "lambda": 0.3988315761089325,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.7959689497947693,
+   "share_states_quiet": 0.87026,
+   "quiet": {
+    "frac": 0.87026,
+    "n": 43513,
+    "grad_qc_median": 0.038908667862415314,
+    "grad_qbar_median": 0.015629513189196587,
+    "penalty_over_reward_median": 1.0306638479232788,
+    "frac_penalty_dominates": 0.5128582262772046
+   },
+   "imminent": {
+    "frac": 0.02892,
+    "n": 1446,
+    "grad_qc_median": 0.07132259011268616,
+    "grad_qbar_median": 0.013448537327349186,
+    "penalty_over_reward_median": 2.197185516357422,
+    "frac_penalty_dominates": 0.7821576763485477
+   },
+   "in_hazard": {
+    "frac": 0.04424,
+    "n": 2212,
+    "grad_qc_median": 0.054044656455516815,
+    "grad_qbar_median": 0.012403617613017559,
+    "penalty_over_reward_median": 1.783813714981079,
+    "frac_penalty_dominates": 0.7061482820976492
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.041173551231622696,
+    "grad_qbar_median": 0.015290005132555962,
+    "penalty_over_reward_median": 1.1182119846343994,
+    "frac_penalty_dominates": 0.54526
+   }
+  },
+  "td3lag-omni-fix03_SafetyPointGoal1-v0_s1": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni-fix03_SafetyPointGoal1-v0_s1.ckpt.pt",
+   "lambda": 0.3,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8748220205307007,
+   "share_states_quiet": 0.93506,
+   "quiet": {
+    "frac": 0.93506,
+    "n": 46753,
+    "grad_qc_median": 0.10881038755178452,
+    "grad_qbar_median": 0.01918865740299225,
+    "penalty_over_reward_median": 1.6679853200912476,
+    "frac_penalty_dominates": 0.6785233033174342
+   },
+   "imminent": {
+    "frac": 0.00924,
+    "n": 462,
+    "grad_qc_median": 0.13506624102592468,
+    "grad_qbar_median": 0.02290625311434269,
+    "penalty_over_reward_median": 1.7261513471603394,
+    "frac_penalty_dominates": 0.7532467532467533
+   },
+   "in_hazard": {
+    "frac": 0.03686,
+    "n": 1843,
+    "grad_qc_median": 0.2621310353279114,
+    "grad_qbar_median": 0.01967894472181797,
+    "penalty_over_reward_median": 4.1644673347473145,
+    "frac_penalty_dominates": 0.8486163863266414
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.11214946210384369,
+    "grad_qbar_median": 0.019326092675328255,
+    "penalty_over_reward_median": 1.7133688926696777,
+    "frac_penalty_dominates": 0.6857
+   }
+  },
+  "td3lag-fix005_SafetyPointGoal1-v0_s0": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-fix005_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.05,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.9223352670669556,
+   "share_states_quiet": 0.92968,
+   "quiet": {
+    "frac": 0.92968,
+    "n": 46484,
+    "grad_qc_median": 2.822998523712158,
+    "grad_qbar_median": 0.10082483291625977,
+    "penalty_over_reward_median": 1.4175902605056763,
+    "frac_penalty_dominates": 0.6443937698993202
+   },
+   "imminent": {
+    "frac": 0.00638,
+    "n": 319,
+    "grad_qc_median": 3.447664499282837,
+    "grad_qbar_median": 0.14092203974723816,
+    "penalty_over_reward_median": 1.1623824834823608,
+    "frac_penalty_dominates": 0.5893416927899686
+   },
+   "in_hazard": {
+    "frac": 0.0506,
+    "n": 2530,
+    "grad_qc_median": 3.319659471511841,
+    "grad_qbar_median": 0.10088910162448883,
+    "penalty_over_reward_median": 1.5849721431732178,
+    "frac_penalty_dominates": 0.6731225296442688
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 2.853214740753174,
+    "grad_qbar_median": 0.10139758884906769,
+    "penalty_over_reward_median": 1.4237351417541504,
+    "frac_penalty_dominates": 0.64518
+   }
+  },
+  "lagu_nogate-omsw-l4e-7_SafetyPointGoal1-v0_s0": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-omsw-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.2866971798725045,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8047899007797241,
+   "share_states_quiet": 0.85216,
+   "quiet": {
+    "frac": 0.85216,
+    "n": 42608,
+    "grad_qc_median": 0.05783664807677269,
+    "grad_qbar_median": 0.014569167047739029,
+    "penalty_over_reward_median": 1.120265245437622,
+    "frac_penalty_dominates": 0.545390536988359
+   },
+   "imminent": {
+    "frac": 0.03412,
+    "n": 1706,
+    "grad_qc_median": 0.10099443793296814,
+    "grad_qbar_median": 0.01120859943330288,
+    "penalty_over_reward_median": 2.79923152923584,
+    "frac_penalty_dominates": 0.8581477139507621
+   },
+   "in_hazard": {
+    "frac": 0.04794,
+    "n": 2397,
+    "grad_qc_median": 0.07260102033615112,
+    "grad_qbar_median": 0.010388754308223724,
+    "penalty_over_reward_median": 2.137291193008423,
+    "frac_penalty_dominates": 0.7688777638715061
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.06129850447177887,
+    "grad_qbar_median": 0.014009361155331135,
+    "penalty_over_reward_median": 1.2356691360473633,
+    "frac_penalty_dominates": 0.58286
+   }
+  },
+  "lagu_nogate-tt-l2e-6_SafetyPointGoal1-v0_s0": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l2e-6_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.3055850300301959,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8492236733436584,
+   "share_states_quiet": 0.86638,
+   "quiet": {
+    "frac": 0.86638,
+    "n": 43319,
+    "grad_qc_median": 0.0711645856499672,
+    "grad_qbar_median": 0.017429888248443604,
+    "penalty_over_reward_median": 1.2132060527801514,
+    "frac_penalty_dominates": 0.5869941596066391
+   },
+   "imminent": {
+    "frac": 0.03058,
+    "n": 1529,
+    "grad_qc_median": 0.08019939064979553,
+    "grad_qbar_median": 0.01432656031101942,
+    "penalty_over_reward_median": 1.7773957252502441,
+    "frac_penalty_dominates": 0.7468933943754088
+   },
+   "in_hazard": {
+    "frac": 0.04368,
+    "n": 2184,
+    "grad_qc_median": 0.0765046551823616,
+    "grad_qbar_median": 0.014379536733031273,
+    "penalty_over_reward_median": 1.7214899063110352,
+    "frac_penalty_dominates": 0.7266483516483516
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.0727560818195343,
+    "grad_qbar_median": 0.017216302454471588,
+    "penalty_over_reward_median": 1.2680683135986328,
+    "frac_penalty_dominates": 0.60596
+   }
+  },
+  "lagu_nogate-tt-l4e-7_SafetyPointGoal1-v0_s0": {
+   "ckpt": "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.24305699354925706,
+   "rate_scale": 1.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8338190317153931,
+   "share_states_quiet": 0.85424,
+   "quiet": {
+    "frac": 0.85424,
+    "n": 42712,
+    "grad_qc_median": 0.0670909509062767,
+    "grad_qbar_median": 0.014872221276164055,
+    "penalty_over_reward_median": 1.084776520729065,
+    "frac_penalty_dominates": 0.5353062371230568
+   },
+   "imminent": {
+    "frac": 0.03122,
+    "n": 1561,
+    "grad_qc_median": 0.07932474464178085,
+    "grad_qbar_median": 0.010733609087765217,
+    "penalty_over_reward_median": 1.8080291748046875,
+    "frac_penalty_dominates": 0.7303010890454836
+   },
+   "in_hazard": {
+    "frac": 0.05172,
+    "n": 2586,
+    "grad_qc_median": 0.07024261355400085,
+    "grad_qbar_median": 0.010596415027976036,
+    "penalty_over_reward_median": 1.5854039192199707,
+    "frac_penalty_dominates": 0.6774941995359629
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.06828636676073074,
+    "grad_qbar_median": 0.014184617437422276,
+    "penalty_over_reward_median": 1.1468734741210938,
+    "frac_penalty_dominates": 0.5575
+   }
+  }
+ },
+ "inputs": {
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni_SafetyPointGoal1-v0_s0.ckpt.pt": "1e4e7b93d2299df4745effcb772f4d0de57ea964bc0a159256b06e556187a24d",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni_SafetyPointGoal1-v0_s1.ckpt.pt": "65183c9c42ee4512bac452291f0e7994e3f9a20f681a58f5df28c120d19b05ff",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni_SafetyPointGoal1-v0_s2.ckpt.pt": "3f547f1d0e5daac734ffe899fe9aee60316afb7132763971b749798b92829aa2",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-omni-fix03_SafetyPointGoal1-v0_s1.ckpt.pt": "bf8c98943f5056e8849923f6df52e87086521fac8f328c2361752c80389fd2b4",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-fix005_SafetyPointGoal1-v0_s0.ckpt.pt": "a2e786c73a1ec7c1193a885fbea7d3aad16ce122576109bf5843643c8853ceee",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-omsw-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt": "53e26d6243b35150a86be66386e00e5bc0cc7b44b3520b8d5db90eca5308b24b",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l2e-6_SafetyPointGoal1-v0_s0.ckpt.pt": "32e60c52dc5686ae8de260c14a8d84c66a48333bd4dad7b94f80086dca60eb2a",
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt": "1d82e8e7d45a1bc7ea6cec224302d98723f2fa722aa4110ae8b17193f064bbfe"
+ },
+ "settings": {
+  "nep": 100,
+  "episode": 1000,
+  "states": 500,
+  "quiet": 30,
+  "imminent": 10
+ },
+ "code": {
+  "safe2/probe.py": "bf6ea80f7fe652fc76e2d7bd92a73cd917f0ce6b9567bd781295abb05d5d56f3"
+ }
+}
