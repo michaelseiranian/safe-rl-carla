@@ -329,6 +329,498 @@
     "penalty_over_reward_median": 1.1468734741210938,
     "frac_penalty_dominates": 0.5575
    }
+  },
+  "SHL-g0.90-B4_SafetyPointGoal1-v0_s0": {
+   "ckpt": "results/method/p1/SHL-g0.90-B4_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.42636476039993515,
+   "rate_scale": 9.99999999999999,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.7036278247833252,
+   "share_states_quiet": 0.94736,
+   "quiet": {
+    "frac": 0.94736,
+    "n": 47368,
+    "grad_qc_median": 0.01058423612266779,
+    "grad_qbar_median": 0.009770279750227928,
+    "penalty_over_reward_median": 4.619965553283691,
+    "frac_penalty_dominates": 0.9223315318358385
+   },
+   "imminent": {
+    "frac": 0.00534,
+    "n": 267,
+    "grad_qc_median": 0.019019657745957375,
+    "grad_qbar_median": 0.00887494906783104,
+    "penalty_over_reward_median": 11.813114166259766,
+    "frac_penalty_dominates": 0.9962546816479401
+   },
+   "in_hazard": {
+    "frac": 0.03784,
+    "n": 1892,
+    "grad_qc_median": 0.12261556088924408,
+    "grad_qbar_median": 0.009428808465600014,
+    "penalty_over_reward_median": 55.96068572998047,
+    "frac_penalty_dominates": 0.9778012684989429
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.011019660159945488,
+    "grad_qbar_median": 0.009734885767102242,
+    "penalty_over_reward_median": 4.827043056488037,
+    "frac_penalty_dominates": 0.92508
+   }
+  },
+  "SHL-g0.90-B5_SafetyPointGoal1-v0_s0": {
+   "ckpt": "results/method/p1/SHL-g0.90-B5_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.3238012720002744,
+   "rate_scale": 9.99999999999999,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.7006436586380005,
+   "share_states_quiet": 0.9546,
+   "quiet": {
+    "frac": 0.9546,
+    "n": 47730,
+    "grad_qc_median": 0.006734525319188833,
+    "grad_qbar_median": 0.009173844940960407,
+    "penalty_over_reward_median": 2.2861404418945312,
+    "frac_penalty_dominates": 0.7479572595851666
+   },
+   "imminent": {
+    "frac": 0.004,
+    "n": 200,
+    "grad_qc_median": 0.02271387353539467,
+    "grad_qbar_median": 0.01072242297232151,
+    "penalty_over_reward_median": 7.164531707763672,
+    "frac_penalty_dominates": 0.855
+   },
+   "in_hazard": {
+    "frac": 0.03328,
+    "n": 1664,
+    "grad_qc_median": 0.15003719925880432,
+    "grad_qbar_median": 0.01048237457871437,
+    "penalty_over_reward_median": 54.79795837402344,
+    "frac_penalty_dominates": 0.8635817307692307
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.006977104116231203,
+    "grad_qbar_median": 0.009302355349063873,
+    "penalty_over_reward_median": 2.3869576454162598,
+    "frac_penalty_dominates": 0.75218
+   }
+  },
+  "SHL-g0.95-B4_SafetyPointGoal1-v0_s0": {
+   "ckpt": "results/method/p1/SHL-g0.95-B4_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.09143537559984971,
+   "rate_scale": 5.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8474703431129456,
+   "share_states_quiet": 0.95674,
+   "quiet": {
+    "frac": 0.95674,
+    "n": 47837,
+    "grad_qc_median": 0.014159632846713066,
+    "grad_qbar_median": 0.009854929521679878,
+    "penalty_over_reward_median": 0.6785979866981506,
+    "frac_penalty_dominates": 0.35809101741329935
+   },
+   "imminent": {
+    "frac": 0.0076,
+    "n": 380,
+    "grad_qc_median": 0.092950239777565,
+    "grad_qbar_median": 0.008524974808096886,
+    "penalty_over_reward_median": 4.489933967590332,
+    "frac_penalty_dominates": 0.7947368421052632
+   },
+   "in_hazard": {
+    "frac": 0.02,
+    "n": 1000,
+    "grad_qc_median": 0.03703039884567261,
+    "grad_qbar_median": 0.008591040037572384,
+    "penalty_over_reward_median": 2.209745168685913,
+    "frac_penalty_dominates": 0.697
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.01457793265581131,
+    "grad_qbar_median": 0.009824107401072979,
+    "penalty_over_reward_median": 0.704524576663971,
+    "frac_penalty_dominates": 0.37392
+   }
+  },
+  "SHL-g0.95-B5_SafetyPointGoal1-v0_s0": {
+   "ckpt": "results/method/p1/SHL-g0.95-B5_SafetyPointGoal1-v0_s0.ckpt.pt",
+   "lambda": 0.24811398399950563,
+   "rate_scale": 5.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8068022131919861,
+   "share_states_quiet": 0.96632,
+   "quiet": {
+    "frac": 0.96632,
+    "n": 48316,
+    "grad_qc_median": 0.011555014178156853,
+    "grad_qbar_median": 0.010206754319369793,
+    "penalty_over_reward_median": 1.352618932723999,
+    "frac_penalty_dominates": 0.633289179567845
+   },
+   "imminent": {
+    "frac": 0.0036,
+    "n": 180,
+    "grad_qc_median": 0.031572215259075165,
+    "grad_qbar_median": 0.01282840222120285,
+    "penalty_over_reward_median": 6.116090774536133,
+    "frac_penalty_dominates": 0.9111111111111111
+   },
+   "in_hazard": {
+    "frac": 0.023,
+    "n": 1150,
+    "grad_qc_median": 0.026140104979276657,
+    "grad_qbar_median": 0.008717522956430912,
+    "penalty_over_reward_median": 6.052003860473633,
+    "frac_penalty_dominates": 0.88
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.011758718639612198,
+    "grad_qbar_median": 0.010211990214884281,
+    "penalty_over_reward_median": 1.3867554664611816,
+    "frac_penalty_dominates": 0.64092
+   }
+  },
+  "SHL-g0.90-B4_SafetyPointGoal1-v0_s1": {
+   "ckpt": "results/method/p1/SHL-g0.90-B4_SafetyPointGoal1-v0_s1.ckpt.pt",
+   "lambda": 0.19425473520019312,
+   "rate_scale": 9.99999999999999,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.824171781539917,
+   "share_states_quiet": 0.98284,
+   "quiet": {
+    "frac": 0.98284,
+    "n": 49142,
+    "grad_qc_median": 0.0071306386962533,
+    "grad_qbar_median": 0.011241252534091473,
+    "penalty_over_reward_median": 1.2193530797958374,
+    "frac_penalty_dominates": 0.5754751536364007
+   },
+   "imminent": {
+    "frac": 0.0018,
+    "n": 90,
+    "grad_qc_median": 0.011383673176169395,
+    "grad_qbar_median": 0.017408205196261406,
+    "penalty_over_reward_median": 1.4421987533569336,
+    "frac_penalty_dominates": 0.6555555555555556
+   },
+   "in_hazard": {
+    "frac": 0.01168,
+    "n": 584,
+    "grad_qc_median": 0.016335466876626015,
+    "grad_qbar_median": 0.015848057344555855,
+    "penalty_over_reward_median": 2.5713210105895996,
+    "frac_penalty_dominates": 0.6643835616438356
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.007184337358921766,
+    "grad_qbar_median": 0.011296167969703674,
+    "penalty_over_reward_median": 1.2253326177597046,
+    "frac_penalty_dominates": 0.5765
+   }
+  },
+  "SHL-g0.90-B5_SafetyPointGoal1-v0_s1": {
+   "ckpt": "results/method/p1/SHL-g0.90-B5_SafetyPointGoal1-v0_s1.ckpt.pt",
+   "lambda": 0.7809297999980671,
+   "rate_scale": 9.99999999999999,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8796216249465942,
+   "share_states_quiet": 0.95598,
+   "quiet": {
+    "frac": 0.95598,
+    "n": 47799,
+    "grad_qc_median": 0.011275790631771088,
+    "grad_qbar_median": 0.012185312807559967,
+    "penalty_over_reward_median": 7.541684627532959,
+    "frac_penalty_dominates": 0.9770288081340613
+   },
+   "imminent": {
+    "frac": 0.0028,
+    "n": 140,
+    "grad_qc_median": 0.01831662654876709,
+    "grad_qbar_median": 0.013164362870156765,
+    "penalty_over_reward_median": 10.878382682800293,
+    "frac_penalty_dominates": 0.9928571428571429
+   },
+   "in_hazard": {
+    "frac": 0.0359,
+    "n": 1795,
+    "grad_qc_median": 0.014900986105203629,
+    "grad_qbar_median": 0.015205533243715763,
+    "penalty_over_reward_median": 8.028474807739258,
+    "frac_penalty_dominates": 0.841225626740947
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.011380892246961594,
+    "grad_qbar_median": 0.012307323515415192,
+    "penalty_over_reward_median": 7.568388938903809,
+    "frac_penalty_dominates": 0.97212
+   }
+  },
+  "SHL-g0.95-B4_SafetyPointGoal1-v0_s1": {
+   "ckpt": "results/method/p1/SHL-g0.95-B4_SafetyPointGoal1-v0_s1.ckpt.pt",
+   "lambda": 0.30887026279975544,
+   "rate_scale": 5.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8288244009017944,
+   "share_states_quiet": 0.95264,
+   "quiet": {
+    "frac": 0.95264,
+    "n": 47632,
+    "grad_qc_median": 0.013358931988477707,
+    "grad_qbar_median": 0.015713408589363098,
+    "penalty_over_reward_median": 1.348320484161377,
+    "frac_penalty_dominates": 0.6353711790393013
+   },
+   "imminent": {
+    "frac": 0.00644,
+    "n": 322,
+    "grad_qc_median": 0.02703765779733658,
+    "grad_qbar_median": 0.021910041570663452,
+    "penalty_over_reward_median": 1.8711413145065308,
+    "frac_penalty_dominates": 0.7639751552795031
+   },
+   "in_hazard": {
+    "frac": 0.02812,
+    "n": 1406,
+    "grad_qc_median": 0.01867378130555153,
+    "grad_qbar_median": 0.019382968544960022,
+    "penalty_over_reward_median": 1.5359052419662476,
+    "frac_penalty_dominates": 0.6742532005689901
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.013536881655454636,
+    "grad_qbar_median": 0.01588425412774086,
+    "penalty_over_reward_median": 1.358771562576294,
+    "frac_penalty_dominates": 0.63836
+   }
+  },
+  "SHL-g0.95-B5_SafetyPointGoal1-v0_s1": {
+   "ckpt": "results/method/p1/SHL-g0.95-B5_SafetyPointGoal1-v0_s1.ckpt.pt",
+   "lambda": 0.11078159799978134,
+   "rate_scale": 5.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8938331604003906,
+   "share_states_quiet": 0.97336,
+   "quiet": {
+    "frac": 0.97336,
+    "n": 48668,
+    "grad_qc_median": 0.016047615557909012,
+    "grad_qbar_median": 0.015117939561605453,
+    "penalty_over_reward_median": 0.6162813305854797,
+    "frac_penalty_dominates": 0.33151146543930304
+   },
+   "imminent": {
+    "frac": 0.00454,
+    "n": 227,
+    "grad_qc_median": 0.049079254269599915,
+    "grad_qbar_median": 0.013981739990413189,
+    "penalty_over_reward_median": 2.2817933559417725,
+    "frac_penalty_dominates": 0.6563876651982379
+   },
+   "in_hazard": {
+    "frac": 0.0129,
+    "n": 645,
+    "grad_qc_median": 0.06177278980612755,
+    "grad_qbar_median": 0.013711204752326012,
+    "penalty_over_reward_median": 3.586595058441162,
+    "frac_penalty_dominates": 0.6651162790697674
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.016216617077589035,
+    "grad_qbar_median": 0.01506625022739172,
+    "penalty_over_reward_median": 0.6294723749160767,
+    "frac_penalty_dominates": 0.33994
+   }
+  },
+  "SHL-g0.90-B4_SafetyPointGoal1-v0_s2": {
+   "ckpt": "results/method/p1/SHL-g0.90-B4_SafetyPointGoal1-v0_s2.ckpt.pt",
+   "lambda": 0.07945504960026922,
+   "rate_scale": 9.99999999999999,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8827197551727295,
+   "share_states_quiet": 0.97622,
+   "quiet": {
+    "frac": 0.97622,
+    "n": 48811,
+    "grad_qc_median": 0.009275014512240887,
+    "grad_qbar_median": 0.012473602779209614,
+    "penalty_over_reward_median": 0.5950425863265991,
+    "frac_penalty_dominates": 0.2915941078855176
+   },
+   "imminent": {
+    "frac": 0.0044,
+    "n": 220,
+    "grad_qc_median": 0.017040912061929703,
+    "grad_qbar_median": 0.015488161705434322,
+    "penalty_over_reward_median": 0.8293386697769165,
+    "frac_penalty_dominates": 0.43636363636363634
+   },
+   "in_hazard": {
+    "frac": 0.01098,
+    "n": 549,
+    "grad_qc_median": 0.01901661604642868,
+    "grad_qbar_median": 0.015917565673589706,
+    "penalty_over_reward_median": 0.9622523784637451,
+    "frac_penalty_dominates": 0.4936247723132969
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.00933858286589384,
+    "grad_qbar_median": 0.01254342496395111,
+    "penalty_over_reward_median": 0.6016602516174316,
+    "frac_penalty_dominates": 0.29592
+   }
+  },
+  "SHL-g0.90-B5_SafetyPointGoal1-v0_s2": {
+   "ckpt": "results/method/p1/SHL-g0.90-B5_SafetyPointGoal1-v0_s2.ckpt.pt",
+   "lambda": 0.10633431999999535,
+   "rate_scale": 9.99999999999999,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.7031407952308655,
+   "share_states_quiet": 0.97848,
+   "quiet": {
+    "frac": 0.97848,
+    "n": 48924,
+    "grad_qc_median": 0.005067761056125164,
+    "grad_qbar_median": 0.009058428928256035,
+    "penalty_over_reward_median": 0.5824143290519714,
+    "frac_penalty_dominates": 0.28709835663478045
+   },
+   "imminent": {
+    "frac": 0.00304,
+    "n": 152,
+    "grad_qc_median": 0.01756110228598118,
+    "grad_qbar_median": 0.017651919275522232,
+    "penalty_over_reward_median": 1.078590989112854,
+    "frac_penalty_dominates": 0.5
+   },
+   "in_hazard": {
+    "frac": 0.01288,
+    "n": 644,
+    "grad_qc_median": 0.26587074995040894,
+    "grad_qbar_median": 0.03227299451828003,
+    "penalty_over_reward_median": 9.052838325500488,
+    "frac_penalty_dominates": 0.6459627329192547
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.005117496941238642,
+    "grad_qbar_median": 0.009184062480926514,
+    "penalty_over_reward_median": 0.5866209268569946,
+    "frac_penalty_dominates": 0.293
+   }
+  },
+  "SHL-g0.95-B4_SafetyPointGoal1-v0_s2": {
+   "ckpt": "results/method/p1/SHL-g0.95-B4_SafetyPointGoal1-v0_s2.ckpt.pt",
+   "lambda": 0.13530471260005023,
+   "rate_scale": 5.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.8635416626930237,
+   "share_states_quiet": 0.95548,
+   "quiet": {
+    "frac": 0.95548,
+    "n": 47774,
+    "grad_qc_median": 0.013697473332285881,
+    "grad_qbar_median": 0.014967123046517372,
+    "penalty_over_reward_median": 0.6624884605407715,
+    "frac_penalty_dominates": 0.34899736258215763
+   },
+   "imminent": {
+    "frac": 0.0069,
+    "n": 345,
+    "grad_qc_median": 0.07759278267621994,
+    "grad_qbar_median": 0.014337649568915367,
+    "penalty_over_reward_median": 3.175992250442505,
+    "frac_penalty_dominates": 0.6927536231884058
+   },
+   "in_hazard": {
+    "frac": 0.02376,
+    "n": 1188,
+    "grad_qc_median": 0.024829944595694542,
+    "grad_qbar_median": 0.012690099887549877,
+    "penalty_over_reward_median": 1.879156470298767,
+    "frac_penalty_dominates": 0.6986531986531986
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.01406806893646717,
+    "grad_qbar_median": 0.014907361008226871,
+    "penalty_over_reward_median": 0.6848945617675781,
+    "frac_penalty_dominates": 0.36298
+   }
+  },
+  "SHL-g0.95-B5_SafetyPointGoal1-v0_s2": {
+   "ckpt": "results/method/p1/SHL-g0.95-B5_SafetyPointGoal1-v0_s2.ckpt.pt",
+   "lambda": 0.1828386619989812,
+   "rate_scale": 5.0,
+   "episodes": 100,
+   "n": 50000,
+   "share": 0.7649931907653809,
+   "share_states_quiet": 0.90044,
+   "quiet": {
+    "frac": 0.90044,
+    "n": 45022,
+    "grad_qc_median": 0.019477657973766327,
+    "grad_qbar_median": 0.018579628318548203,
+    "penalty_over_reward_median": 1.0770387649536133,
+    "frac_penalty_dominates": 0.5205455110834704
+   },
+   "imminent": {
+    "frac": 0.02134,
+    "n": 1067,
+    "grad_qc_median": 0.10418624430894852,
+    "grad_qbar_median": 0.01576179265975952,
+    "penalty_over_reward_median": 5.69320821762085,
+    "frac_penalty_dominates": 0.8903467666354264
+   },
+   "in_hazard": {
+    "frac": 0.03542,
+    "n": 1771,
+    "grad_qc_median": 0.05198460444808006,
+    "grad_qbar_median": 0.015461442060768604,
+    "penalty_over_reward_median": 3.152153968811035,
+    "frac_penalty_dominates": 0.8356860530773574
+   },
+   "all": {
+    "frac": 1.0,
+    "n": 50000,
+    "grad_qc_median": 0.02135643921792507,
+    "grad_qbar_median": 0.01831899583339691,
+    "penalty_over_reward_median": 1.2266706228256226,
+    "frac_penalty_dominates": 0.55414
+   }
   }
  },
  "inputs": {
@@ -339,7 +831,19 @@
   "/Users/michaelseiranian/Desktop/safe-rl-carla/results/pareto/td3lag-fix005_SafetyPointGoal1-v0_s0.ckpt.pt": "a2e786c73a1ec7c1193a885fbea7d3aad16ce122576109bf5843643c8853ceee",
   "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-omsw-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt": "53e26d6243b35150a86be66386e00e5bc0cc7b44b3520b8d5db90eca5308b24b",
   "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l2e-6_SafetyPointGoal1-v0_s0.ckpt.pt": "32e60c52dc5686ae8de260c14a8d84c66a48333bd4dad7b94f80086dca60eb2a",
-  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt": "1d82e8e7d45a1bc7ea6cec224302d98723f2fa722aa4110ae8b17193f064bbfe"
+  "/Users/michaelseiranian/Desktop/safe-rl-carla/results/e0_dual/lagu_nogate-tt-l4e-7_SafetyPointGoal1-v0_s0.ckpt.pt": "1d82e8e7d45a1bc7ea6cec224302d98723f2fa722aa4110ae8b17193f064bbfe",
+  "results/method/p1/SHL-g0.90-B4_SafetyPointGoal1-v0_s0.ckpt.pt": "4e2d5d4e8440c18a27866f49f59b0edf78c7b937e78807949e158834267fc3cf",
+  "results/method/p1/SHL-g0.90-B5_SafetyPointGoal1-v0_s0.ckpt.pt": "0751b717d92739122bcaa1926388488663878c9ba524d1a050c0548a43cfc957",
+  "results/method/p1/SHL-g0.95-B4_SafetyPointGoal1-v0_s0.ckpt.pt": "4aa0591d01ca955ccfa6cd4a0bd187ef7ffd631b80017585942c8a145ca9d3e5",
+  "results/method/p1/SHL-g0.95-B5_SafetyPointGoal1-v0_s0.ckpt.pt": "0e4108cdcd22e15bde4423ec945c510abf59c7edbfa01aef0715c00f5a20c2c2",
+  "results/method/p1/SHL-g0.90-B4_SafetyPointGoal1-v0_s1.ckpt.pt": "6d2ef024a5ce418c1c6e47808ae57459159ef9d656cf24fa7dde37bd07ba0349",
+  "results/method/p1/SHL-g0.90-B5_SafetyPointGoal1-v0_s1.ckpt.pt": "c809a82c0aebb6cd6daacdf722b9869d21f78a5ab2ac4ade9bcb223ae7116652",
+  "results/method/p1/SHL-g0.95-B4_SafetyPointGoal1-v0_s1.ckpt.pt": "abc9cb3f972bc6dc2f98dbc937f6595401ba6a0e970675832119bc71a90820e0",
+  "results/method/p1/SHL-g0.95-B5_SafetyPointGoal1-v0_s1.ckpt.pt": "5624f6d6575c38177f2991b2cbe6dab7f69c56667842aeccc9954052be4151ab",
+  "results/method/p1/SHL-g0.90-B4_SafetyPointGoal1-v0_s2.ckpt.pt": "40bce5db88e07eed89cf1037a167f65faf7fe6b5a7b915f6cfb2873b4663835c",
+  "results/method/p1/SHL-g0.90-B5_SafetyPointGoal1-v0_s2.ckpt.pt": "784fd58d91a7bcbecefa1f8b6b5d1b1a72e50f63c431b9d631f9613ad1b4fe53",
+  "results/method/p1/SHL-g0.95-B4_SafetyPointGoal1-v0_s2.ckpt.pt": "875b203a3cb7b730e6e08331b77d6c15ea95b667c16cbf1e4bc2b71826185ca6",
+  "results/method/p1/SHL-g0.95-B5_SafetyPointGoal1-v0_s2.ckpt.pt": "c7d61b7ffe81ba4f66675d66a43b3296b6ed42527d90e446c6ccb9589a0deb68"
  },
  "settings": {
   "nep": 100,
