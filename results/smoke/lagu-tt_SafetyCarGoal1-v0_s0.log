@@ -1,0 +1,22 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+[lagu-tt_SafetyCarGoal1-v0_s0] step=1000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=109
+[lagu-tt_SafetyCarGoal1-v0_s0] step=2000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=113
+[lagu-tt_SafetyCarGoal1-v0_s0] step=3000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=114
+[lagu-tt_SafetyCarGoal1-v0_s0] step=4000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=114
+[lagu-tt_SafetyCarGoal1-v0_s0] step=5000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=114
+[lagu-tt_SafetyCarGoal1-v0_s0] step=6000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=113
+[lagu-tt_SafetyCarGoal1-v0_s0] step=7000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=112
+[lagu-tt_SafetyCarGoal1-v0_s0] step=8000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=68
+[lagu-tt_SafetyCarGoal1-v0_s0] step=9000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=73
+[lagu-tt_SafetyCarGoal1-v0_s0] step=10000 ret=-0.6 cost=27.6 viol=0.30 lam=0 eng=0.000 qc/mc=0.16/5.05 sps=104
+[lagu-tt_SafetyCarGoal1-v0_s0] step=11000 ret=-28.4 cost=5.6 viol=0.00 lam=0 eng=1.000 qc/mc=0.08/0.55 sps=65
+[lagu-tt_SafetyCarGoal1-v0_s0] step=12000 ret=-28.4 cost=5.6 viol=0.00 lam=0 eng=1.000 qc/mc=0.12/0.55 sps=68
+[lagu-tt_SafetyCarGoal1-v0_s0] step=13000 ret=-28.4 cost=5.6 viol=0.00 lam=0 eng=1.000 qc/mc=0.11/0.55 sps=69
+[lagu-tt_SafetyCarGoal1-v0_s0] step=14000 ret=-15.6 cost=29.2 viol=0.30 lam=0 eng=1.000 qc/mc=0.17/3.71 sps=68
+[lagu-tt_SafetyCarGoal1-v0_s0] step=15000 ret=-21.3 cost=17.4 viol=0.20 lam=0 eng=1.000 qc/mc=0.18/2.57 sps=68
+[lagu-tt_SafetyCarGoal1-v0_s0] step=16000 ret=-24.8 cost=1.4 viol=0.00 lam=0 eng=1.000 qc/mc=0.15/0.23 sps=70
+[lagu-tt_SafetyCarGoal1-v0_s0] step=17000 ret=-14.1 cost=24.9 viol=0.40 lam=0 eng=1.000 qc/mc=0.30/3.08 sps=71
+[lagu-tt_SafetyCarGoal1-v0_s0] step=18000 ret=1.2 cost=204.9 viol=0.80 lam=0 eng=1.000 qc/mc=0.64/20.85 sps=73
+[lagu-tt_SafetyCarGoal1-v0_s0] step=19000 ret=-0.4 cost=119.8 viol=0.90 lam=0 eng=0.999 qc/mc=0.38/12.39 sps=73
+[lagu-tt_SafetyCarGoal1-v0_s0] step=20000 ret=0.6 cost=106.8 viol=0.80 lam=0 eng=0.992 qc/mc=0.52/9.81 sps=74

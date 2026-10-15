@@ -1,0 +1,159 @@
+EXPLORATORY: gradient-parity probe (prereg.md section 9; outside the Holm family; protocol fixed in lagu/probe.py before any study snapshot was read)
+
+Primary K = 10,000 frozen-lambda updates; R = mean over r = 3 repetitions (minibatch seeds [0, 1, 2]) on the same 20 held-out episodes.
+
+Table S1 [EXPLORATORY (prereg section 9 prediction)]: per checkpoint, co-primary, K = 10,000
+  run@step                                       lam_train  |gQbar|    |gQc|    cos     lam*  lam*med   sat  R_ckpt      R0   lam_half      rho Rrange l2rng eligible / note
+  lagu_nogate-lit_SafetyPointGoal1-v0_s100@1000000  0.009754   0.0171   0.1981   0.31  0.08632   0.1066  0.61   28.46   28.47     0.1175    1.361   0.36  0.29 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s101@1000000    0.1107  0.01804   0.1226   0.30   0.1472   0.1798  0.60   26.73   27.36     0.2349    1.596   1.24  0.13 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s102@1000000   0.05844  0.01683   0.1655   0.29   0.1017   0.1194  0.60   23.71   27.74     0.1153    1.134   1.29  0.27 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s103@1000000   0.08752   0.0168   0.1682   0.26  0.09992    0.117  0.56   25.01   27.26      0.162    1.621   0.75  0.06 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s104@1000000   0.07226  0.01716   0.1547   0.32   0.1109   0.1356  0.58   25.93   28.12     0.1497     1.35   1.30  0.22 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s105@1000000   0.06311  0.02038   0.1857   0.30   0.1098   0.1384  0.62   25.47   27.68     0.1765    1.608   0.81  0.21 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s106@1000000   0.08298  0.01719   0.1564   0.31   0.1099   0.1379  0.57   26.45   27.12      0.156     1.42   0.84  0.36 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s107@1000000   0.05269  0.01723   0.1719   0.31   0.1003   0.1248  0.59   27.70   28.01     0.1332    1.329   0.48  0.22 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s108@1000000   0.05444  0.01602   0.1652   0.32  0.09693   0.1148  0.59   27.62   28.09     0.1371    1.415   0.49  0.09 yes
+  lagu_nogate-lit_SafetyPointGoal1-v0_s109@1000000   0.02043  0.01623   0.1778   0.17  0.09129    0.104  0.63   27.71   26.49     0.1675    1.834   1.05  0.31 yes
+  -> S1: 10 of 10 eligible (0 missing, 0 failed, 0 censored, * = imputed one factor 2 beyond the grid); median log2(rho) 0.503, 95% [0.428, 0.686], i.e. rho_hat = 2^median 1.417, 95% [1.345, 1.608]; within x2: 1.00; Spearman(lam_half, lam*) 0.39 [DESCRIPTIVE]; repetition spread: median Rrange 0.83, median l2rng 0.22 [DESCRIPTIVE]; label SUPPORTED [EXPLORATORY]
+
+Table S2 [EXPLORATORY (prereg section 9 prediction)]: per checkpoint, co-primary, K = 10,000
+  run@step                                       lam_train  |gQbar|    |gQc|    cos     lam*  lam*med   sat  R_ckpt      R0   lam_half      rho Rrange l2rng eligible / note
+  lagu_nogate-tt_SafetyPointGoal1-v0_s100@2000000    0.2139  0.02498    0.101   0.24   0.2475   0.2346  0.44   24.62   26.01      0.231   0.9334   0.73  0.01 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s101@2000000    0.4007  0.03828   0.2117   0.08   0.1809   0.1792  0.07    5.80    5.72          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return
+  lagu_nogate-tt_SafetyPointGoal1-v0_s102@2000000      0.44  0.03316  0.09216  -0.01   0.3598   0.2815  0.45   24.42   20.00     0.4799    1.334   2.72  0.22 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s103@2000000      8987    18.02    883.1   1.00   0.0204  0.02049  1.00    0.37    0.37          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return
+  lagu_nogate-tt_SafetyPointGoal1-v0_s104@2000000    0.2216  0.02794    0.136   0.25   0.2055   0.1996  0.38   20.84    7.17          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+  lagu_nogate-tt_SafetyPointGoal1-v0_s105@2000000     0.294   0.0186  0.06715   0.12    0.277   0.2463  0.40   24.72   24.06     0.2275   0.8213   1.01  0.17 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s106@2000000    0.1772  0.03547   0.2642  -0.01   0.1342  0.08599  0.28   -0.68    0.00          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return
+  lagu_nogate-tt_SafetyPointGoal1-v0_s107@2000000    0.3515  0.03115    0.125   0.11   0.2493   0.2234  0.37   18.84   13.90     0.4069    1.632   5.20  0.62 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s108@2000000    0.2391  0.02469   0.1074   0.13     0.23   0.2002  0.38   24.82    6.27          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+  lagu_nogate-tt_SafetyPointGoal1-v0_s109@2000000    0.2864  0.04032      0.2  -0.13   0.2016   0.1949  0.78   14.22   19.99     0.3801    1.885   0.64  0.08 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s110@2000000    0.1111  0.01736    0.117   0.09   0.1484   0.1375  0.39   23.56   16.35     0.1108   0.7469   2.70  0.51 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s111@2000000  0.003579  0.01665   0.2747   0.13  0.06061  0.06076  0.61   25.79   21.48    0.07766    1.281   2.53  0.19 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s112@2000000    0.1687  0.02143   0.1659   0.21   0.1292   0.1363  0.50   26.86   23.61     0.1591    1.231   1.40  0.03 yes
+  lagu_nogate-tt_SafetyPointGoal1-v0_s113@2000000   0.08199  0.04102   0.6637  -0.02   0.0618  0.05772  0.05   -0.29   -2.16          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return; R0 < R_ckpt / 2
+  lagu_nogate-tt_SafetyPointGoal1-v0_s114@2000000    0.8861  0.03414     0.37   0.76  0.09227  0.06537  0.67    0.89   16.98          -        -    nan   nan no: R_ckpt < min_return
+  -> S2: 8 of 15 eligible (0 missing, 0 failed, 0 censored, * = imputed one factor 2 beyond the grid); median log2(rho) 0.329, 95% [-0.260, 0.707], i.e. rho_hat = 2^median 1.256, 95% [0.8349, 1.632]; within x2: 1.00; Spearman(lam_half, lam*) 0.81 [DESCRIPTIVE]; repetition spread: median Rrange 1.96, median l2rng 0.18 [DESCRIPTIVE]; label SUPPORTED [EXPLORATORY]
+
+Table S3a [DESCRIPTIVE]: per checkpoint, descriptive, K = 10,000
+  run@step                                       lam_train  |gQbar|    |gQc|    cos     lam*  lam*med   sat  R_ckpt      R0   lam_half      rho Rrange l2rng eligible / note
+  td3lag-lit_SafetyPointGoal1-v0_s100@1000000       0.0656  0.01876    0.154   0.27   0.1219   0.1345  0.55   24.71   26.25     0.1218   0.9992   1.48  0.24 yes
+  td3lag-lit_SafetyPointGoal1-v0_s101@1000000      0.07689  0.01979   0.1463   0.21   0.1352    0.169  0.58   25.71   24.89     0.1869    1.382   1.88  0.12 yes
+  td3lag-lit_SafetyPointGoal1-v0_s102@1000000      0.04555  0.01797   0.1496   0.22   0.1201   0.1395  0.63   27.88   27.67     0.2128    1.772   0.64  0.09 yes
+  td3lag-lit_SafetyPointGoal1-v0_s103@1000000      0.01926  0.01769   0.1394   0.21   0.1269   0.1577  0.60   27.42   26.28     0.1485     1.17   1.22  0.26 yes
+  td3lag-lit_SafetyPointGoal1-v0_s104@1000000      0.01595  0.01733   0.1605   0.25    0.108   0.1244  0.62   27.45   27.18      0.147    1.362   0.73  0.93 yes
+  td3lag-lit_SafetyPointGoal1-v0_s105@1000000      0.09695  0.01763   0.1387   0.24   0.1271   0.1506  0.57   26.23   24.63     0.2845    2.239   1.98  0.47 yes
+  td3lag-lit_SafetyPointGoal1-v0_s106@1000000      0.04874  0.01634   0.1266   0.23   0.1291    0.164  0.62   27.86   27.38     0.2275    1.763   1.15  0.25 yes
+  td3lag-lit_SafetyPointGoal1-v0_s107@1000000      0.09738  0.01711   0.1337   0.14    0.128   0.1517  0.64   26.95   27.42     0.2025    1.582   0.62  0.22 yes
+  td3lag-lit_SafetyPointGoal1-v0_s108@1000000      0.03673  0.01685   0.1445   0.24   0.1166   0.1353  0.60   27.80   27.38     0.1432    1.228   1.20  0.07 yes
+  td3lag-lit_SafetyPointGoal1-v0_s109@1000000      0.02567   0.0183   0.1634   0.16    0.112   0.1238  0.62   25.36   25.11     0.1329    1.186   1.23  0.13 yes
+  -> S3a: 10 of 10 eligible (0 missing, 0 failed, 0 censored, * = imputed one factor 2 beyond the grid); median log2(rho) 0.456, 95% [0.247, 0.818], i.e. rho_hat = 2^median 1.372, 95% [1.186, 1.763]; within x2: 0.90; Spearman(lam_half, lam*) 0.59 [DESCRIPTIVE]; repetition spread: median Rrange 1.21, median l2rng 0.23 [DESCRIPTIVE]; label SUPPORTED [DESCRIPTIVE]
+
+Table S3b [DESCRIPTIVE]: per checkpoint, descriptive, K = 10,000
+  run@step                                       lam_train  |gQbar|    |gQc|    cos     lam*  lam*med   sat  R_ckpt      R0   lam_half      rho Rrange l2rng eligible / note
+  td3lag-tt_SafetyPointGoal1-v0_s100@2000000        0.2539  0.01811  0.09541   0.06   0.1898    0.145  0.21   20.37   10.81     0.2125     1.12   4.15  3.64 yes
+  td3lag-tt_SafetyPointGoal1-v0_s101@2000000        0.2763  0.02458   0.1253   0.01   0.1963      0.2  0.37   23.27   14.06     0.2536    1.292   1.80  0.30 yes
+  td3lag-tt_SafetyPointGoal1-v0_s102@2000000       0.06394  0.02807   0.1247   0.02   0.2252   0.2148  0.37   22.16   16.60     0.1972   0.8759   2.37  0.69 yes
+  td3lag-tt_SafetyPointGoal1-v0_s103@2000000        0.2557  0.02722   0.1042   0.08   0.2612   0.2347  0.33   20.18   20.51    0.07833   0.2999   2.01  0.38 yes
+  td3lag-tt_SafetyPointGoal1-v0_s104@2000000        0.2043  0.02586  0.07768   0.04   0.3329   0.3452  0.29   14.06    2.98          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+  td3lag-tt_SafetyPointGoal1-v0_s105@2000000        0.2119  0.02532   0.1041   0.04   0.2433   0.2288  0.39   23.49   23.93     0.2067   0.8494   1.75  0.18 yes
+  td3lag-tt_SafetyPointGoal1-v0_s106@2000000         0.217  0.01675  0.08396   0.21   0.1995    0.185  0.47   22.27   24.24     0.2406    1.206   1.26  0.06 yes
+  td3lag-tt_SafetyPointGoal1-v0_s107@2000000        0.3313  0.03959   0.3234   0.24   0.1224   0.1114  0.14    4.54    3.44          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return
+  td3lag-tt_SafetyPointGoal1-v0_s108@2000000             0   0.1182   0.7651  -0.02   0.1545   0.1481  0.02   -0.10   -1.43          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return; R0 < R_ckpt / 2
+  td3lag-tt_SafetyPointGoal1-v0_s109@2000000             0  0.03111    1.472   0.00  0.02113  0.03371  0.44   14.01    5.52          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+  -> S3b: 6 of 10 eligible (0 missing, 0 failed, 0 censored, * = imputed one factor 2 beyond the grid); median log2(rho) -0.014, 95% [-0.986, 0.320], i.e. rho_hat = 2^median 0.9905, 95% [0.5047, 1.249]; within x2: 0.83; Spearman(lam_half, lam*) -0.77 [DESCRIPTIVE]; repetition spread: median Rrange 1.91, median l2rng 0.34 [DESCRIPTIVE]; label SUPPORTED [DESCRIPTIVE]
+
+OVERALL gradient-parity prediction [EXPLORATORY, outside the Holm family]: SUPPORTED (S1 SUPPORTED, S2 SUPPORTED)
+
+Rrange = median over the played lambdas (0 included) of max - min of R_i over the repetitions; l2rng = max - min over the repetitions of log2(rho_i), each repetition's own halving point (censored values imputed as in the rule). Both DESCRIPTIVE.
+
+SENSITIVITY K = 3,000 [DESCRIPTIVE, pre-declared; never changes a label above]
+  Table S1, K = 3,000
+    run@step                                           lam*      R0   lam_half      rho Rrange l2rng eligible / note
+    lagu_nogate-lit_SafetyPointGoal1-v0_s100@1000000  0.08632   28.43     0.1542    1.787   0.48  0.17 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s101@1000000   0.1472   27.21     0.3106     2.11   1.20  0.24 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s102@1000000   0.1017   27.42     0.1124    1.105   0.88  0.42 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s103@1000000  0.09992   27.68     0.2152    2.154   0.91  0.07 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s104@1000000   0.1109   27.83     0.1993    1.797   0.70  0.16 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s105@1000000   0.1098   27.59     0.1836    1.672   0.89  0.41 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s106@1000000   0.1099   27.35     0.1794    1.632   0.49  0.28 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s107@1000000   0.1003   28.14     0.1463    1.459   0.55  0.26 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s108@1000000  0.09693   28.28     0.1904    1.964   0.71  0.25 yes
+    lagu_nogate-lit_SafetyPointGoal1-v0_s109@1000000  0.09129   27.28     0.2486    2.723   1.21  0.11 yes
+    -> S1, K = 3,000: 10 eligible, 0 censored; median log2(rho) 0.841, 95% [0.644, 1.077], rho_hat 1.792; within x2: 0.70; the rule would read INCONCLUSIVE [DESCRIPTIVE]
+
+  Table S2, K = 3,000
+    run@step                                           lam*      R0   lam_half      rho Rrange l2rng eligible / note
+    lagu_nogate-tt_SafetyPointGoal1-v0_s100@2000000   0.2475   26.11     0.2549     1.03   0.65  0.18 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s101@2000000   0.1809   12.58          -        -    nan   nan no: R_ckpt < min_return
+    lagu_nogate-tt_SafetyPointGoal1-v0_s102@2000000   0.3598   25.83     0.4322    1.201   0.62  0.22 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s103@2000000   0.0204    0.37          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return
+    lagu_nogate-tt_SafetyPointGoal1-v0_s104@2000000   0.2055   11.35     0.3962    1.928   3.45  0.42 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s105@2000000    0.277   25.45     0.3041    1.098   0.70  0.16 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s106@2000000   0.1342   -2.30          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return; R0 < R_ckpt / 2
+    lagu_nogate-tt_SafetyPointGoal1-v0_s107@2000000   0.2493   21.71     0.3578    1.435   1.93  0.28 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s108@2000000     0.23    9.48          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+    lagu_nogate-tt_SafetyPointGoal1-v0_s109@2000000   0.2016   20.23     0.4335     2.15   0.66  0.03 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s110@2000000   0.1484   22.54      0.139    0.937   1.18  0.25 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s111@2000000  0.06061   22.07    0.07772    1.282   2.84  0.09 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s112@2000000   0.1292   24.51     0.2249    1.741   1.25  0.07 yes
+    lagu_nogate-tt_SafetyPointGoal1-v0_s113@2000000   0.0618   -0.63          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return; R0 < R_ckpt / 2
+    lagu_nogate-tt_SafetyPointGoal1-v0_s114@2000000  0.09227   17.02          -        -    nan   nan no: R_ckpt < min_return
+    -> S2, K = 3,000: 9 eligible, 0 censored; median log2(rho) 0.359, 95% [0.043, 0.947], rho_hat 1.282; within x2: 0.89; the rule would read SUPPORTED [DESCRIPTIVE]
+
+  Table S3a, K = 3,000
+    run@step                                           lam*      R0   lam_half      rho Rrange l2rng eligible / note
+    td3lag-lit_SafetyPointGoal1-v0_s100@1000000      0.1219   27.25      0.146    1.198   1.09  0.29 yes
+    td3lag-lit_SafetyPointGoal1-v0_s101@1000000      0.1352   24.56     0.2381     1.76   2.07  0.12 yes
+    td3lag-lit_SafetyPointGoal1-v0_s102@1000000      0.1201   27.45      0.213    1.773   0.47  0.11 yes
+    td3lag-lit_SafetyPointGoal1-v0_s103@1000000      0.1269   27.05     0.1524    1.201   1.21  0.11 yes
+    td3lag-lit_SafetyPointGoal1-v0_s104@1000000       0.108   27.44     0.2296    2.126   0.56  0.20 yes
+    td3lag-lit_SafetyPointGoal1-v0_s105@1000000      0.1271   26.36     0.2811    2.212   1.78  0.30 yes
+    td3lag-lit_SafetyPointGoal1-v0_s106@1000000      0.1291   27.37     0.2723     2.11   0.64  0.16 yes
+    td3lag-lit_SafetyPointGoal1-v0_s107@1000000       0.128   27.50     0.2712    2.119   0.82  0.03 yes
+    td3lag-lit_SafetyPointGoal1-v0_s108@1000000      0.1166   27.52      0.185    1.587   0.83  0.23 yes
+    td3lag-lit_SafetyPointGoal1-v0_s109@1000000       0.112   25.37     0.1693    1.512   1.57  0.55 yes
+    -> S3a, K = 3,000: 10 eligible, 0 censored; median log2(rho) 0.821, 95% [0.465, 1.083], rho_hat 1.767; within x2: 0.60; the rule would read INCONCLUSIVE [DESCRIPTIVE]
+
+  Table S3b, K = 3,000
+    run@step                                           lam*      R0   lam_half      rho Rrange l2rng eligible / note
+    td3lag-tt_SafetyPointGoal1-v0_s100@2000000       0.1898   10.86     0.1789   0.9429   3.44  0.64 yes
+    td3lag-tt_SafetyPointGoal1-v0_s101@2000000       0.1963   23.38     0.3802    1.937   1.63  0.88 yes
+    td3lag-tt_SafetyPointGoal1-v0_s102@2000000       0.2252   16.95     0.2471    1.097   2.05  0.14 yes
+    td3lag-tt_SafetyPointGoal1-v0_s103@2000000       0.2612   23.41    0.08238   0.3154   1.92  0.10 yes
+    td3lag-tt_SafetyPointGoal1-v0_s104@2000000       0.3329    3.65          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+    td3lag-tt_SafetyPointGoal1-v0_s105@2000000       0.2433   24.46      0.381    1.566   1.46  0.32 yes
+    td3lag-tt_SafetyPointGoal1-v0_s106@2000000       0.1995   25.42     0.2518    1.263   0.90  0.08 yes
+    td3lag-tt_SafetyPointGoal1-v0_s107@2000000       0.1224    5.14          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return
+    td3lag-tt_SafetyPointGoal1-v0_s108@2000000       0.1545   -0.07          -        -    nan   nan no: R_ckpt < min_return; R0 < min_return; R0 < R_ckpt / 2
+    td3lag-tt_SafetyPointGoal1-v0_s109@2000000      0.02113    6.51          -        -    nan   nan no: R0 < min_return; R0 < R_ckpt / 2
+    -> S3b, K = 3,000: 6 eligible, 0 censored; median log2(rho) 0.235, 95% [-0.875, 0.801], rho_hat 1.177; within x2: 0.83; the rule would read SUPPORTED [DESCRIPTIVE]
+
+Table T [DESCRIPTIVE]: lambda* over training (median over runs; lam_train = lambda stored in the snapshot)
+  set        step   n      lam*  lam_train  lam_train/lam*  n(lam_train>lam*)
+  S1       250000  10   0.07271    0.02677          0.3983                  2
+  S1       500000  10   0.09918    0.03167          0.3346                  0
+  S1       750000  10   0.09362    0.03372          0.3635                  1
+  S1      1000000  10     0.101    0.06078          0.5748                  0
+  S2       250000  15    0.1004     0.2565           2.438                 13
+  S2       500000  15    0.1224     0.2058           2.057                 13
+  S2       750000  15     0.129     0.2282           1.769                 10
+  S2      1000000  15    0.1608      0.254           1.182                 10
+  S2      1250000  15    0.1903     0.3148           1.368                  9
+  S2      1500000  15     0.155     0.3212            1.47                 13
+  S2      1750000  15    0.1684     0.2439           1.468                 12
+  S2      2000000  15    0.1809     0.2391           1.306                 12
+  S3a      250000  10   0.07952     0.0258          0.3377                  0
+  S3a      500000  10    0.1064    0.04058          0.3445                  2
+  S3a      750000  10    0.1176    0.03525          0.3149                  0
+  S3a     1000000  10    0.1244    0.04714          0.3784                  0
+  S3b      250000  10     0.122     0.3462           2.532                 10
+  S3b      500000  10    0.1753     0.2953           1.759                  9
+  S3b      750000  10    0.1807     0.2371           1.199                  7
+  S3b     1000000  10    0.1796      0.246           1.209                  6
+  S3b     1250000  10     0.193     0.2112           1.082                  7
+  S3b     1500000  10    0.1814     0.2203           1.036                  5
+  S3b     1750000  10    0.1816     0.1872          0.9615                  5
+  S3b     2000000  10    0.1979     0.2145          0.9249                  4
+
+STATUS: 0 declared files missing, 0 jobs failed or not run; exit status 0

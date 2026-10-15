@@ -1,0 +1,1711 @@
+{
+ "V0": {
+  "d": [
+   [
+    -14.738752028082882,
+    -19.31
+   ],
+   [
+    8.152776404445246,
+    15.55
+   ],
+   [
+    -20.61129980083364,
+    -21.649999999999995
+   ],
+   [
+    12.130571827107362,
+    -32.08
+   ],
+   [
+    -18.62536825686716,
+    -10.760000000000005
+   ],
+   [
+    -10.698178127112977,
+    -15.630000000000003
+   ],
+   [
+    -15.214260927056364,
+    98.78999999999999
+   ],
+   [
+    -21.189388988031983,
+    -27.610000000000003
+   ],
+   [
+    -11.166817822296558,
+    -8.220000000000006
+   ],
+   [
+    -12.449405456167334,
+    -23.25
+   ],
+   [
+    -19.167759711719498,
+    -8.079999999999998
+   ],
+   [
+    -17.470715328214386,
+    -25.24
+   ],
+   [
+    -24.89304313591194,
+    33.68
+   ],
+   [
+    14.286765054108557,
+    -40.75999999999999
+   ],
+   [
+    -0.8855207825723256,
+    34.919999999999995
+   ]
+  ],
+  "flags": [
+   [
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    1.0,
+    0.0
+   ],
+   [
+    0.0,
+    1.0
+   ],
+   [
+    1.0,
+    1.0
+   ]
+  ],
+  "sd": [
+   12.601388714554078,
+   36.01154378410186
+  ],
+  "corr": -0.16706244540294093,
+  "noise_model_match": true
+ },
+ "V1": {
+  "rows": [
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "p": {
+     "Helps": 0.018,
+     "Hurts": 0.123,
+     "Shift": 0.0055,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.8535
+    },
+    "hurts_collapse_only": 0.112,
+    "collapse_clause_fires": 0.114,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.302140825603816,
+     3.4309166666666613
+    ],
+    "exact_clause": 0.12465537374470174
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "p": {
+     "Helps": 0.0155,
+     "Hurts": 0.181,
+     "Shift": 0.004,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.7995
+    },
+    "hurts_collapse_only": 0.17,
+    "collapse_clause_fires": 0.174,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     0.9775666150233335,
+     3.1831499999999977
+    ],
+    "exact_clause": 0.175683799104327
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "p": {
+     "Helps": 0.006,
+     "Hurts": 0.221,
+     "Shift": 0.001,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.772
+    },
+    "hurts_collapse_only": 0.2165,
+    "collapse_clause_fires": 0.221,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     3.574170448531847,
+     3.7763333333333353
+    ],
+    "exact_clause": null
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "p": {
+     "Helps": 0.0005,
+     "Hurts": 0.1585,
+     "Shift": 0.0185,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.8225
+    },
+    "hurts_collapse_only": 0.1145,
+    "collapse_clause_fires": 0.119,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.1752928055680503,
+     2.5621833333333317
+    ],
+    "exact_clause": 0.12465537374470174
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "p": {
+     "Helps": 0.0,
+     "Hurts": 0.1705,
+     "Shift": 0.0675,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.762
+    },
+    "hurts_collapse_only": 0.116,
+    "collapse_clause_fires": 0.122,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.3920796409463563,
+     2.785283333333335
+    ],
+    "exact_clause": 0.12465537374470174
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "p": {
+     "Helps": 0.0385,
+     "Hurts": 0.125,
+     "Shift": 0.0075,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.829
+    },
+    "hurts_collapse_only": 0.123,
+    "collapse_clause_fires": 0.128,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.3612462139770205,
+     3.281983333333331
+    ],
+    "exact_clause": 0.12465537374470174
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "p": {
+     "Helps": 0.0425,
+     "Hurts": 0.11,
+     "Shift": 0.01,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.8375
+    },
+    "hurts_collapse_only": 0.1095,
+    "collapse_clause_fires": 0.1155,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.194112250742875,
+     2.157933333333334
+    ],
+    "exact_clause": 0.12465537374470174
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "p": {
+     "Helps": 0.0205,
+     "Hurts": 0.572,
+     "Shift": 0.0045,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.403
+    },
+    "hurts_collapse_only": 0.562,
+    "collapse_clause_fires": 0.581,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.29540737229584,
+     2.607566666666669
+    ],
+    "exact_clause": 0.5840150634557209
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "p": {
+     "Helps": 0.017,
+     "Hurts": 0.9155,
+     "Shift": 0.0005,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.067
+    },
+    "hurts_collapse_only": 0.9075,
+    "collapse_clause_fires": 0.929,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.4344599608422608,
+     2.2163166666666685
+    ],
+    "exact_clause": 0.9208470194548172
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "p": {
+     "Helps": 0.0205,
+     "Hurts": 0.172,
+     "Shift": 0.003,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.8045
+    },
+    "hurts_collapse_only": 0.1625,
+    "collapse_clause_fires": 0.167,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.0083325938356564,
+     2.9331249999999995
+    ],
+    "exact_clause": 0.15976511685712486
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "p": {
+     "Helps": 0.015,
+     "Hurts": 0.217,
+     "Shift": 0.004,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.764
+    },
+    "hurts_collapse_only": 0.2025,
+    "collapse_clause_fires": 0.2105,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.4406185705423384,
+     2.6463874999999994
+    ],
+    "exact_clause": 0.20991707607560053
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "p": {
+     "Helps": 0.0075,
+     "Hurts": 0.2485,
+     "Shift": 0.0025,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.7415
+    },
+    "hurts_collapse_only": 0.239,
+    "collapse_clause_fires": 0.2485,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     3.5695863717018765,
+     5.7515874999999985
+    ],
+    "exact_clause": null
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "p": {
+     "Helps": 0.0015,
+     "Hurts": 0.1995,
+     "Shift": 0.0285,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.7705
+    },
+    "hurts_collapse_only": 0.157,
+    "collapse_clause_fires": 0.164,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.3808764525805595,
+     3.117775
+    ],
+    "exact_clause": 0.15976511685712486
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "p": {
+     "Helps": 0.0,
+     "Hurts": 0.2225,
+     "Shift": 0.0645,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.713
+    },
+    "hurts_collapse_only": 0.1505,
+    "collapse_clause_fires": 0.166,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.3855144435313829,
+     2.7060750000000002
+    ],
+    "exact_clause": 0.15976511685712486
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "p": {
+     "Helps": 0.0365,
+     "Hurts": 0.1645,
+     "Shift": 0.004,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.795
+    },
+    "hurts_collapse_only": 0.1625,
+    "collapse_clause_fires": 0.1665,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.5304716533621887,
+     3.311137499999999
+    ],
+    "exact_clause": 0.15976511685712486
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "p": {
+     "Helps": 0.039,
+     "Hurts": 0.1555,
+     "Shift": 0.0115,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.794
+    },
+    "hurts_collapse_only": 0.155,
+    "collapse_clause_fires": 0.159,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.4217442087203924,
+     2.905624999999997
+    ],
+    "exact_clause": 0.15976511685712486
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "p": {
+     "Helps": 0.0155,
+     "Hurts": 0.69,
+     "Shift": 0.0005,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.294
+    },
+    "hurts_collapse_only": 0.6815,
+    "collapse_clause_fires": 0.697,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.60285258593209,
+     3.676812499999998
+    ],
+    "exact_clause": 0.7040822352824103
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "p": {
+     "Helps": 0.0155,
+     "Hurts": 0.9565,
+     "Shift": 0.0,
+     "Equivalent": 0.0,
+     "Inconclusive": 0.028
+    },
+    "hurts_collapse_only": 0.947,
+    "collapse_clause_fires": 0.9715,
+    "frac_return90_inside": 0.0,
+    "frac_cost90_inside": 0.0,
+    "min_halfwidth90": [
+     1.3981361003154338,
+     2.5310000000000015
+    ],
+    "exact_clause": 0.9713857244169282
+   }
+  ],
+  "comparisons": [
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Helps",
+    "mine": 0.018,
+    "theirs": 0.0175,
+    "z": 0.1197456668578564
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Hurts",
+    "mine": 0.123,
+    "theirs": 0.1325,
+    "z": -0.8999588702018779
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "coll_only",
+    "mine": 0.112,
+    "theirs": 0.1205,
+    "z": -0.8386055485261034
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Shift",
+    "mine": 0.0055,
+    "theirs": 0.002,
+    "z": 1.8107906497109818
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Inconclusive",
+    "mine": 0.8535,
+    "theirs": 0.848,
+    "z": 0.4880952044369956
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "clause",
+    "mine": 0.114,
+    "theirs": 0.124,
+    "z": -0.9766491245239249
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Helps",
+    "mine": 0.0155,
+    "theirs": 0.0175,
+    "z": -0.49647895191457725
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Hurts",
+    "mine": 0.181,
+    "theirs": 0.173,
+    "z": 0.6628319530161416
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "coll_only",
+    "mine": 0.17,
+    "theirs": 0.161,
+    "z": 0.7658264112178221
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Shift",
+    "mine": 0.004,
+    "theirs": 0.0015,
+    "z": 1.509633898540715
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Inconclusive",
+    "mine": 0.7995,
+    "theirs": 0.808,
+    "z": -0.6767894809653227
+   },
+   {
+    "n": 15,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "clause",
+    "mine": 0.174,
+    "theirs": 0.164,
+    "z": 0.84383228177938
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Helps",
+    "mine": 0.006,
+    "theirs": 0.0065,
+    "z": -0.20062794503020748
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Hurts",
+    "mine": 0.221,
+    "theirs": 0.205,
+    "z": 1.2357847021545316
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "coll_only",
+    "mine": 0.2165,
+    "theirs": 0.1955,
+    "z": 1.6420086224370405
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Shift",
+    "mine": 0.001,
+    "theirs": 0.002,
+    "z": -0.8171096431446925
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Inconclusive",
+    "mine": 0.772,
+    "theirs": 0.7865,
+    "z": -1.10555216815793
+   },
+   {
+    "n": 15,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "clause",
+    "mine": 0.221,
+    "theirs": 0.205,
+    "z": 1.2357847021545316
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "Helps",
+    "mine": 0.0005,
+    "theirs": 0.001,
+    "z": -0.5775668974015598
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "Hurts",
+    "mine": 0.1585,
+    "theirs": 0.158,
+    "z": 0.043321808918418504
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "coll_only",
+    "mine": 0.1145,
+    "theirs": 0.1185,
+    "z": -0.39427001711965975
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "Shift",
+    "mine": 0.0185,
+    "theirs": 0.027,
+    "z": -1.8027079984650967
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "Inconclusive",
+    "mine": 0.8225,
+    "theirs": 0.814,
+    "z": 0.6970095185141095
+   },
+   {
+    "n": 15,
+    "scenario": "return -5",
+    "quantity": "clause",
+    "mine": 0.119,
+    "theirs": 0.124,
+    "z": -0.48396168758605473
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "Helps",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "Hurts",
+    "mine": 0.1705,
+    "theirs": 0.177,
+    "z": -0.5424943429234639
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "coll_only",
+    "mine": 0.116,
+    "theirs": 0.115,
+    "z": 0.09893730796755769
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "Shift",
+    "mine": 0.0675,
+    "theirs": 0.063,
+    "z": 0.5762016782247246
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "Inconclusive",
+    "mine": 0.762,
+    "theirs": 0.76,
+    "z": 0.14829916877974203
+   },
+   {
+    "n": 15,
+    "scenario": "return -10",
+    "quantity": "clause",
+    "mine": 0.122,
+    "theirs": 0.124,
+    "z": -0.19256512826574979
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "Helps",
+    "mine": 0.0385,
+    "theirs": 0.0315,
+    "z": 1.2044821302420965
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "Hurts",
+    "mine": 0.125,
+    "theirs": 0.123,
+    "z": 0.19189652045253763
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "coll_only",
+    "mine": 0.123,
+    "theirs": 0.121,
+    "z": 0.19324257787024615
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "Shift",
+    "mine": 0.0075,
+    "theirs": 0.0055,
+    "z": 0.7870265468777419
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "Inconclusive",
+    "mine": 0.829,
+    "theirs": 0.84,
+    "z": -0.9360100581551162
+   },
+   {
+    "n": 15,
+    "scenario": "cost -5",
+    "quantity": "clause",
+    "mine": 0.128,
+    "theirs": 0.124,
+    "z": 0.3811702547940141
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "Helps",
+    "mine": 0.0425,
+    "theirs": 0.047,
+    "z": -0.6882678298309157
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "Hurts",
+    "mine": 0.11,
+    "theirs": 0.1195,
+    "z": -0.9425714704028937
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "coll_only",
+    "mine": 0.1095,
+    "theirs": 0.1195,
+    "z": -0.9931228489607933
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "Shift",
+    "mine": 0.01,
+    "theirs": 0.0115,
+    "z": -0.45997475574488084
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "Inconclusive",
+    "mine": 0.8375,
+    "theirs": 0.822,
+    "z": 1.3041108474455014
+   },
+   {
+    "n": 15,
+    "scenario": "cost -10",
+    "quantity": "clause",
+    "mine": 0.1155,
+    "theirs": 0.124,
+    "z": -0.8279005055669114
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Helps",
+    "mine": 0.0205,
+    "theirs": 0.0175,
+    "z": 0.6948802216590432
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Hurts",
+    "mine": 0.572,
+    "theirs": 0.573,
+    "z": -0.06392109336814734
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "coll_only",
+    "mine": 0.562,
+    "theirs": 0.561,
+    "z": 0.0637294720725304
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Shift",
+    "mine": 0.0045,
+    "theirs": 0.001,
+    "z": 2.1134874579570004
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Inconclusive",
+    "mine": 0.403,
+    "theirs": 0.4085,
+    "z": -0.354200222807946
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "clause",
+    "mine": 0.581,
+    "theirs": 0.5795,
+    "z": 0.09611437187326635
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Helps",
+    "mine": 0.017,
+    "theirs": 0.0175,
+    "z": -0.12143781050223247
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Hurts",
+    "mine": 0.9155,
+    "theirs": 0.9005,
+    "z": 1.6411732177747846
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "coll_only",
+    "mine": 0.9075,
+    "theirs": 0.8885,
+    "z": 1.9852506493179896
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Shift",
+    "mine": 0.0005,
+    "theirs": 0.0,
+    "z": 1.000125023442384
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Inconclusive",
+    "mine": 0.067,
+    "theirs": 0.082,
+    "z": -1.806445697946767
+   },
+   {
+    "n": 15,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "clause",
+    "mine": 0.929,
+    "theirs": 0.9165,
+    "z": 1.4805352161778706
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Helps",
+    "mine": 0.0205,
+    "theirs": 0.016,
+    "z": 1.063115926645363
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Hurts",
+    "mine": 0.172,
+    "theirs": 0.1645,
+    "z": 0.6339971741836775
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "coll_only",
+    "mine": 0.1625,
+    "theirs": 0.153,
+    "z": 0.824173054310241
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Shift",
+    "mine": 0.003,
+    "theirs": 0.002,
+    "z": 0.6332475868613034
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "Inconclusive",
+    "mine": 0.8045,
+    "theirs": 0.8175,
+    "z": -1.0500307635560848
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.2 both",
+    "quantity": "clause",
+    "mine": 0.167,
+    "theirs": 0.1575,
+    "z": 0.8148431787211066
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Helps",
+    "mine": 0.015,
+    "theirs": 0.016,
+    "z": -0.255991939452714
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Hurts",
+    "mine": 0.217,
+    "theirs": 0.2175,
+    "z": -0.038342336438699755
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "coll_only",
+    "mine": 0.2025,
+    "theirs": 0.206,
+    "z": -0.2745356121154776
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Shift",
+    "mine": 0.004,
+    "theirs": 0.0015,
+    "z": 1.509633898540715
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "Inconclusive",
+    "mine": 0.764,
+    "theirs": 0.765,
+    "z": -0.07452737064041426
+   },
+   {
+    "n": 20,
+    "scenario": "null, p_collapse 0.4 both",
+    "quantity": "clause",
+    "mine": 0.2105,
+    "theirs": 0.213,
+    "z": -0.1935068349081393
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Helps",
+    "mine": 0.0075,
+    "theirs": 0.0085,
+    "z": -0.3549761464044158
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Hurts",
+    "mine": 0.2485,
+    "theirs": 0.249,
+    "z": -0.03657600070799437
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "coll_only",
+    "mine": 0.239,
+    "theirs": 0.243,
+    "z": -0.29575396937358583
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Shift",
+    "mine": 0.0025,
+    "theirs": 0.0015,
+    "z": 0.707814950398772
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "Inconclusive",
+    "mine": 0.7415,
+    "theirs": 0.741,
+    "z": 0.03610334753234674
+   },
+   {
+    "n": 20,
+    "scenario": "null, exchangeable pairs",
+    "quantity": "clause",
+    "mine": 0.2485,
+    "theirs": 0.249,
+    "z": -0.03657600070799437
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "Helps",
+    "mine": 0.0015,
+    "theirs": 0.0,
+    "z": 1.7327006922046793
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "Hurts",
+    "mine": 0.1995,
+    "theirs": 0.2065,
+    "z": -0.5503270504119248
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "coll_only",
+    "mine": 0.157,
+    "theirs": 0.149,
+    "z": 0.7027527704878169
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "Shift",
+    "mine": 0.0285,
+    "theirs": 0.0215,
+    "z": 1.417835113917134
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "Inconclusive",
+    "mine": 0.7705,
+    "theirs": 0.772,
+    "z": -0.11293098578813975
+   },
+   {
+    "n": 20,
+    "scenario": "return -5",
+    "quantity": "clause",
+    "mine": 0.164,
+    "theirs": 0.1575,
+    "z": 0.559618664702963
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "Helps",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "Hurts",
+    "mine": 0.2225,
+    "theirs": 0.233,
+    "z": -0.7917373766354261
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "coll_only",
+    "mine": 0.1505,
+    "theirs": 0.1455,
+    "z": 0.44526581041397517
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "Shift",
+    "mine": 0.0645,
+    "theirs": 0.0595,
+    "z": 0.6556510188180905
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "Inconclusive",
+    "mine": 0.713,
+    "theirs": 0.7075,
+    "z": 0.3833940299805384
+   },
+   {
+    "n": 20,
+    "scenario": "return -10",
+    "quantity": "clause",
+    "mine": 0.166,
+    "theirs": 0.1575,
+    "z": 0.729978383898302
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "Helps",
+    "mine": 0.0365,
+    "theirs": 0.0335,
+    "z": 0.516206627246612
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "Hurts",
+    "mine": 0.1645,
+    "theirs": 0.1525,
+    "z": 1.0390574309489042
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "coll_only",
+    "mine": 0.1625,
+    "theirs": 0.149,
+    "z": 1.177292036024293
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "Shift",
+    "mine": 0.004,
+    "theirs": 0.0065,
+    "z": -1.0939648879881763
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "Inconclusive",
+    "mine": 0.795,
+    "theirs": 0.8075,
+    "z": -0.9905409241038879
+   },
+   {
+    "n": 20,
+    "scenario": "cost -5",
+    "quantity": "clause",
+    "mine": 0.1665,
+    "theirs": 0.1575,
+    "z": 0.7724368655218269
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "Helps",
+    "mine": 0.039,
+    "theirs": 0.0555,
+    "z": -2.459198351718183
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "Hurts",
+    "mine": 0.1555,
+    "theirs": 0.1475,
+    "z": 0.7055986598189309
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "coll_only",
+    "mine": 0.155,
+    "theirs": 0.1465,
+    "z": 0.7512292468522007
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "Shift",
+    "mine": 0.0115,
+    "theirs": 0.01,
+    "z": 0.45997475574488084
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "Inconclusive",
+    "mine": 0.794,
+    "theirs": 0.787,
+    "z": 0.5439451254985376
+   },
+   {
+    "n": 20,
+    "scenario": "cost -10",
+    "quantity": "clause",
+    "mine": 0.159,
+    "theirs": 0.1575,
+    "z": 0.12996542675525552
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Helps",
+    "mine": 0.0155,
+    "theirs": 0.016,
+    "z": -0.12699219023631694
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Hurts",
+    "mine": 0.69,
+    "theirs": 0.7065,
+    "z": -1.1367234847892607
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "coll_only",
+    "mine": 0.6815,
+    "theirs": 0.695,
+    "z": -0.9216317493761359
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Shift",
+    "mine": 0.0005,
+    "theirs": 0.0005,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "Inconclusive",
+    "mine": 0.294,
+    "theirs": 0.277,
+    "z": 1.1902679743649618
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.2 (0.4 vs 0.2)",
+    "quantity": "clause",
+    "mine": 0.697,
+    "theirs": 0.714,
+    "z": -1.17939087356775
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Helps",
+    "mine": 0.0155,
+    "theirs": 0.016,
+    "z": -0.12699219023631694
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Hurts",
+    "mine": 0.9565,
+    "theirs": 0.954,
+    "z": 0.38237101657273975
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "coll_only",
+    "mine": 0.947,
+    "theirs": 0.9425,
+    "z": 0.6228563871126233
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Shift",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Equivalent",
+    "mine": 0.0,
+    "theirs": 0.0,
+    "z": 0.0
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "Inconclusive",
+    "mine": 0.028,
+    "theirs": 0.03,
+    "z": -0.3768958728248126
+   },
+   {
+    "n": 20,
+    "scenario": "collapse +0.4 (0.6 vs 0.2)",
+    "quantity": "clause",
+    "mine": 0.9715,
+    "theirs": 0.97,
+    "z": 0.28149755317233505
+   }
+  ]
+ },
+ "V1_exact": [
+  {
+   "pA": 0.1,
+   "pB": 0.1,
+   "n15": 0.06065836463386779,
+   "n20": 0.08987817499515517,
+   "mine_n15": 0.06065836463386776,
+   "mine_n20": 0.08987817499515516,
+   "identical": true
+  },
+  {
+   "pA": 0.2,
+   "pB": 0.2,
+   "n15": 0.12465537374470177,
+   "n20": 0.159765116857125,
+   "mine_n15": 0.12465537374470174,
+   "mine_n20": 0.15976511685712486,
+   "identical": true
+  },
+  {
+   "pA": 0.3,
+   "pB": 0.3,
+   "n15": 0.15884724446891768,
+   "n20": 0.19369165082692646,
+   "mine_n15": 0.1588472444689177,
+   "mine_n20": 0.1936916508269264,
+   "identical": true
+  },
+  {
+   "pA": 0.4,
+   "pB": 0.4,
+   "n15": 0.175683799104327,
+   "n20": 0.20991707607560062,
+   "mine_n15": 0.175683799104327,
+   "mine_n20": 0.20991707607560053,
+   "identical": true
+  },
+  {
+   "pA": 0.5,
+   "pB": 0.5,
+   "n15": 0.1807973040267825,
+   "n20": 0.21479525392169307,
+   "mine_n15": 0.1807973040267825,
+   "mine_n20": 0.21479525392169307,
+   "identical": true
+  },
+  {
+   "pA": 0.4,
+   "pB": 0.2,
+   "n15": 0.5840150634557206,
+   "n20": 0.70408223528241,
+   "mine_n15": 0.5840150634557209,
+   "mine_n20": 0.7040822352824103,
+   "identical": true
+  },
+  {
+   "pA": 0.6,
+   "pB": 0.2,
+   "n15": 0.9208470194548168,
+   "n20": 0.9713857244169282,
+   "mine_n15": 0.9208470194548172,
+   "mine_n20": 0.9713857244169282,
+   "identical": true
+  }
+ ],
+ "V2": {
+  "r95": [
+   -16.075588080671846,
+   -3.795686495817238
+  ],
+  "c95": [
+   -18.74726666666666,
+   16.70344999999999
+  ],
+  "r90": [
+   -15.229759617725666,
+   -4.8364204778327045
+  ],
+  "c90": [
+   -16.93886666666667,
+   13.051699999999993
+  ],
+  "rows": [
+   {
+    "threshold": 2,
+    "ca": 6,
+    "cb": 3,
+    "fisher_p": 0.4269865067466267,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 3,
+    "ca": 9,
+    "cb": 3,
+    "fisher_p": 0.06043294142402483,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 4,
+    "ca": 9,
+    "cb": 3,
+    "fisher_p": 0.06043294142402483,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 5,
+    "ca": 9,
+    "cb": 3,
+    "fisher_p": 0.06043294142402483,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 6,
+    "ca": 9,
+    "cb": 3,
+    "fisher_p": 0.06043294142402483,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 7,
+    "ca": 9,
+    "cb": 3,
+    "fisher_p": 0.06043294142402483,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 8,
+    "ca": 9,
+    "cb": 3,
+    "fisher_p": 0.06043294142402483,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 9,
+    "ca": 10,
+    "cb": 4,
+    "fisher_p": 0.06559547883437022,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 10,
+    "ca": 10,
+    "cb": 4,
+    "fisher_p": 0.06559547883437022,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 11,
+    "ca": 10,
+    "cb": 4,
+    "fisher_p": 0.06559547883437022,
+    "label": "Hurts",
+    "match": true
+   },
+   {
+    "threshold": 12,
+    "ca": 12,
+    "cb": 4,
+    "fisher_p": 0.009220570313398513,
+    "label": "Hurts",
+    "match": true
+   }
+  ]
+ },
+ "V3": {
+  "fractions": {
+   "Helps": 0.3565,
+   "Hurts": 0.0,
+   "Shift": 0.0,
+   "Equivalent": 0.6435,
+   "Inconclusive": 0.0
+  },
+  "seed0": "Equivalent",
+  "seed0_lb": -0.0015538876868683791,
+  "lb_sd": 0.002947759909984713,
+  "equiv_cond_frac": 1.0,
+  "labels_identical": true,
+  "lb_identical": true
+ },
+ "V4": {
+  "sd_cost_without_106": 23.18259839042785,
+  "contrast": {
+   "Helps": 4.301107434688865,
+   "Hurts": 3.1173121861227697,
+   "Shift": 2.7422656364141766,
+   "Equivalent": 2.1091420300062116,
+   "Inconclusive": 2.622458709530464
+  },
+  "unlabelled_segments": 32
+ },
+ "V5": {
+  "n": 200000,
+  "disagreements": 0
+ }
+}

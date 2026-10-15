@@ -535,3 +535,48 @@ Filled in at the gates; each entry is committed before the next wave that depend
    At the same average budget, the gate spends its tightening early and leaves λ and outcomes at
    the ungated level, while the uniform cut raises λ a little and lowers realised cost by about
    6%; every arm stays about twice over the limit.
+10. *E4 results (descriptive, as stated in item 6).* Computed 2026-10-11 after `lagu.evaluate`
+    wrote a held-out file for every E4 run (`results/g3/e4_dose.py`, output `e4_dose.txt`); arm
+    means over seeds 100-107, 95% bootstrap intervals over seeds.
+    - δ0 family (`lagu_nogate`, δ0 = 2.5 / 1.75 / 1.25): return 16.4 / 11.3 / 7.9 and collapsed
+      runs 1/8 / 3/8 / 5/8, so return is monotone; cost 36.9 / 34.7 / 41.6 is not. The E2 matched
+      arm (δ0 = 1.12, outside the family) sits at return 7.9, cost 46.9.
+    - T family (`lagu`, T = 0.035 / 0.07 / 0.14; mean budget 0.33 / 0.44 / 0.57 of 2.5): return
+      1.9 / 6.3 / 6.0 and collapsed runs 7/8 / 4/8 / 6/8, so return is not monotone; cost 43.2 /
+      35.3 / 32.9 is monotone, falling as the gate loosens.
+    The section 9 E4 prediction (both monotone in each knob) is not supported as a whole. In both
+    families a tighter critic-unit budget lowers return and adds collapses without lowering
+    realised cost; the intervals are wide (cost intervals span about 20-40 units).
+
+**2026-10-11**
+
+11. *Gradient-parity probe committed before it reads any study data.* The section 9 gradient-parity
+    prediction is operationalised in `lagu/probe.py` (SHA-256 26b6431caa6d7e69f182151555893473db05236ca68112323b3b8f4cdc036ec9)
+    with its protocol in `results/paper/probe-author/PROTOCOL.md`, both committed in this commit. It
+    was written after all training, not after Wave 1 as `lagu/PLAN.md` says. Its choices (how
+    "frozen" and "within a factor of 2" are read, the sets, the λ grid, three repetitions per λ,
+    eligibility and a pre-declared K = 3,000 sensitivity) are fixed in the protocol; no study
+    snapshot, CSV or held-out file was read while writing it. The result is EXPLORATORY and is
+    reported whichever way it comes out.
+12. *Correction to item 10.* "In both families a tighter critic-unit budget lowers return and adds
+    collapses" holds for the δ0 family only. In the T family, return and collapses are not monotone:
+    T = 0.07 and T = 0.14 give return 6.3 and 6.0 with 4/8 and 6/8 collapsed runs.
+13. *Gate-gradient arm (`lagu-tt-ggrad`, an extension under section 13; descriptive).* Seeds 100-109,
+    held-out endpoint, computed 2026-10-11. Against `lagu_nogate-tt`: return 7.74 vs 16.83,
+    difference -9.09, 95% [-15.06, -2.59]; cost 33.12 vs 36.20, difference -3.08, 95% [-14.00, 7.52];
+    collapsed runs 4 vs 1. Against `lagu-tt` (the detached gate): return difference +1.35, 95%
+    [-3.59, 5.89]; cost difference +1.34, 95% [-27.51, 22.15]; collapsed runs 4 vs 5. Letting the
+    actor gradient flow through the gate (via the uncertainty term only) does not change the picture
+    under this recipe.
+
+**2026-10-13**
+
+14. *Gradient-parity probe result (EXPLORATORY; section 9, item 11).* `lagu/probe.py` at
+    26b6431c ran to completion with exit status 0 (all 325 declared files present, no failed job;
+    output `results/probe/`, summary `results/probe_summary.txt`). Overall label: SUPPORTED. S1
+    (`lagu_nogate-lit`, 10 of 10 checkpoints eligible): median ρ = λ_half/λ* of 1.42, 95% [1.35,
+    1.61]. S2 (`lagu_nogate-tt`, 8 of 15 eligible): 1.26, 95% [0.83, 1.63]. Pre-declared K = 3,000
+    sensitivity (descriptive): S1 would read INCONCLUSIVE (1.79, 95% interval up to 2.11), S2
+    SUPPORTED (1.28). Descriptive table: under the literal recipe the trained λ stays at about
+    0.3-0.6 of λ* throughout training; under the E1 recipe it is above λ* in 9-13 of 15 runs at
+    every 250k checkpoint.

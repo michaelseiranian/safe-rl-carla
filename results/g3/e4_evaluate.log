@@ -1,0 +1,129 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+lagu-tt-ggrad_SafetyPointGoal1-v0_s100: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s101: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s102: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s103: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s104: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s105: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s106: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s107: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s108: done already
+lagu-tt-ggrad_SafetyPointGoal1-v0_s109: done already
+lagu-tt_SafetyPointGoal1-v0_s100: done already
+lagu-tt_SafetyPointGoal1-v0_s101: done already
+lagu-tt_SafetyPointGoal1-v0_s102: done already
+lagu-tt_SafetyPointGoal1-v0_s103: done already
+lagu-tt_SafetyPointGoal1-v0_s104: done already
+lagu-tt_SafetyPointGoal1-v0_s105: done already
+lagu-tt_SafetyPointGoal1-v0_s106: done already
+lagu-tt_SafetyPointGoal1-v0_s107: done already
+lagu-tt_SafetyPointGoal1-v0_s108: done already
+lagu-tt_SafetyPointGoal1-v0_s109: done already
+lagu-tt_SafetyPointGoal1-v0_s110: done already
+lagu-tt_SafetyPointGoal1-v0_s111: done already
+lagu-tt_SafetyPointGoal1-v0_s112: done already
+lagu-tt_SafetyPointGoal1-v0_s113: done already
+lagu-tt_SafetyPointGoal1-v0_s114: done already
+lagu-tt_SafetyPointGoal1-v0_s115: done already
+lagu-tt_SafetyPointGoal1-v0_s116: done already
+lagu-tt_SafetyPointGoal1-v0_s117: done already
+lagu-tt_SafetyPointGoal1-v0_s118: done already
+lagu-tt_SafetyPointGoal1-v0_s119: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s100: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s101: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s102: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s103: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s104: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s105: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s106: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s107: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s108: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s109: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s110: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s111: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s112: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s113: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s114: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s115: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s116: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s117: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s118: done already
+lagu_nogate-tt-match_SafetyPointGoal1-v0_s119: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s100: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s101: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s102: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s103: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s104: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s105: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s106: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s107: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s108: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s109: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s110: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s111: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s112: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s113: done already
+lagu_nogate-tt_SafetyPointGoal1-v0_s114: done already
+td3lag-tt_SafetyPointGoal1-v0_s100: done already
+td3lag-tt_SafetyPointGoal1-v0_s101: done already
+td3lag-tt_SafetyPointGoal1-v0_s102: done already
+td3lag-tt_SafetyPointGoal1-v0_s103: done already
+td3lag-tt_SafetyPointGoal1-v0_s104: done already
+td3lag-tt_SafetyPointGoal1-v0_s105: done already
+td3lag-tt_SafetyPointGoal1-v0_s106: done already
+td3lag-tt_SafetyPointGoal1-v0_s107: done already
+td3lag-tt_SafetyPointGoal1-v0_s108: done already
+td3lag-tt_SafetyPointGoal1-v0_s109: done already
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+lagu-tt-T035_SafetyPointGoal1-v0_s103: ret=0.0 cost=40.4 viol=0.14 qc/mc=0.98/2.72 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s105: ret=0.0 cost=76.4 viol=0.19 qc/mc=1.85/6.96 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s100: ret=-0.1 cost=46.0 viol=0.15 qc/mc=-2.27/4.82 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s104: ret=0.1 cost=1.0 viol=0.00 qc/mc=2.61/0.16 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s101: ret=-0.2 cost=64.3 viol=0.19 qc/mc=0.96/6.62 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s106: ret=0.0 cost=74.4 viol=0.22 qc/mc=4.10/6.02 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s102: ret=0.0 cost=49.6 viol=0.16 qc/mc=0.01/5.12 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s100: ret=21.3 cost=40.7 viol=0.62 qc/mc=0.66/4.31 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s101: ret=15.3 cost=39.4 viol=0.48 qc/mc=0.90/3.95 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T035_SafetyPointGoal1-v0_s107: ret=-0.1 cost=18.4 viol=0.08 qc/mc=-4.79/1.38 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s103: ret=21.4 cost=36.6 viol=0.58 qc/mc=1.73/3.96 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s102: ret=-0.1 cost=25.4 viol=0.08 qc/mc=3.17/1.99 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s104: ret=4.3 cost=8.1 viol=0.11 qc/mc=1.74/1.23 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s105: ret=2.0 cost=5.6 viol=0.07 qc/mc=2.36/0.86 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s106: ret=-0.1 cost=39.7 viol=0.10 qc/mc=3.06/3.77 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s100: ret=-0.5 cost=0.9 viol=0.01 qc/mc=1.32/0.06 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu-tt-T14_SafetyPointGoal1-v0_s107: ret=-0.4 cost=42.8 viol=0.12 qc/mc=2.43/4.33 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s101: ret=20.5 cost=52.8 viol=0.66 qc/mc=2.23/5.38 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s103: ret=12.1 cost=30.4 viol=0.32 qc/mc=1.47/2.93 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s102: ret=0.4 cost=96.8 viol=0.17 qc/mc=1.78/7.89 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s104: ret=4.2 cost=59.7 viol=0.31 qc/mc=1.60/5.91 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s105: ret=1.8 cost=2.4 viol=0.03 qc/mc=2.16/0.32 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s106: ret=0.8 cost=48.6 viol=0.11 qc/mc=2.29/3.93 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s101: ret=15.3 cost=28.1 viol=0.38 qc/mc=1.45/2.66 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s100: ret=21.6 cost=46.2 viol=0.67 qc/mc=3.39/5.20 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d125_SafetyPointGoal1-v0_s107: ret=23.6 cost=41.4 viol=0.67 qc/mc=2.74/4.30 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s102: ret=0.4 cost=62.1 viol=0.18 qc/mc=4.26/5.75 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s105: ret=2.5 cost=2.1 viol=0.02 qc/mc=2.42/0.30 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s103: ret=15.9 cost=63.9 viol=0.69 qc/mc=-230.90/6.42 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s104: ret=11.9 cost=23.3 viol=0.37 qc/mc=-0.05/2.57 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s106: ret=0.9 cost=22.0 viol=0.09 qc/mc=-0.45/2.00 steps=[1600000, 1700000, 1800000, 1900000, 2000000]
+lagu_nogate-tt-d175_SafetyPointGoal1-v0_s107: ret=21.8 cost=29.8 viol=0.46 qc/mc=2.24/3.01 steps=[1600000, 1700000, 1800000, 1900000, 2000000]

@@ -1,0 +1,15 @@
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+AdroitHandRelocateDense-v1, AdroitHandHammerDense-v1, AdroitHandDoorDense-v1 environment's reward functions were updated in v1.2.1 without an environment version update. Therefore, use gymnasium-robotics==1.2.0 for v1 reproducibility or use v2 in gymnasium-robotics>=1.4.3. See https://github.com/Farama-Foundation/Gymnasium-Robotics/pull/220 for more details
+[td3lag_SafetyPointGoal1-v0_s2] step=50000 ret=15.0 cost=49.3 viol=0.50 lam=0.0382 eng=0.000 sps=187
+[td3lag_SafetyPointGoal1-v0_s2] step=100000 ret=23.8 cost=74.7 viol=1.00 lam=0.023 eng=0.000 sps=133
+[td3lag_SafetyPointGoal1-v0_s2] step=150000 ret=25.7 cost=73.7 viol=0.80 lam=0.00763 eng=0.000 sps=123
+[td3lag_SafetyPointGoal1-v0_s2] step=200000 ret=26.6 cost=58.4 viol=0.90 lam=0.00577 eng=0.000 sps=95
+[td3lag_SafetyPointGoal1-v0_s2] step=250000 ret=26.7 cost=50.4 viol=0.80 lam=0.0179 eng=0.000 sps=109
+[td3lag_SafetyPointGoal1-v0_s2] step=300000 ret=27.5 cost=44.2 viol=0.70 lam=0.00824 eng=0.000 sps=152
+[td3lag_SafetyPointGoal1-v0_s2] step=350000 ret=27.1 cost=45.9 viol=0.80 lam=0 eng=0.000 sps=151
+[td3lag_SafetyPointGoal1-v0_s2] step=400000 ret=26.8 cost=52.3 viol=0.90 lam=0.0586 eng=0.000 sps=126
+[td3lag_SafetyPointGoal1-v0_s2] step=450000 ret=25.9 cost=47.2 viol=0.80 lam=0.0557 eng=0.000 sps=139
+[td3lag_SafetyPointGoal1-v0_s2] step=500000 ret=26.6 cost=40.3 viol=0.80 lam=0.0148 eng=0.000 sps=138
+[td3lag_SafetyPointGoal1-v0_s2] step=550000 ret=25.5 cost=75.3 viol=1.00 lam=0.098 eng=0.000 sps=135
+[td3lag_SafetyPointGoal1-v0_s2] step=600000 ret=27.7 cost=55.4 viol=0.80 lam=0.00669 eng=0.000 sps=128
+[td3lag_SafetyPointGoal1-v0_s2] step=650000 ret=23.0 cost=103.1 viol=0.80 lam=0.0945 eng=0.000 sps=82

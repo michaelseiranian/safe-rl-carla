@@ -1,0 +1,24 @@
+EXPLORATORY horizon table, E1 (SafetyPointGoal1-v0, seeds 100-114, 15 pairs).
+In-training window = rows with 0.8N <= step <= N (eval_return / eval_cost, 10 episodes per row).
+Collapsed = window return < 5 or non-finite. Delta = lagu-tt - lagu_nogate-tt, paired by seed,
+95% paired bootstrap (10,000 resamples, default_rng(0)). Not confirmatory; the primary endpoint
+is the 2M held-out evaluation (last block).
+
+    N rows | arm             ret mean  ret med cost mean cost med collapsed
+---------------------------------------------------------------------------
+ 0.5M    3 | lagu-tt             4.55     1.91     19.54    11.33    10/15
+ 0.5M    3 | lagu_nogate-tt     13.42    13.16     36.92    42.33     1/15
+              delta return  -8.87 [-13.10,  -4.45]   delta cost -17.38 [-29.89,  -4.05]
+ 1.0M    5 | lagu-tt            10.65    12.11     30.98    33.12     2/15
+ 1.0M    5 | lagu_nogate-tt     15.56    18.42     34.46    36.22     3/15
+              delta return  -4.91 [-11.45,  +2.15]   delta cost  -3.48 [-17.06,  +9.49]
+ 1.5M    7 | lagu-tt             7.81     7.19     36.95    38.13     6/15
+ 1.5M    7 | lagu_nogate-tt     16.48    18.71     37.85    42.17     2/15
+              delta return  -8.67 [-13.15,  -3.61]   delta cost  -0.89 [-12.15,  +9.80]
+ 2.0M    9 | lagu-tt             5.50     1.98     28.07    26.68     9/15
+ 2.0M    9 | lagu_nogate-tt     16.13    20.17     38.38    42.04     3/15
+              delta return -10.63 [-16.74,  -4.07]   delta cost -10.31 [-19.62,  -0.44]
+
+Reference only, the primary endpoint at 2M (held-out, 100 episodes per run):
+   2.0M held-out | lagu-tt             5.42     2.76     34.46    24.32     9/15
+   2.0M held-out | lagu_nogate-tt     15.59    19.12     37.77    38.27     3/15

@@ -1,0 +1,13 @@
+== delta0 (lagu_nogate)
+  knob                               return                     cost collapsed lambda med budget/2.5
+  2.5                 16.41 [ 10.58, 21.09]   36.89 [ 31.43, 43.70]     1/8        0.251      1.00
+  1.75                11.30 [  5.52, 16.90]   34.68 [ 21.30, 48.72]     3/8        0.223      0.70
+  1.25                 7.85 [  2.11, 14.31]   41.62 [ 21.97, 62.14]     5/8        0.290      0.50
+  1.12 (E2, extra)     7.86 [  2.09, 14.12]   46.91 [ 29.18, 67.34]     4/8        0.244      0.45
+  monotone arm means (pre-registered points only): return True, cost False
+== T (lagu)
+  knob                               return                     cost collapsed lambda med budget/2.5
+  0.035                1.90 [ -0.04,  5.73]   43.20 [ 26.33, 59.40]     7/8        0.251      0.33
+  0.07                 6.31 [  2.10, 10.64]   35.30 [ 17.58, 63.10]     4/8        0.340      0.44
+  0.14                 6.03 [  0.61, 13.27]   32.91 [ 20.16, 45.24]     6/8        0.212      0.57
+  monotone arm means (pre-registered points only): return False, cost True

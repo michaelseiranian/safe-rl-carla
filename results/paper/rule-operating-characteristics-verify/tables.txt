@@ -1,0 +1,127 @@
+====================================================================================================
+V0 (DESCRIPTIVE). Raw held-out endpoints read directly from <stem>.heldout.json (pooled)
+====================================================================================================
+E1 lagu-tt - lagu_nogate-tt (N = 2M): 15 pairs, every run present once with a held-out file at end_step = N
+   seed    ret A    ret B   cost A   cost B     dRet    dCost  collA  collB  divA  divB  resumed
+    100     8.46    23.20    15.63    34.94   -14.74   -19.31      0      0     0     0        1
+    101    16.86     8.71    43.19    27.64     8.15    15.55      0      0     0     0        1
+    102     2.83    23.44    18.44    40.09   -20.61   -21.65      1      0     0     0        1
+    103    12.15     0.02    24.32    56.40    12.13   -32.08      0      1     0     0        1
+    104     0.50    19.12    19.00    29.76   -18.63   -10.76      1      0     0     0        1
+    105    11.06    21.76    23.85    39.48   -10.70   -15.63      0      0     0     0        1
+    106     0.06    15.28   127.30    28.51   -15.21    98.79      1      0     0     0        0
+    107    -1.47    19.72    10.66    38.27   -21.19   -27.61      1      0     0     0        0
+    108    11.25    22.41    33.75    41.97   -11.17    -8.22      0      0     0     0        0
+    109     2.19    14.64     1.71    24.96   -12.45   -23.25      1      0     0     0        1
+    110     2.76    21.93    36.94    45.02   -19.17    -8.08      1      0     0     0        1
+    111     0.03    17.50    17.09    42.33   -17.47   -25.24      1      0     0     0        1
+    112     0.36    25.25    71.50    37.82   -24.89    33.68      1      0     0     0        1
+    113    14.14    -0.15    32.87    73.63    14.29   -40.76      0      1     0     0        1
+    114     0.16     1.04    40.68     5.76    -0.89    34.92      1      1     0     0        1
+E1b lagu-lit - lagu_nogate-lit (N = 1M): 10 pairs, every run present once with a held-out file at end_step = N
+   seed    ret A    ret B   cost A   cost B     dRet    dCost  collA  collB  divA  divB  resumed
+    100    27.77    27.87    47.37    54.04    -0.10    -6.67      0      0     0     0        0
+    101    26.73    25.77    59.92    48.65     0.96    11.27      0      0     0     0        0
+    102    26.69    26.24    45.72    49.79     0.46    -4.07      0      0     0     0        0
+    103    27.28    26.93    54.75    56.55     0.35    -1.80      0      0     0     0        0
+    104    26.85    27.02    49.37    51.32    -0.17    -1.95      0      0     0     0        0
+    105    27.14    27.47    50.17    48.00    -0.33     2.17      0      0     0     0        0
+    106    27.48    27.24    49.61    46.07     0.23     3.54      0      0     0     0        0
+    107    27.98    27.58    50.71    49.35     0.40     1.36      0      0     0     0        0
+    108    27.51    27.06    48.41    54.17     0.45    -5.76      0      0     0     0        0
+    109    26.52    26.58    45.73    50.27    -0.05    -4.54      0      0     0     0        0
+
+E1 noise model: mean dReturn -10.17 (SD 12.60), mean dCost -3.31 (SD 36.01), corr -0.17; collapsed A 9/15, B 3/15
+  verdict_oc noise model (results.json) identical to these raw values: True
+
+====================================================================================================
+V1 (EXPLORATORY). Independent re-simulation of verdict_oc Part A (2,000 studies x 2,000 resamples)
+====================================================================================================
+  Sampler differs from verdict_oc on purpose (multinomial bootstrap weights, binomial collapse counts,
+  independent stream per row from default_rng(0)); agreement => z within MC error.
+
+EXPLORATORY. Table V1-15. Label probability (%), n = 15: mine / verdict_oc (z of the difference).
+  scenario                                 Helps            Hurts       coll.-only          Shift        Equiv            Incon        clause>=3 exact>=3
+  null, p_collapse 0.2 both      1.8/  1.8(+0.1) 12.3/ 13.2(-0.9) 11.2/ 12.0(-0.8)  0.5/  0.2(+1.8)  0.0/  0.0(+0.0) 85.4/ 84.8(+0.5) 11.4/ 12.4(-1.0)     12.5
+  null, p_collapse 0.4 both      1.6/  1.8(-0.5) 18.1/ 17.3(+0.7) 17.0/ 16.1(+0.8)  0.4/  0.1(+1.5)  0.0/  0.0(+0.0) 80.0/ 80.8(-0.7) 17.4/ 16.4(+0.8)     17.6
+  null, exchangeable pairs       0.6/  0.7(-0.2) 22.1/ 20.5(+1.2) 21.6/ 19.6(+1.6)  0.1/  0.2(-0.8)  0.0/  0.0(+0.0) 77.2/ 78.6(-1.1) 22.1/ 20.5(+1.2)         
+  return -5                      0.1/  0.1(-0.6) 15.8/ 15.8(+0.0) 11.5/ 11.8(-0.4)  1.8/  2.7(-1.8)  0.0/  0.0(+0.0) 82.2/ 81.4(+0.7) 11.9/ 12.4(-0.5)     12.5
+  return -10                     0.0/  0.0(+0.0) 17.1/ 17.7(-0.5) 11.6/ 11.5(+0.1)  6.8/  6.3(+0.6)  0.0/  0.0(+0.0) 76.2/ 76.0(+0.1) 12.2/ 12.4(-0.2)     12.5
+  cost -5                        3.9/  3.1(+1.2) 12.5/ 12.3(+0.2) 12.3/ 12.1(+0.2)  0.8/  0.5(+0.8)  0.0/  0.0(+0.0) 82.9/ 84.0(-0.9) 12.8/ 12.4(+0.4)     12.5
+  cost -10                       4.2/  4.7(-0.7) 11.0/ 11.9(-0.9) 10.9/ 11.9(-1.0)  1.0/  1.1(-0.5)  0.0/  0.0(+0.0) 83.8/ 82.2(+1.3) 11.6/ 12.4(-0.8)     12.5
+  collapse +0.2 (0.4 vs 0.2)     2.1/  1.8(+0.7) 57.2/ 57.3(-0.1) 56.2/ 56.1(+0.1)  0.4/  0.1(+2.1)  0.0/  0.0(+0.0) 40.3/ 40.8(-0.4) 58.1/ 58.0(+0.1)     58.4
+  collapse +0.4 (0.6 vs 0.2)     1.7/  1.8(-0.1) 91.5/ 90.0(+1.6) 90.8/ 88.8(+2.0)  0.1/  0.0(+1.0)  0.0/  0.0(+0.0)  6.7/  8.2(-1.8) 92.9/ 91.6(+1.5)     92.1
+
+EXPLORATORY. Table V1-20. Label probability (%), n = 20: mine / verdict_oc (z of the difference).
+  scenario                                 Helps            Hurts       coll.-only          Shift        Equiv            Incon        clause>=3 exact>=3
+  null, p_collapse 0.2 both      2.1/  1.6(+1.1) 17.2/ 16.4(+0.6) 16.2/ 15.3(+0.8)  0.3/  0.2(+0.6)  0.0/  0.0(+0.0) 80.5/ 81.8(-1.1) 16.7/ 15.8(+0.8)     16.0
+  null, p_collapse 0.4 both      1.5/  1.6(-0.3) 21.7/ 21.8(-0.0) 20.2/ 20.6(-0.3)  0.4/  0.1(+1.5)  0.0/  0.0(+0.0) 76.4/ 76.5(-0.1) 21.1/ 21.3(-0.2)     21.0
+  null, exchangeable pairs       0.8/  0.9(-0.4) 24.9/ 24.9(-0.0) 23.9/ 24.3(-0.3)  0.2/  0.1(+0.7)  0.0/  0.0(+0.0) 74.2/ 74.1(+0.0) 24.9/ 24.9(-0.0)         
+  return -5                      0.1/  0.0(+1.7) 20.0/ 20.6(-0.6) 15.7/ 14.9(+0.7)  2.9/  2.1(+1.4)  0.0/  0.0(+0.0) 77.0/ 77.2(-0.1) 16.4/ 15.8(+0.6)     16.0
+  return -10                     0.0/  0.0(+0.0) 22.2/ 23.3(-0.8) 15.0/ 14.5(+0.4)  6.5/  5.9(+0.7)  0.0/  0.0(+0.0) 71.3/ 70.8(+0.4) 16.6/ 15.8(+0.7)     16.0
+  cost -5                        3.6/  3.4(+0.5) 16.4/ 15.2(+1.0) 16.2/ 14.9(+1.2)  0.4/  0.7(-1.1)  0.0/  0.0(+0.0) 79.5/ 80.8(-1.0) 16.7/ 15.8(+0.8)     16.0
+  cost -10                       3.9/  5.5(-2.5) 15.6/ 14.8(+0.7) 15.5/ 14.6(+0.8)  1.1/  1.0(+0.5)  0.0/  0.0(+0.0) 79.4/ 78.7(+0.5) 15.9/ 15.8(+0.1)     16.0
+  collapse +0.2 (0.4 vs 0.2)     1.6/  1.6(-0.1) 69.0/ 70.7(-1.1) 68.2/ 69.5(-0.9)  0.1/  0.1(+0.0)  0.0/  0.0(+0.0) 29.4/ 27.7(+1.2) 69.7/ 71.4(-1.2)     70.4
+  collapse +0.4 (0.6 vs 0.2)     1.6/  1.6(-0.1) 95.7/ 95.4(+0.4) 94.7/ 94.2(+0.6)  0.0/  0.0(+0.0)  0.0/  0.0(+0.0)  2.8/  3.0(-0.4) 97.2/ 97.0(+0.3)     97.1
+
+  126 compared proportions: max |z| = 2.46; |z| > 1.96 in 3 (expected about 6.3 by chance); |z| > 3 in 0.
+  Equivalent preconditions over all 36,000 simulated studies: return 90% CI inside +-2.5 in 0.00% (max per row 0.0%), cost 90% CI inside +-5 in 0.000%;
+  smallest 90% half-widths seen: return 0.98, cost 2.16.
+
+EXPLORATORY. Table V1-exact. P(X_A - X_B >= 3) by convolution (%), mine vs verdict_oc Table A3.
+  pA 0.1 pB 0.1: n=15   6.07 vs   6.07;  n=20   8.99 vs   8.99   identical: True
+  pA 0.2 pB 0.2: n=15  12.47 vs  12.47;  n=20  15.98 vs  15.98   identical: True
+  pA 0.3 pB 0.3: n=15  15.88 vs  15.88;  n=20  19.37 vs  19.37   identical: True
+  pA 0.4 pB 0.4: n=15  17.57 vs  17.57;  n=20  20.99 vs  20.99   identical: True
+  pA 0.5 pB 0.5: n=15  18.08 vs  18.08;  n=20  21.48 vs  21.48   identical: True
+  pA 0.4 pB 0.2: n=15  58.40 vs  58.40;  n=20  70.41 vs  70.41   identical: True
+  pA 0.6 pB 0.2: n=15  92.08 vs  92.08;  n=20  97.14 vs  97.14   identical: True
+
+====================================================================================================
+V2 (EXPLORATORY). E1 H3 label vs collapse threshold, from raw held-out returns (prereg bootstrap, seed 0)
+====================================================================================================
+  intervals: dReturn 95% [-16.08, -3.80] 90% [-15.23, -4.84]; dCost 95% [-18.75, 16.70] 90% [-16.94, 13.05]
+  label with the collapse clause switched off: Inconclusive
+   thr  collA  collB  Fisher p  label                   verdict_oc row  match
+     2      6      3     0.427  Hurts                6/3  0.427 Hurts   True
+     3      9      3     0.060  Hurts                9/3  0.060 Hurts   True
+     4      9      3     0.060  Hurts                9/3  0.060 Hurts   True
+     5      9      3     0.060  Hurts                9/3  0.060 Hurts   True
+     6      9      3     0.060  Hurts                9/3  0.060 Hurts   True
+     7      9      3     0.060  Hurts                9/3  0.060 Hurts   True
+     8      9      3     0.060  Hurts                9/3  0.060 Hurts   True
+     9     10      4     0.066  Hurts               10/4  0.066 Hurts   True
+    10     10      4     0.066  Hurts               10/4  0.066 Hurts   True
+    11     10      4     0.066  Hurts               10/4  0.066 Hurts   True
+    12     12      4     0.009  Hurts               12/4  0.009 Hurts   True
+  held-out returns within 0.25 of an integer threshold 2..12: [2.19, 2.764, 2.827, 11.059, 11.248, 12.155]
+
+====================================================================================================
+V3 (DESCRIPTIVE). E1b label vs bootstrap seed 0..1999 (10,000 resamples each). Not a re-analysis.
+====================================================================================================
+  mean dReturn 0.2196, mean dCost -0.6450; collapses 0 vs 0
+  seed 0: Equivalent, dReturn 95% LB -0.0016, dCost 95% UB 2.781
+  Helps           713 of 2000 (35.65%)
+  Hurts             0 of 2000 (0.00%)
+  Shift             0 of 2000 (0.00%)
+  Equivalent     1287 of 2000 (64.35%)
+  Inconclusive      0 of 2000 (0.00%)
+  dReturn 95% LB: min -0.0122, 2.5% -0.0065, median -0.0009, 97.5% 0.0051, max 0.0088, SD 0.0029, > 0 in 35.65%
+  dCost 95% UB range 2.598 to 2.943
+  section 7 Equivalent condition (both 90% CIs inside the margins) holds in 100.00% of seeds,
+  i.e. also at every seed labelled Helps: the seed only decides which of the two labels takes precedence.
+  per-seed labels identical to verdict_oc results.json: True; per-seed return LB identical: True
+
+====================================================================================================
+V4 (EXPLORATORY). Checks of specific statements in the verdict_oc report
+====================================================================================================
+  caveat 1: seed 106 dCost = +98.8; dCost SD with all 15 pairs 36.01, SD of the other 14 (check of the claim only, not an analysis row) 23.18
+  caveat 5: exact P(X_A - X_B >= 6 | n=15, pA=pB=0.2) = 0.57%  (>= 3: 12.47%)
+  caveat 5: exact P(X_A - X_B >= 6 | n=15, pA=pB=0.4) = 1.93%  (>= 3: 17.57%)
+  summary: largest |simulated - exact| clause gap in verdict_oc = 1.17 points at n=15, null, p_collapse 0.4 both
+  summary: max Monte Carlo SE of a proportion with 2,000 studies = 1.12 points
+  docstring of verdict_oc/make.py says 'about 2 minutes'; summary says 'about 35 s' (timed separately).
+  verdict_oc label fills, WCAG contrast on its background #fcfcfb: Helps 4.30, Hurts 3.12, Shift 2.74, Equivalent 2.11, Inconclusive 2.62; below 3:1: ['Shift', 'Equivalent', 'Inconclusive']
+  fig_label_probabilities: 32 non-empty bar segments are < 7% and so carry no direct number label
+
+V5. lagu.analyze.verdict vs the prereg-table transcription here: 0 disagreements in 200,000 inputs (half on the margin/zero boundaries).

@@ -1,0 +1,131 @@
+DESCRIPTIVE / EXPLORATORY verification of results/paper/gate_dose (not confirmatory; outside the Holm family)
+
+==============================================================================================================
+A. DESCRIPTIVE - Part 1 re-derived from raw CSV/JSON (own code)
+==============================================================================================================
+grid/config checks: all pass
+vs author part1_dose_windows.csv: 38 cells; max |diff| point = 4.98e-07, CI bounds = 4.99e-07 (author CSV rounded to 6 s.f.); missing in author: []; author-only cells: []
+
+arm      window     rows/seed resumed             engagement            budget(all)           budget(risk)  band(all/risk)
+E1       25k-300k         [6]       6    0.850 [0.801,0.893]    0.710 [0.675,0.741]    0.433 [0.364,0.495]  below/below
+E1       300k-1M         [14]       6    0.874 [0.832,0.911]    0.467 [0.425,0.514]    0.408 [0.361,0.460]  below/below
+E1       1M-2M           [20]       6    0.951 [0.909,0.977]    0.360 [0.316,0.414]    0.289 [0.240,0.349]  below/below
+E1       whole run       [40]       6    0.913 [0.875,0.942]    0.449 [0.411,0.494]    0.346 [0.302,0.400]  below/below
+E1all    25k-300k         [6]       6    0.839 [0.796,0.879]    0.712 [0.681,0.741]    0.437 [0.377,0.493]  below/below
+E1all    300k-1M         [14]       6    0.872 [0.829,0.911]    0.462 [0.412,0.511]    0.402 [0.347,0.457]  below/below
+E1all    1M-2M           [20]       6    0.931 [0.883,0.972]    0.374 [0.312,0.443]    0.305 [0.236,0.381]  below/below
+E1all    whole run       [40]       6    0.901 [0.858,0.938]    0.454 [0.405,0.508]    0.353 [0.294,0.416]  below/below
+E1e4     25k-300k         [6]       0    0.871 [0.814,0.929]    0.691 [0.639,0.736]    0.397 [0.293,0.485]  below/below
+E1e4     300k-1M         [14]       0    0.871 [0.802,0.929]    0.471 [0.409,0.544]    0.412 [0.344,0.494]  below/below
+E1e4     1M-2M           [20]       0    0.939 [0.867,0.987]    0.354 [0.282,0.448]    0.283 [0.202,0.386]  below/below
+E1e4     whole run       [40]       0    0.907 [0.841,0.957]    0.445 [0.384,0.521]    0.341 [0.270,0.432]  below/below
+T035     25k-300k         [6]       0    0.937 [0.898,0.970]    0.619 [0.570,0.668]    0.256 [0.160,0.352]  below/below
+T035     300k-1M         [14]       0    0.960 [0.943,0.974]    0.323 [0.282,0.363]    0.248 [0.202,0.292]  below/below
+T035     1M-2M           [20]       0    0.981 [0.957,0.996]    0.244 [0.187,0.325]    0.160 [0.097,0.249]  below/below
+T035     whole run       [40]       0    0.969 [0.949,0.983]    0.327 [0.284,0.383]    0.201 [0.151,0.268]  below/below
+T14      25k-300k         [6]       0    0.662 [0.486,0.839]    0.771 [0.676,0.858]    0.552 [0.367,0.723]  INSIDE/below
+T14      300k-1M         [14]       0    0.731 [0.580,0.873]    0.589 [0.459,0.710]    0.543 [0.399,0.678]  below/below
+T14      1M-2M           [20]       0    0.858 [0.723,0.961]    0.499 [0.389,0.626]    0.443 [0.321,0.584]  below/below
+T14      whole run       [40]       0    0.793 [0.656,0.909]    0.570 [0.469,0.680]    0.490 [0.371,0.620]  below/below
+ggrad    25k-300k         [6]       0    0.792 [0.718,0.861]    0.734 [0.693,0.774]    0.480 [0.399,0.558]  below/below
+ggrad    300k-1M         [14]       0    0.792 [0.729,0.856]    0.552 [0.493,0.607]    0.502 [0.437,0.564]  below/below
+ggrad    1M-2M           [20]       0    0.923 [0.856,0.974]    0.386 [0.312,0.469]    0.318 [0.236,0.410]  below/below
+ggrad    whole run       [40]       0    0.862 [0.803,0.915]    0.495 [0.438,0.558]    0.401 [0.334,0.476]  below/below
+lit      25k-300k         [6]       0    0.467 [0.375,0.597]    0.880 [0.812,0.922]    0.765 [0.632,0.848]  INSIDE/INSIDE
+lit      300k-1M         [14]       0    0.066 [0.047,0.088]    0.979 [0.972,0.985]    0.976 [0.969,0.983]  above/above
+lit      whole run       [20]       0    0.143 [0.111,0.181]    0.950 [0.926,0.966]    0.936 [0.906,0.957]  above/above
+litT03   25k-300k         [6]       0    0.813 [0.772,0.853]    0.765 [0.742,0.789]    0.541 [0.495,0.588]  INSIDE/below
+litT03   300k-1M         [14]       0    0.306 [0.260,0.358]    0.898 [0.871,0.921]    0.887 [0.856,0.912]  above/above
+litT03   whole run       [20]       0    0.403 [0.360,0.450]    0.859 [0.834,0.880]    0.821 [0.789,0.848]  INSIDE/INSIDE
+car      25k-300k         [6]       0    0.861 [0.813,0.913]    0.686 [0.631,0.731]    0.386 [0.278,0.473]  below/below
+car      300k-1M         [14]       0    0.905 [0.852,0.952]    0.416 [0.335,0.499]    0.351 [0.261,0.444]  below/below
+car      1M-2M           [20]       0    0.979 [0.968,0.990]    0.311 [0.257,0.360]    0.235 [0.175,0.289]  below/below
+car      whole run       [40]       0    0.941 [0.917,0.964]    0.403 [0.349,0.451]    0.292 [0.228,0.350]  below/below
+circle   25k-300k         [6]       0    0.379 [0.193,0.600]    0.851 [0.733,0.944]    0.709 [0.477,0.890]  INSIDE/below
+circle   300k-1M         [14]       0    0.227 [0.039,0.490]    0.842 [0.647,0.983]    0.824 [0.607,0.982]  INSIDE/INSIDE
+circle   1M-2M           [20]       0    0.244 [0.057,0.477]    0.841 [0.656,0.980]    0.824 [0.618,0.978]  INSIDE/INSIDE
+circle   whole run       [40]       0    0.250 [0.067,0.477]    0.843 [0.669,0.972]    0.814 [0.607,0.967]  INSIDE/INSIDE
+
+Values already recorded in prereg.md:
+  E1 D = whole-run budget(all)*2.5 vs 1.12158 (prereg 15): 1.12158 (ref 1.12158)
+  X1 D* = whole-run budget(all)*2.5 vs 2.14758 (prereg 16.8): 2.14758 (ref 2.14758)
+  E1 engagement 25k-300k vs 0.8497 (prereg 15): 0.84966 (ref 0.8497)
+  X1 engagement 25k-300k vs 0.81 (prereg 16.8): 0.81302 (ref 0.81)
+  E4 T=0.035 whole-run budget vs 0.33 (prereg 16.10): 0.32650 (ref 0.33)
+  E4 T=0.07 (s100-107) whole-run budget vs 0.44: 0.44456 (ref 0.44)
+  E4 T=0.14 whole-run budget vs 0.57: 0.57032 (ref 0.57)
+  E1b 300k-1M budget vs 'about 0.97' (prereg 16.7): 0.97874 (ref 0.97)
+
+==============================================================================================================
+B. EXPLORATORY - Part 2 re-derived with own rollouts (layouts 11000-11004, deterministic policy)
+==============================================================================================================
+rollouts: 65 (0 computed, 65 from own cache)
+vs author cache: length mismatches 0; max rel|dQ_bar| 0.00e+00, max rel|d sqrt(Q_eu)| 1.70e-07, max |d episode return| 0.00e+00
+vs author part2_per_seed.csv: max |diff| over every per-seed value = 4.98e-07
+vs author part2_signed_counterfactual.csv: max |diff| over summary values = 4.74e-07
+
+critics     step fracQ<=0  logged | T=0.07: eng|Q|  engSg bud|Q|          budSg [95%] never/near | T=0.03: bud|Q|  budSg never
+tt      600000    0.629   0.914 |         0.922  0.347  0.303  0.747 [0.655,0.841]  3/3       |         0.150  0.686  3
+tt     1200000    0.623   0.930 |         0.912  0.333  0.301  0.763 [0.624,0.889]  5/7       |         0.150  0.694  5
+tt     2000000    0.706   0.920 |         0.929  0.238  0.232  0.806 [0.674,0.920]  5/7       |         0.126  0.773  5
+lit     600000    0.001   0.070 |         0.046  0.045  0.988  0.989 [0.981,0.995]  0/2       |         0.894  0.894  0
+lit    1000000    0.001   0.037 |         0.075  0.074  0.962  0.962 [0.928,0.990]  0/2       |         0.884  0.885  0
+
+==============================================================================================================
+C. EXPLORATORY - diagnostics for statements in the author's summary
+==============================================================================================================
+C1. Where does the port's |Q_bar| gate fire? (T = 0.07; mean over seeds of per-seed fractions; 'pooled' = over all states)
+critics     step P(fire|Q<=0) P(fire|Q>0) pooled Q<=0 pooled Q>0 | budget on Q>0 states only (= signed gate there): seed-mean / pooled
+tt      600000        0.909       0.953       0.913      0.937 | 0.278 / 0.318
+tt     1200000        0.938       0.926       0.930      0.883 | 0.262 / 0.371
+tt     2000000        0.983       0.910       0.980      0.807 | 0.197 / 0.341
+lit     600000        1.000       0.045       1.000      0.045 | 0.989 / 0.989
+lit    1000000        1.000       0.074       1.000      0.074 | 0.962 / 0.962
+  -> signed mean budget = P(Q<=0)*1 + P(Q>0)*budget_on_Q>0; it lands near the band by mixing un-gated states (budget 1) with heavily tightened ones.
+
+C2. Per-seed signed budget (T = 0.07) on seeds where the signed gate fires at all; near-never = engagement <= 0.01
+  tt   600000: never 3/15, near-never 3/15; fired seeds (n=12) budget range 0.402-0.940, 4 of them >= 0.76; values [0.4, 0.54, 0.54, 0.64, 0.66, 0.66, 0.67, 0.69, 0.79, 0.79, 0.91, 0.94]
+     seed-level corr(frac Q<=0, signed budget) = 0.935
+  tt  1200000: never 5/15, near-never 7/15; fired seeds (n=10) budget range 0.227-0.996, 3 of them >= 0.76; values [0.23, 0.33, 0.44, 0.58, 0.67, 0.67, 0.74, 0.79, 1.0, 1.0]
+     seed-level corr(frac Q<=0, signed budget) = 0.880
+  tt  2000000: never 5/15, near-never 7/15; fired seeds (n=10) budget range 0.351-0.997, 5 of them >= 0.76; values [0.35, 0.37, 0.39, 0.6, 0.71, 0.85, 0.88, 0.94, 0.99, 1.0]
+     seed-level corr(frac Q<=0, signed budget) = 0.759
+
+C3. Logged would_engage (replay, |Q|, T=0.07) vs on-policy |Q| engagement, seed level
+  tt     600000: means 0.914 vs 0.922; corr 0.957; mean |diff| 0.025
+  tt    1200000: means 0.930 vs 0.912; corr 0.798; mean |diff| 0.042
+  tt    2000000: means 0.920 vs 0.929; corr 0.998; mean |diff| 0.012
+  lit    600000: means 0.070 vs 0.046; corr 0.808; mean |diff| 0.025
+  lit   1000000: means 0.037 vs 0.075; corr -0.111; mean |diff| 0.069
+
+C4. Specific per-seed statements
+  tt s103 @600000: median Q_bar -630.815, mean return (5 ep) 1.4, eng|Q| 1.000, eng signed 0.000
+  tt s103 @1200000: median Q_bar -668.394, mean return (5 ep) -0.2, eng|Q| 1.000, eng signed 0.000
+  tt s103 @2000000: median Q_bar -358.337, mean return (5 ep) -0.2, eng|Q| 1.000, eng signed 0.000
+  tt s108 @2000000: median Q_bar -0.805, mean return (5 ep) 24.2, eng|Q| 1.000, eng signed 0.003
+
+C5. DESCRIPTIVE - gated E1 lagu-tt s100-114, interval rows with step > 300k: logged qbar_avg sign and engagement
+  gated E1  : rows 510, qbar_avg <= 0 in 0.976; median |qbar_avg| 1.592; n_risk-weighted engagement: rows with qbar_avg<=0 0.921, rows with qbar_avg>0 0.825
+  ungated E1: rows 510, qbar_avg <= 0 in 0.716; median |qbar_avg| 0.633; n_risk-weighted would_engage: rows with qbar_avg<=0 0.945, rows with qbar_avg>0 0.809
+
+==============================================================================================================
+D. Re-run of a byte-identical copy of the author's make.py (scratch tree, symlinked results/ and lagu/)
+==============================================================================================================
+[cached] returncode 0; copy byte-identical to author's make.py: True; cache files after run: 65
+    tables.txt: byte-identical
+    part1_dose_windows.csv: byte-identical
+    part2_signed_counterfactual.csv: byte-identical
+    part2_per_seed.csv: byte-identical
+    fig_budget_vs_step.png: byte-identical
+    fig_signed_counterfactual.png: byte-identical
+    fig_budget_vs_step.pdf: bytes differ (PDF metadata expected)
+    fig_signed_counterfactual.pdf: bytes differ (PDF metadata expected)
+[fresh] returncode 0; copy byte-identical to author's make.py: True; cache files after run: 65
+    tables.txt: differs on 1 line(s) (+0 length): L61: ' bootstrap over seeds]. Rollouts: 65 from cache, 0 computed.' -> ' bootstrap over seeds]. Rollouts: 0 from cache, 65 computed.'
+    part1_dose_windows.csv: byte-identical
+    part2_signed_counterfactual.csv: byte-identical
+    part2_per_seed.csv: byte-identical
+    fig_budget_vs_step.png: byte-identical
+    fig_signed_counterfactual.png: byte-identical
+    fig_budget_vs_step.pdf: bytes differ (PDF metadata expected)
+    fig_signed_counterfactual.pdf: bytes differ (PDF metadata expected)
