@@ -21,3 +21,8 @@ d416e21b9b61f7e0189ad2528f2093df4bce3840d15b4747a88dfd949060b651  safe2/seeds.py
 be9a570ab6ff914093adf79afb17f6c11fbbd5db0d100ee02ecce117cc0ac014  safe2/train.py
 c08fe76fd27f2f14cc8c183f746a380d433fa839d6b8f69bb2a376ba2a688109  prereg_method.md
 1a7328636003641a0d4236f697dfab9eb2623127245fe56fc008908e7a301836  results/method/keys/seal_pub.pem
+# method-v0.5 2026-10-15T23:24:21+00:00
+d0dd4893f4b324575e485a6675dff7c7045d12cecbe55dcbe7da6396f2e89c77  results/method/v05.json
+
+# method-v0.5 (2026-10-16): B* selection record
+d0dd4893f4b324575e485a6675dff7c7045d12cecbe55dcbe7da6396f2e89c77  results/method/v05.json

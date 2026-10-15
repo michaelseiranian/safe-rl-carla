@@ -1253,25 +1253,40 @@ Filled in at each gate. Every entry is committed and pushed before the stage tha
     reports the baseline pool, SHL (exploratory) and these gates (sections 5, 12, 18).
   - Outputs: `results/method/stage0/g0a.json`, `g0b.json`, logs `results/method/stage0_g0a.log`
     and `stage0_g0b.log`; S0-1 and S0-4 (exploratory/descriptive) in `results/method/stage0/`.
-- P1 baselines:
-  - baseline scores, top 3, seeds 3-5 scores;
-  - B*, L*, Sauté*, R_B*(P1), R_ref(PointGoal1);
-  - the G0a and G0b decisions;
-  - `method-v0.5` pushed:
-  `TBD`
-- Candidates:
-  - the BVS* and SHL* configs, the P2 results and the kill outcomes;
-  - ρ*, m_PHS and R_ref (all tasks);
-  - `method-v1` pushed:
-  `TBD`
+- P1 baselines (2026-10-15/16; selection score from in-training rows at 800k-1M, PointGoal1,
+  `results/method/p1/top3.json` and `results/method/v05.json`):
+  - Seeds 0-2, mean return / mean cost / score: B5 10.25 / 26.92 / 8.32; B3 26.47 / 42.89 / 8.58;
+    B4 15.11 / 32.51 / 7.60; B2 7.08 / 24.10 / 7.08; B6 9.51 / 28.56 / 5.96; B1 22.55 / 43.66 /
+    3.89. B7, B7b, B7c, B8, B9, SauteA and SauteB were ineligible (at least 2 of 3 seeds
+    collapsed). R2 (unconstrained) return 28.05 = R_ref(PointGoal1). Top 3: B5, B3, B4.
+  - Seeds 0-5 for the top 3: B5 8.83 / 24.78 / 8.83 (1 collapse); B4 15.90 / 32.26 / 8.65
+    (0 collapses); B3 26.43 / 44.53 / 6.90. B5 and B4 tie within 0.5, so fewer collapses decides:
+    **B* = B4**. Sauté* = SauteB, L* = SauteB. R_B*(P1) = 15.90.
+  - G0a: fail (mean return 13.97 against max(18, R_B*(P1) + 6) = 21.90). G0b: fail. BVS stays
+    killed.
+  - `method-v0.5` pushed: see the tag (commit recorded in the next entry's git history).
+- Candidates (2026-10-16, `results/method/p1/candidates.json`): BVS killed at Stage 0. SHL
+  killed under 8.1(a): no SHL config was eligible (at least 2 of 3 seeds collapsed in all four;
+  scores 0.40-6.22). Its premise measure (S0-4, quiet-state share of penalty action-gradient mass)
+  was 0.70-0.89 in all 12 SHL runs, above the 0.6 of rule 8.4. No candidate remains, so P2,
+  `method-v1` and the candidate confirmatory runs are not made.
 - Hash-log pushes (daily): `TBD`
 - Cuts (`cuts.json` commits) and reruns: `TBD`
 - Unblinded (UTC, SHA): `TBD`
 
 ## 22. Deviations
 
-None yet. (Changes made before `method-v0` are amendments, listed in the closing section "Pre-v0
-amendments (2026-10-14)", not deviations.)
+Changes made before `method-v0` are amendments, listed in the closing section "Pre-v0
+amendments (2026-10-14)", not deviations.
+
+1. *2026-10-16, author decision (made on 2026-10-14, after the Stage-0 kill and before any P1
+   baseline outcome was read): the confirmatory stage (section 9) is not run.* With BVS killed the
+   primary family is empty and no confirmatory claim can be made (section 12); the remaining
+   confirmatory arms (B*, R1, Sauté*, with PHS dropped) would give only descriptive baseline
+   results, at about 40 plugged-in hours. The baseline results are reported from P1 (seeds 0-2,
+   and 0-5 for the top 3) as descriptive selection-stage numbers, not as held-out confirmatory
+   results.
+
 
 ---
 
