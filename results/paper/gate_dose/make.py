@@ -380,53 +380,55 @@ def style():
 
 
 def fig_budget(data, plt):
+    # Sized so that, scaled to the paper's 6.5 in text width, the text prints at about 8 pt or more.
     panels = [
-        ("PointGoal1, two-timescale recipe (tt), 2M steps",
+        ("PointGoal1, two-timescale\nrecipe (tt), 2M steps",
          [("E1", "T=0.07 (E1, s100-114)", C_BLUE, "-"), ("T035", "T=0.035 (E4)", C_ORANGE, "--"),
-          ("T14", "T=0.14 (E4)", C_AQUA, "-."), ("ggrad", "T=0.07, gate_grad=1 (E2 ext.)", C_YELLOW, ":")]),
-        ("PointGoal1, literal recipe (lit), 1M steps",
+          ("T14", "T=0.14 (E4)", C_AQUA, "-."), ("ggrad", "T=0.07, gate_grad=1 (ggrad, s100-109)", C_YELLOW, ":")]),
+        ("PointGoal1, literal\nrecipe (lit), 1M steps",
          [("lit", "T=0.07 (E1b)", C_BLUE, "-"), ("litT03", "T=0.03 (X1)", C_ORANGE, "--")]),
-        ("Other tasks (E3), tt, 2M steps, T=0.07",
-         [("car", "CarGoal1 (delta0 2.5)", C_VIOLET, "-"), ("circle", "PointCircle1 (delta0 5.0)", C_MAGENTA, "--")]),
+        ("Other tasks (E3), tt,\n2M steps, T=0.07",
+         [("car", r"CarGoal1 ($\delta_0$ = 2.5)", C_VIOLET, "-"),
+          ("circle", r"PointCircle1 ($\delta_0$ = 5.0)", C_MAGENTA, "--")]),
     ]
-    rows = [("delta_avg", "n_pi", "mean budget, all policy updates\n(delta_avg / delta0)"),
-            ("delta_risk_avg", "n_risk", "mean budget, risk-sensitive updates\n(delta_risk_avg / delta0)")]
-    fig, axes = plt.subplots(2, 3, figsize=(13.5, 7.0), sharey=True)
-    for ri, (col, wcol, ylab) in enumerate(rows):
-        for ci, (title, series) in enumerate(panels):
-            ax = axes[ri, ci]
-            band = ax.axhspan(*REF_BAND, color="#9a9890", alpha=0.25, lw=0, zorder=0)
-            ax.axhline(1.0, color=INK2, lw=0.8, ls=(0, (1, 2)), zorder=1)
-            ax.axvline(0.3, color=INK2, lw=0.8, ls=(0, (4, 3)), zorder=1)
-            if ri == 0 and ci == 0:
-                ax.text(0.33, 1.015, "Tc = 300k: exploration prob. reaches its 0.1 floor", fontsize=7,
-                        color=INK2, va="bottom")
-            for key, lab, color, ls in series:
-                step, m, lo, hi = part1_curves(data[key], col, wcol)
-                x = step / 1e6
-                ax.fill_between(x, lo, hi, color=color, alpha=0.15, lw=0)
-                ax.plot(x, m, color=color, ls=ls, label=lab, marker="o", ms=2.5)
-            ax.set_ylim(0, 1.08)
-            ax.set_xlim(0, 2.05 if ci != 1 else 1.03)
-            if ri == 0:
-                ax.set_title(title)
-            if ri == 1:
-                ax.set_xlabel("training step (millions of environment steps)")
+    rows = [("delta_avg", "n_pi", "mean budget, all policy\n" r"updates ($\delta_{\mathrm{avg}}/\delta_0$)"),
+            ("delta_risk_avg", "n_risk", "mean budget, risk-sensitive\n"
+             r"updates ($\delta_{\mathrm{risk,avg}}/\delta_0$)")]
+    with plt.rc_context({"font.size": 11, "axes.titlesize": 11, "axes.labelsize": 11,
+                         "xtick.labelsize": 10.5, "ytick.labelsize": 10.5, "legend.fontsize": 10.5}):
+        fig, axes = plt.subplots(2, 3, figsize=(8.2, 5.6), sharey=True)
+        for ri, (col, wcol, ylab) in enumerate(rows):
+            for ci, (title, series) in enumerate(panels):
+                ax = axes[ri, ci]
+                band = ax.axhspan(*REF_BAND, color="#9a9890", alpha=0.25, lw=0, zorder=0)
+                ax.axhline(1.0, color=INK2, lw=0.8, ls=(0, (1, 2)), zorder=1)
+                ax.axvline(0.3, color=INK2, lw=0.8, ls=(0, (4, 3)), zorder=1)
+                if ri == 0 and ci == 1:            # empty area of this panel; the line is the same in all panels
+                    ax.text(0.32, 0.06, "dashed line: $T_c$ = 300k,\nexploration prob.\nreaches its 0.1 floor",
+                            fontsize=10, color=INK2, va="bottom")
+                for key, lab, color, ls in series:
+                    step, m, lo, hi = part1_curves(data[key], col, wcol)
+                    x = step / 1e6
+                    ax.fill_between(x, lo, hi, color=color, alpha=0.15, lw=0)
+                    ax.plot(x, m, color=color, ls=ls, label=lab, marker="o", ms=2.5)
+                ax.set_ylim(0, 1.08)
+                ax.set_xlim(0, 2.05 if ci != 1 else 1.03)
+                if ri == 0:
+                    ax.set_title(title)
+                if ri == 1:
+                    ax.set_xlabel("environment steps (millions)")
+                if ci == 0:
+                    ax.set_ylabel(ylab)
+        fig.tight_layout()
+        for ci in range(3):                        # legends under each column, added after the layout is fixed
+            h, l = axes[0, ci].get_legend_handles_labels()
             if ci == 0:
-                ax.set_ylabel(ylab)
-    fig.suptitle("DESCRIPTIVE: the gate's mean budget delta_ada / delta0 during training (pooled over seeds; "
-                 "shading = 95% bootstrap over seeds; each point = the 50k interval ending there)\n"
-                 "grey band = 0.76-0.88 delta0, as we read Zhang et al. Fig. 5(d); dotted line = delta0 (no "
-                 "tightening); dashed line = Tc = 300k", fontsize=9.5, x=0.01, ha="left")
-    fig.tight_layout(rect=(0, 0, 1, 0.95))
-    for ci in range(3):                        # legends under each column, added after the layout is fixed
-        h, l = axes[0, ci].get_legend_handles_labels()
-        if ci == 0:
-            h, l = h + [band], l + ["0.76-0.88: as we read Zhang et al. Fig. 5(d)"]
-        axes[1, ci].legend(h, l, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2 if ci == 0 else 1,
-                           handlelength=2.6)
-    for ext in ("pdf", "png"):
-        fig.savefig(os.path.join(HERE, f"fig_budget_vs_step.{ext}"), dpi=200, bbox_inches="tight", pad_inches=0.1)
+                h, l = h + [band], l + ["0.76-0.88: as we read\nZhang et al. Fig. 5(d)"]
+            axes[1, ci].legend(h, l, loc="upper center", bbox_to_anchor=(0.5, -0.28), ncol=1,
+                               handlelength=2.6)
+        for ext in ("pdf", "png"):
+            fig.savefig(os.path.join(HERE, f"fig_budget_vs_step.{ext}"), dpi=200, bbox_inches="tight",
+                        pad_inches=0.1)
     plt.close(fig)
 
 
