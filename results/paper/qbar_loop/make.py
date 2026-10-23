@@ -217,10 +217,10 @@ def figure(res, lagu, nogate):
                Line2D([], [], color=C2, lw=1.2, label="lagu-tt seeds 115-119 (added in the sensitivity set)"),
                Line2D([], [], color=INK, lw=2.2, label="pooled over rows after 300k / cell mean, seeds 100-114"),
                Line2D([], [], color=INK, lw=2.2, ls=(0, (1.2, 1.6)), label="same, seeds 100-119"),
-               Line2D([], [], color=INK2, lw=1.2, ls=(0, (4, 3)), label="pre-registered threshold")]
+               Line2D([], [], color=INK2, lw=1.2, ls=(0, (4, 3)), label="pre-specified threshold")]
     fig.legend(handles=handles, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.5, -0.12), fontsize=8)
     yn = lambda b: "met" if b else "not met"
-    fig.suptitle("DESCRIPTIVE - prereg section 9 |Q̄| feedback-loop prediction, SafetyPointGoal1-v0, 2M steps. "
+    fig.suptitle("DESCRIPTIVE - plan section 9 |Q̄| feedback-loop prediction, SafetyPointGoal1-v0, 2M steps. "
                  f"Antecedent (median |qbar_avg| < {THR_Q}): {yn(rp['antecedent_met'])} for s100-114, "
                  f"{yn(rs['antecedent_met'])} for s100-119", fontsize=10, color=INK, x=0.01, ha="left")
     for ext in ("pdf", "png"):

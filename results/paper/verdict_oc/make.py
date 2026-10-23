@@ -328,21 +328,26 @@ def fig_probabilities(res: dict) -> None:
 
 
 def fig_robustness(rb: dict, rc: dict) -> None:
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10.5, 3.8))
+    plt.rcParams.update({"font.size": 10.5})
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(8.0, 3.9))
     t = [r["threshold"] for r in rb["rows"]]
     ca, cb = [r["collapses_a"] for r in rb["rows"]], [r["collapses_b"] for r in rb["rows"]]
     a1.plot(t, ca, "-o", color="#1baf7a", lw=2, ms=6, label="lagu-tt (gate)")      # slot 3 (aqua)
     a1.plot(t, cb, "-s", color="#4a3aa7", lw=2, ms=6, label="lagu_nogate-tt")      # slot 7 (violet)
     a1.axvline(5, color=INK2, lw=1, ls="--")
-    a1.text(5.15, 14.3, "pre-registered (5)", fontsize=7.5, color=INK2, va="top")
-    for x, ya, yb, r in zip(t, ca, cb, rb["rows"]):
-        a1.text(x, max(ya, yb) + 0.7, r["label"], ha="center", fontsize=7, color=INK2)
+    a1.text(5.15, 14.3, "pre-specified (5)", fontsize=9.5, color=INK2, va="top")
+    labels = {r["label"] for r in rb["rows"]}
+    if len(labels) == 1:                         # one label at every threshold: state it once
+        a1.text(12, 6.6, f"H3 label: {labels.pop()}\nat every threshold", ha="right", va="top", fontsize=9.5, color=INK2)
+    else:
+        for x, ya, yb, r in zip(t, ca, cb, rb["rows"]):
+            a1.text(x, max(ya, yb) + 0.7, r["label"], ha="center", fontsize=8, color=INK2)
     a1.set_xlabel("collapse threshold (held-out return, return units)")
     a1.set_ylabel("collapsed runs (of 15)")
     a1.set_ylim(0, 15.5)
     a1.set_xticks(t)
-    a1.set_title("(a) EXPLORATORY: E1 collapse counts and H3 label vs threshold", fontsize=9.5, color=INK)
-    a1.legend(frameon=False, loc="center right")
+    a1.set_title("(a) EXPLORATORY: E1 collapses and H3 label\nvs threshold", fontsize=10.5, color=INK)
+    a1.legend(frameon=False, loc="center right", fontsize=9.5)
     lb = np.array(rc["return_lb"])
     w = 0.0005                                   # bin width; 0 is a bin edge, so no bin mixes labels
     bins = w * np.arange(np.floor(lb.min() / w), np.ceil(lb.max() / w) + 1)
@@ -352,12 +357,14 @@ def fig_robustness(rb: dict, rc: dict) -> None:
             label=f"Helps ({100 * rc['fractions']['Helps']:.2f}%)")
     a2.axvline(0, color=INK, lw=1)
     a2.axvline(rc["seed0_return_lb"], color=INK2, lw=1, ls="--")
-    a2.text(rc["seed0_return_lb"], a2.get_ylim()[1] * 0.97, "seed 0 \n(pre-registered) ", fontsize=7.5,
+    a2.set_ylim(0, a2.get_ylim()[1] * 1.45)      # headroom so the legend and note clear the bars
+    a2.text(rc["seed0_return_lb"], a2.get_ylim()[1] * 0.72, "seed 0 \n(pre-specified) ", fontsize=9.5,
             color=INK2, va="top", ha="right")
-    a2.set_xlabel("E1b dReturn 95% lower bound (return units)")
+    a2.set_xlabel("E1b $\\Delta$return 95% lower bound (return units)")
     a2.set_ylabel(f"bootstrap seeds (of {N_SEEDS_E1B:,})")
-    a2.set_title("(b) DESCRIPTIVE: E1b label vs bootstrap seed", fontsize=9.5, color=INK)
-    a2.legend(frameon=False, loc="upper right", title="label (share of seeds)", title_fontsize=8)
+    a2.set_title("(b) EXPLORATORY (post hoc): E1b label\nvs bootstrap seed", fontsize=10.5, color=INK)
+    a2.legend(loc="upper right", title="label (share of seeds)", title_fontsize=9.5, fontsize=9.5,
+               frameon=True, facecolor=SURF, edgecolor=SURF, framealpha=1)
     for ax in (a1, a2):
         ax.yaxis.grid(True, color=GRID, linewidth=0.6)
         ax.set_axisbelow(True)
