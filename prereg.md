@@ -580,3 +580,60 @@ Filled in at the gates; each entry is committed before the next wave that depend
     SUPPORTED (1.28). Descriptive table: under the literal recipe the trained λ stays at about
     0.3-0.6 of λ* throughout training; under the E1 recipe it is above λ* in 9-13 of 15 runs at
     every 250k checkpoint.
+
+**2026-11-10**
+
+15. *Addendum after the TMLR desk rejection (EXPLORATORY; declared before any of these runs started).*
+    Two independent readings of the rewritten paper raised three questions this plan cannot answer:
+    whether the H3 result holds for the gate as Eq. 16 prints it (with the signed Q̄; the port divides
+    by |Q̄|, and Q̄ ≤ 0 on most slow-policy states); whether the collapse of all ten runs on seeds
+    115-119 (`lagu-tt` and `lagu_nogate-tt-match`) is a property of those seeds (no `lagu_nogate-tt`
+    run exists there); and whether the port reproduces OmniSafe's published TD3-Lag result at 3M
+    steps. Three exploratory experiments address them. None enters the Holm family or changes a
+    confirmatory result, and all are reported whatever their direction, in a new dated item of this
+    section and in the paper.
+    - *Code.* `Config.signed_ratio` (default False) and `--signed-ratio` (`lagu/agent.py`,
+      `lagu/train.py`): the gate divides by the signed Q̄; where Q̄ ≤ 0 the ratio is set to 0, so the
+      gate stays off (Eq. 16 is undefined at Q̄ = 0). `LagU.gate_ratio` computes both forms. The
+      default |Q̄| path is unchanged: all 110 tests pass, including the golden regression test, which
+      hashes every network of every arm after 300 updates; two new tests cover the signed form.
+    - *Environment.* The original `.venv` no longer exists. It was rebuilt from
+      `lagu/requirements.txt`: CPython 3.10.22, torch 2.7.1, numpy 1.23.5, gymnasium 0.28.1,
+      mujoco 2.3.3, safety-gymnasium 1.0.0. A 100k-step replay of `lagu_nogate-tt` s100 with the
+      October settings (output `results/addendum_check/`, committed here) reproduced the October
+      rows at 50k and 100k exactly: every logged column except speed (`sps`) and the resume flag
+      is identical. The rebuilt environment gives the same training computation on this machine.
+    - *Runs* (`results/addendum/`, power-aware queue, at most 12 at once, checkpoints every 100k,
+      evaluation every 50k):
+      (A) `lagu-tt-signed`: arm `lagu`, two-timescale recipe (actor 5e-6, critics 1e-3, λ 2e-6),
+          `--signed-ratio 1`, seeds 100-114, 2M steps;
+      (B) `lagu_nogate-tt`: the same recipe, seeds 115-119, 2M steps;
+      (C) `td3lag-omni`: arm `td3lag`, `--recipe omnisafe`, seeds 0-2, 3M steps.
+    - *Analyses.* Held-out endpoint from `python -m lagu.evaluate results/addendum` (5 snapshots over
+      the last 20% of each run, 20 layouts each); paired 95% bootstrap intervals (10,000 resamples,
+      seed 0); verdict labels descriptive. Each contrast is computed only after checking that every
+      run in it has a held-out file (item 5).
+      (A1) `lagu-tt-signed` vs `lagu_nogate-tt` (`results/gate`), seeds 100-114: Δreturn, Δcost,
+           collapse counts, verdict label.
+      (A2) `lagu-tt-signed` vs `lagu-tt` (the |Q̄| gate), seeds 100-114.
+      (A3) The signed gate's engagement over 25k-300k, whole-run budget(all) and time-averaged λ.
+      (B1) Collapse count of `lagu_nogate-tt` on seeds 115-119, with Fisher's exact test against its
+           3 of 15 on seeds 100-114; and the E1 contrast (`lagu-tt` vs `lagu_nogate-tt`) on the 20
+           seeds 100-119.
+      (C1) `td3lag-omni` at 3M: held-out means and the in-training window over the last 20%, set
+           beside OmniSafe's 25.27 ± 2.74 return and 28.00 ± 15.75 cost (a different protocol;
+           section 14). (C2) Its rows up to 1M against E9.6's runs (`results/pareto`, same seeds).
+      Commands:
+      ```
+      python -m lagu.evaluate results/addendum
+      python -m lagu.analyze results/addendum results/gate --pair lagu-tt-signed lagu_nogate-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 --json results/addendum/a1.json
+      python -m lagu.analyze results/addendum results/gate --pair lagu-tt-signed lagu-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 --json results/addendum/a2.json
+      python -m lagu.analyze results/addendum results/gate --h2 lagu-tt-signed lagu_nogate-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 --json results/addendum/a3.json
+      python -m lagu.analyze results/addendum --budget-D lagu-tt-signed
+      python -m lagu.analyze results/addendum results/gate --pair lagu-tt lagu_nogate-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 --json results/addendum/b1.json
+      ```
+    - *Predictions* (stated now; they are not tests): (P1) the signed gate's whole-run budget(all) is
+      above the |Q̄| gate's 0.449 δ0, because Q̄ ≤ 0 on most slow-policy states; (P2) the A1 return
+      difference is closer to 0 than -10.17; (P3) if the collapses on seeds 115-119 are a property of
+      those seeds, at least 3 of the 5 no-gate runs collapse; (P4) C1's in-training return lies
+      within 2.74 of 25.27.

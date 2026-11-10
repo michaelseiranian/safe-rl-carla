@@ -218,3 +218,31 @@ def test_values_batch_matches_values_at():
     for i in range(4):
         b, _, c = ag.values_at(o[i])
         assert abs(b - qb[i]) < 1e-5 and abs(c - qc[i]) < 1e-5
+
+
+def test_gate_ratio_signed_form_turns_the_gate_off_where_qbar_is_not_positive():
+    std = torch.tensor([0.5, 0.5, 0.5, 0.5])
+    qbar = torch.tensor([-1.0, 0.0, 2.0, 1e-3])
+    ag, cfg = make(delta0=2.5, T=0.07)
+    absr = ag.gate_ratio(std, qbar)
+    assert torch.equal(absr, std / (qbar.abs() + cfg.ratio_eps))       # default: |Q_bar|, unchanged
+    sg, scfg = make(delta0=2.5, T=0.07, signed_ratio=True)
+    sr = sg.gate_ratio(std, qbar)
+    assert sr[0] == 0 and sr[1] == 0                                   # Q_bar < 0 and Q_bar = 0: off
+    assert torch.equal(sr[2:], absr[2:])                               # Q_bar > 0: same as |Q_bar|
+    d = sg.adaptive_delta(sr)
+    assert torch.equal(d[:2], torch.full((2,), 2.5))                   # budget stays at delta0
+    assert d[3] < 2.5                                                  # small positive Q_bar tightens
+
+
+def test_signed_ratio_defaults_off_and_leaves_the_gated_update_unchanged():
+    def trained(**kw):
+        ag, _ = make(**kw)
+        torch.manual_seed(1)                  # the target-smoothing noise uses the global generator
+        for i in range(4):
+            ag.update(batch(seed=i))
+        return ag
+    base, same = trained(), trained(signed_ratio=False)
+    assert base.cfg.signed_ratio is False
+    for p, q in zip(base.actor.parameters(), same.actor.parameters()):
+        assert torch.equal(p, q)

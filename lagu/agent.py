@@ -83,6 +83,7 @@ class Config:
     use_gate: bool = True        # delta_ada in the risk-sensitive update    (Eq. 16-18)
     action_noise: float = 0.0    # Gaussian action noise; the paper cancels it for Lag-U
     ratio_eps: float = 1e-6      # guards sqrt(Q_eu) / |Q_bar| when Q_bar is near 0
+    signed_ratio: bool = False   # Eq. 16 as printed: divide by the signed Q_bar (gate off where Q_bar <= 0)
 
 
 class LagU:
@@ -192,6 +193,17 @@ class LagU:
             torch.nn.utils.clip_grad_norm_(params, self.cfg.max_grad_norm)
         opt.step()
 
+    def gate_ratio(self, std: torch.Tensor, qbar: torch.Tensor) -> torch.Tensor:
+        """sqrt(Q_eu) / Q_bar for Eq. 16. By default the port divides by |Q_bar| (a symmetric extension).
+        With signed_ratio it divides by the signed Q_bar as printed. Where Q_bar < 0 that ratio is
+        negative, below any threshold, so the gate is off; this returns 0 there and at Q_bar = 0, where
+        Eq. 16 is undefined, which gives the same update (delta0). Logged ratio quantiles therefore
+        read 0 on those states. Added 2026-11-10 for the signed-gate arm (plan section 16, item 15)."""
+        q = qbar.detach()
+        if self.cfg.signed_ratio:
+            return torch.where(q > 0, std / (q + self.cfg.ratio_eps), torch.zeros_like(std))
+        return std / (q.abs() + self.cfg.ratio_eps)
+
     def adaptive_delta(self, ratio: torch.Tensor) -> torch.Tensor:
         """Eq. 16: delta0 below the threshold, delta0 * T / ratio above it."""
         d0, T = self.cfg.delta0, self.cfg.T
@@ -272,7 +284,7 @@ class LagU:
         qc = self.qc_pi(o, a_pi)
         # sqrt(Q_eu) / Q_bar, Eq. 16. With gate_grad the actor gradient flows through sqrt(Q_eu) only:
         # through |Q_bar| it would flip sign when Q_bar < 0 and push the actor to LOWER the reward value.
-        ratio = std / (qbar.detach().abs() + cfg.ratio_eps)
+        ratio = self.gate_ratio(std, qbar)
         if not cfg.gate_grad:
             ratio = ratio.detach()
         delta = torch.full_like(qc, cfg.delta0)

@@ -207,6 +207,8 @@ def main() -> None:
     p.add_argument("--pi-norm", type=int, default=None, help="1 = actor loss / (1 + lambda)")
     p.add_argument("--cost-target-online", type=int, default=None)
     p.add_argument("--gate-grad", type=int, default=0, help="1 = differentiate through delta_ada (via sqrt(Q_eu))")
+    p.add_argument("--signed-ratio", type=int, default=0,
+                   help="1 = divide by the signed Q_bar as Eq. 16 prints it (gate off where Q_bar <= 0)")
     p.add_argument("--cost-twin", type=int, default=0, help="1 = pessimistic twin cost critic (max target)")
     p.add_argument("--cost-clamp", type=int, default=0, help="1 = clamp cost targets to [0, c_max/(1-gamma)]")
     p.add_argument("--hidden", type=int, default=256)
@@ -244,6 +246,7 @@ def main() -> None:
     delta0 = args.delta0 if args.delta0 is not None else args.cost_limit / horizon / (1.0 - gamma)
     cfg = Config(hidden=args.hidden, gamma=gamma, delta0=delta0, dual=args.dual,
                  cost_limit=args.cost_limit, gate_grad=bool(args.gate_grad),
+                 signed_ratio=bool(args.signed_ratio),
                  cost_twin=bool(args.cost_twin), cost_clamp=bool(args.cost_clamp), **ARMS[args.arm])
     for k in ("T", "lambda_lr", "lambda_init", "lambda_max", "actor_lr", "critic_lr", "max_grad_norm"):
         if getattr(args, k) is not None:
