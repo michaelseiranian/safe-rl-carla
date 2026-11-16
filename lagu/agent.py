@@ -57,6 +57,12 @@ class Config:
     max_grad_norm: float = 0.0   # 0 = no clipping. OmniSafe: 40 on actor and every critic
     pi_norm: bool = False        # divide the actor loss by (1 + lambda) (OmniSafe, Stooke et al. 2020)
     cost_target_online: bool = False  # cost TD target uses the online actor with no smoothing noise (OmniSafe)
+    cost_target_noise: bool = True    # True (the port): the cost TD target uses the smoothed target action,
+                                      # like Eq. 12. False: Eq. 14 as printed, the target policy's action
+                                      # with no smoothing noise. Ignored when cost_target_online is set.
+    init: str = "default"             # "default": PyTorch's nn.Linear initialisation (the port).
+                                      # "glorot": Glorot-uniform weights and zero biases in every network
+                                      # (the paper says "glorot initialization" without naming the variant).
     lambda_max: float = 0.0      # 0 = unbounded; otherwise clamp lambda to [0, lambda_max]
     lambda_lr: float = 1e-5      # alpha_lambda in Eq. 9 / Eq. 18            (paper: 1e-5, MetaDrive cost scale)
     lambda_init: float = 0.0
@@ -90,17 +96,19 @@ class LagU:
     def __init__(self, obs_dim: int, act_dim: int, cfg: Config, device: str = "cpu", seed: int = 0):
         self.cfg = cfg
         self.device = torch.device(device)
-        self.actor = Actor(obs_dim, act_dim, cfg.hidden).to(self.device)
+        if cfg.init not in ("default", "glorot"):
+            raise ValueError(f"unknown init {cfg.init!r}")
+        self.actor = self._initialised(Actor(obs_dim, act_dim, cfg.hidden)).to(self.device)
         self.actor_targ = copy.deepcopy(self.actor)
-        self.members = nn.ModuleList(
-            [TwinQ(obs_dim, act_dim, cfg.hidden) for _ in range(cfg.M)]).to(self.device)
+        self.members = self._initialised(nn.ModuleList(
+            [TwinQ(obs_dim, act_dim, cfg.hidden) for _ in range(cfg.M)])).to(self.device)
         self.members_targ = copy.deepcopy(self.members)
-        self.cost = mlp(obs_dim + act_dim, 1, cfg.hidden).to(self.device)
+        self.cost = self._initialised(mlp(obs_dim + act_dim, 1, cfg.hidden)).to(self.device)
         self.cost_targ = copy.deepcopy(self.cost)
         cost_params = list(self.cost.parameters())
         targets = [self.actor_targ, self.members_targ, self.cost_targ]
         if cfg.cost_twin:
-            self.cost2 = mlp(obs_dim + act_dim, 1, cfg.hidden).to(self.device)
+            self.cost2 = self._initialised(mlp(obs_dim + act_dim, 1, cfg.hidden)).to(self.device)
             self.cost2_targ = copy.deepcopy(self.cost2)
             cost_params += list(self.cost2.parameters())
             targets.append(self.cost2_targ)
@@ -125,6 +133,16 @@ class LagU:
         self.stats: dict = {}      # last critic update
         self.pi_stats: dict = {}   # last policy update
         self.reset_counters()
+
+    def _initialised(self, net: nn.Module) -> nn.Module:
+        """Return net as built (cfg.init == "default": no extra random draws, so earlier runs reproduce
+        exactly) or re-initialised with Glorot-uniform weights and zero biases (cfg.init == "glorot")."""
+        if self.cfg.init == "glorot":
+            for m in net.modules():
+                if isinstance(m, nn.Linear):
+                    nn.init.xavier_uniform_(m.weight)
+                    nn.init.zeros_(m.bias)
+        return net
 
     # ------------------------------------------------------------------ acting
     @torch.no_grad()
@@ -256,7 +274,12 @@ class LagU:
                 return (pi2 + eps).clamp(-1.0, 1.0)
             # each member bootstraps from the min of ITS OWN twin targets, with its own noise (Eq. 12)
             targets = [r + cfg.gamma * (1.0 - d) * torch.min(*mt(o2, smoothed())) for mt in self.members_targ]
-            a2c = self.actor(o2) if cfg.cost_target_online else smoothed()
+            if cfg.cost_target_online:
+                a2c = self.actor(o2)
+            elif cfg.cost_target_noise:
+                a2c = smoothed()
+            else:
+                a2c = pi2                    # Eq. 14 as printed: pi_theta'(s') without smoothing noise
             c_targ = c + cfg.gamma * (1.0 - d) * self.qc_target(o2, a2c)
             if cfg.cost_clamp:
                 c_targ = c_targ.clamp(0.0, cfg.cost_max / (1.0 - cfg.gamma))

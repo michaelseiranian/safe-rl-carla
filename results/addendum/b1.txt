@@ -1,0 +1,24 @@
+== lagu-tt - lagu_nogate-tt  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [2000000]
+  pairs 20 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119]
+  return A 4.24  B 15.01  A-B -10.77  95% [-15.53, -5.44]  90% [-14.85, -6.31]  Wilcoxon p=0.0009  TOST(+-2.5) no
+  cost   A 32.85  B 40.62  A-B -7.77  95% [-22.40, 8.53]  90% [-20.39, 5.84]  Wilcoxon p=0.2162  TOST(+-5.0) no
+  collapses (return < 5 or diverged): A 14  B 4  Fisher p=0.0036
+  verdict: Hurts
+  sensitivity without the pairs containing a resumed run (seeds [100, 101, 102, 103, 104, 105, 109, 110, 111, 112, 113, 114]):
+    pairs 8 (left out, non-finite: 0)  seeds [106, 107, 108, 115, 116, 117, 118, 119]
+    return A 1.66  B 15.47  A-B -13.81  95% [-19.06, -8.39]  90% [-18.30, -9.13]  Wilcoxon p=0.0078  TOST(+-2.5) no
+    cost   A 38.98  B 44.32  A-B -5.34  95% [-35.47, 31.62]  90% [-31.74, 25.23]  Wilcoxon p=0.6406  TOST(+-5.0) no
+    collapses (return < 5 or diverged): A 7  B 1  Fisher p=0.0101
+    verdict: Hurts
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                  4.304    15.327   -11.023  [-15.891, -5.607]   0.001  20
+    window_cost                   25.462    40.241   -14.779  [-24.992, -4.777]   0.014  20
+    cum_cost                   71101.750 86088.300 -14986.550  [-31213.822, 1036.116]  0.058  20
+    cum_cost_500k              17402.850 23202.000 -5799.150  [-10241.355, -2186.643]  0.003  20
+    lambda_avg                     0.321   147.913  -147.592  [-442.877, 0.135]   0.648  20
+    lambda_shadow                  0.017   449.600  -449.583  [-1348.317, -0.178]  0.000  20
+    engagement                     0.839     0.000     0.839  [0.796, 0.879]      0.000  20
+    would_engage                   0.930     0.947    -0.016  [-0.090, 0.066]     0.622  20
+    qc_avg                         0.769   327.437  -326.668  [-977.358, -1.065]  0.000  20
+    calib                          1.653    56.322   -54.670  [-166.740, 1.924]   0.812  20
+wrote results/addendum/b1.json
