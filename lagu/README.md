@@ -56,6 +56,14 @@ deleted once a run is finished and analysed.
 Not in the paper, chosen here: policy delay 2, target smoothing 0.2/0.5, Polyak 0.005, batch 256,
 10k random warm-up steps, replay 500k.
 
+Both switches were run on 16 November 2026 (`results/addendum2`; `prereg.md` section 16, items 17
+and 18; exploratory): the literal recipe with `--cost-target-noise 0 --init glorot`, no gate and the
+signed gate, seeds 100-109, 1M steps. The cost critic's held-out calibration did not change detectably
+(0.521 against 0.438 for the October no-gate runs; paired difference +0.056, 95% [-0.024, +0.170]) and
+no run ended at or below the cost limit. With these settings the policy on seed 101 saturated and
+never learned, in both arms, so the configuration closest to the paper's description trained less
+reliably here than the port's defaults.
+
 `--recipe omnisafe` reproduces OmniSafe 0.5.0's SafetyPointGoal1 TD3Lag settings, read from its
 source: actor lr 5e-6, critic lr 1e-3, gradient clip 40, actor loss / (1 + lambda), cost target from
 the online actor without smoothing noise, 25k random steps, 1M replay, and an Adam dual at 5e-7

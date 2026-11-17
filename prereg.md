@@ -753,3 +753,87 @@ Filled in at the gates; each entry is committed before the next wave that depend
       exceeds 25 and no D run ends at or below 25; (Q3) the 95% interval of K2's difference in
       held-out cost includes zero; (Q4) the 95% intervals of K3's differences in return and in cost
       both include zero, and the signed gate's whole-run budget(all) is above 0.9 δ0.
+
+18. *Second addendum results (EXPLORATORY; item 17).* Computed 2026-11-16 at 20:21 UTC, after
+    `lagu.evaluate` wrote a held-out file for each of the 20 runs. Item 17, the code and
+    `results/addendum2/make.py` were public as commit 19cb141 (pushed at 05:37:32 UTC) before the
+    first run started (05:37:42 UTC). Every run reached 1M steps (the last at 20:15 UTC), none was
+    resumed and no log reports an error. The saved configuration of each D run differs from that
+    of the October `lagu_nogate-lit` run on the same seed only in the three switches, the output
+    directory and the tag; each G run differs from its D run only in `use_gate`. Each held-out
+    file covers 5 snapshots over the last 20% of its run, 20 episodes each. `make.py` wrote
+    `k.txt` and `k.json`; a separate recomputation from the result files gave the same values.
+    Paired 95% bootstrap intervals over seeds; labels descriptive; no multiplicity correction.
+    - (K1) Pooled held-out calibration: D 0.521, 95% [0.429, 0.657], per run 0.376 to 0.945;
+      October `lagu_nogate-lit` 0.438, 95% [0.386, 0.476], per run 0.222 to 0.530. Mean paired
+      difference of the per-run calibrations: +0.056, 95% [-0.024, +0.170]. Mean gap E[Q_c - δ]:
+      +0.444 against +0.011. Multiplier: largest median over runs 0.078 at 0.85M (October: 0.064
+      at 0.85M); largest value in any run 16.25 (0.202); mean time average 0.737 (0.038).
+    - (K2) D against `lagu_nogate-lit`: return 22.98 vs 26.98, difference -4.00, 95% [-9.46,
+      -0.33] (Wilcoxon p = 0.027); cost 52.42 vs 50.82, difference +1.60, 95% [-2.95, +8.52]
+      (p = 0.70); collapsed runs 1 vs 0 (Fisher p = 1.00). Label: Hurts. Secondary endpoints whose
+      95% interval excludes zero: in-training window return -4.13 [-9.44, -0.60] (p = 0.006);
+      `would_engage` +0.075 [0.011, 0.160] (p = 0.049; the two arms log different ratios, signed
+      and |Q̄|). All secondary rows are in `k.txt`.
+    - (K3) G against D: return 24.38 vs 22.98, difference +1.40, 95% [0.09, 3.42] (Wilcoxon
+      p = 0.13); cost 52.32 vs 52.42, difference -0.10, 95% [-3.07, +2.48], 90% [-2.51, +2.13],
+      inside the margin of ±5; collapsed runs 1 vs 1. Label: Helps. Time-averaged λ: 0.776 vs
+      0.737, median paired difference -0.004, one-sided Wilcoxon p = 0.72 (H2's rule would read
+      refuted_lambda). The signed gate fired on 0.311 of samples over 25k-300k, 95% [0.220, 0.392],
+      on 0.084 over 300k-1M [0.038, 0.147] and on 0.127 over the whole run [0.098, 0.163]; its
+      budget(all) was 0.928, 0.962 and 0.952 δ0 on the same windows (whole run: 95% [0.929,
+      0.969]). Secondary endpoints whose 95% interval excludes zero, besides engagement:
+      in-training window return +1.38 [0.19, 3.22] (Wilcoxon p = 0.027); cumulative training cost
+      at 500k +796 [27, 1737] (p = 0.16; 27264 vs 26468); `lambda_shadow` -0.066 [-0.137, -0.013]
+      (p = 0.037). The Wilcoxon tests of K3's return (p = 0.13) and cost (p = 0.91) rest on 9
+      non-zero differences, because the two runs on seed 101 are identical.
+    - (K4) Runs with held-out cost ≤ 25: 0 of 10 in D, in G and in `lagu_nogate-lit`. Lowest
+      cost of a run: 46.46 (D), 42.04 (G), 46.07 (`lagu_nogate-lit`).
+    - *Contingent step.* Neither interval excludes zero (calibration [-0.024, +0.170]; cost
+      [-2.95, +8.52]), so the two single-change arms are not run.
+    - *Predictions.* Q1 holds (0.521 < 0.65; the upper end of its interval, 0.657, is above
+      0.65). Q2 holds (mean 52.42; lowest run 46.46). Q3 holds. Q4 fails: K3's interval for
+      return excludes zero. Its other two parts hold (the cost interval includes zero; budget(all)
+      0.952 > 0.9 δ0).
+    - *Not planned: what stands behind the differences* (`results/addendum2/extra.py`, written
+      after `k.txt` was read; output `extra.txt`, `extra.json`; descriptive, no declared number is
+      replaced).
+      (i) Seed 101, in D and in G: the policy never learned. Training return stayed between
+      -0.25 and +0.13 at all 20 logged rows; the in-training evaluation returned the same values
+      (return 0.04, cost 4.2) at every row from 100k on; held-out return -0.04 and cost 78.21 in
+      both arms; λ rose to 16.25 (D) and 17.58 (G). The policy network's output was the same in
+      every state: over 4096 fixed inputs the standard deviation of each action component was at
+      most 0.003 at the saved steps 50k, 100k and 1M (seed 100: 0.20 to 0.99). The October runs
+      on seed 101, with PyTorch's default initialisation, reached a training return above 10 at
+      50k. Seed 104 also began with a training return near zero in both arms, and recovered
+      (training return ≥ 10 from 150k in D and from 300k in G; λ peaked at 0.65 and 2.24). In the October runs every seed
+      reached a training return of 10 by 100k.
+      (ii) Seed 109 in D: from 500k on, training return 16.1 to 19.8 with λ between 0.156 and
+      0.226; held-out return 16.70 and cost 49.33. G on seed 109: 26.28 and 50.67, λ at most
+      0.088.
+      (iii) K3's return differences per seed (100 to 109): +0.75, 0.00, -0.51, -0.24, +0.61,
+      +0.01, +2.57, -0.23, +1.49, +9.58. Without seed 109: +0.49, 95% [-0.06, +1.15] (9 pairs).
+      K2's return difference without seeds 101 and 109: -0.53, 95% [-1.16, +0.02] (8 pairs);
+      without seed 101 only: -1.57, 95% [-3.77, -0.13]. K2's cost difference without seed 101:
+      -1.50, 95% [-3.53, +0.43].
+      (iv) Calibration without seed 101 (9 runs): D 0.445, 95% [0.423, 0.466], per run 0.376
+      to 0.492; `lagu_nogate-lit` 0.438 [0.382, 0.480]; mean paired difference +0.006, 95%
+      [-0.036, +0.051]. The run on seed 101 raises D's pooled value because its policy incurs the
+      most cost (78.21) and its critic predicts that cost closely (0.945).
+      (v) The multiplier's time average, median over runs: D 0.033, G 0.032, `lagu_nogate-lit`
+      0.031. Median paired difference: D minus `lagu_nogate-lit` +0.004, 95% [-0.002, +0.032]; G
+      minus D -0.004, 95% [-0.007, +0.110] (percentile bootstrap of the median).
+      (vi) For comparison, the |Q̄| gate of October under the same recipe (`lagu-lit`) fired on
+      0.467 of samples over 25k-300k and on 0.143 over the whole run, with a whole-run
+      budget(all) of 0.950 δ0.
+      (vii) Added 2026-11-16 21:15 UTC (2026-11-17 local time; `extra.txt` blocks X8 and X9), after an independent reader of the
+      paper pointed out that item (iii) gave only the leave-out that weakens K3's return result.
+      K3's return difference without seed 101: +1.56, 95% [0.10, 3.71]; without seeds 101 and 109:
+      +0.56 [-0.06, 1.28]. K3's in-training window return per seed: +0.04, 0.00, -0.56, +0.38,
+      +1.12, +0.86, +2.42, +0.02, +0.72, +8.82; without seed 109: +0.56 [0.07, 1.13] (Wilcoxon
+      p = 0.055 on 8 non-zero differences). K2's in-training window return without seeds 101 and
+      109: -0.77 [-1.29, -0.31]. With 1,000 other bootstrap seeds, the lower end of K3's return
+      interval lay between +0.05 and +0.10 and the upper end of K2's between -0.38 and -0.30, so
+      both intervals excluded zero for every seed tried. Reading: the sign of K3's return
+      difference does not rest on one seed pair (6 of the 9 non-zero held-out differences and 8 of
+      the 9 in-training differences are positive); its size does.
