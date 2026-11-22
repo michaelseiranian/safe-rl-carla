@@ -39,7 +39,11 @@ An earlier version of this README showed placeholder results (for example, 88.0%
 
 - **Not runnable end to end:** the CARLA environment wrapper (`safe_rl/env/carla_cmdp_env.py` and `ped_spawner.py`) is not in this repository. A `.gitignore` rule (`env/`) excluded it, and the files were later lost.
 - **Curriculum:** the dissertation's final runs used a 15-stage, 459k-step curriculum. The files in `curricula/` may not match those runs exactly.
-- **Follow-up study:** an independent, pre-registered, multi-seed re-test of Lag-U on Safety-Gymnasium is in this repository: the port and analysis code in `lagu/`, and the pre-registration and its decision log in `prereg.md` (tag `prereg-v1`). A paper is in preparation.
+- **Follow-up study:** a multi-seed ablation of Lag-U's uncertainty gate, reimplemented on Safety-Gymnasium, is in this repository: the reimplementation and analysis code in `lagu/`, and the analysis plan with its dated decision log in `prereg.md`. The plan was written before the planned runs; the tag `prereg-v1` marks it as first published. The results are in the preprint below, and the tag `preprint-v1` marks the version of this repository that the preprint describes.
+
+## Follow-up preprint
+
+M. Seiranian. *Revisiting the Uncertainty Gate in Lagrangian Safe Reinforcement Learning: An Ablation of a Lag-U Reimplementation on Safety-Gymnasium.* Preprint, Zenodo, 2026. [doi:10.5281/zenodo.24449245](https://doi.org/10.5281/zenodo.24449245). Not peer reviewed.
 
 ## Citation
 
@@ -55,6 +59,19 @@ If you use this code, please cite the original Lag-U paper:
   pages   = {13653--13666},
   year    = {2024},
   doi     = {10.1109/TITS.2024.3397700}
+}
+```
+
+If you use the Safety-Gymnasium reimplementation in `lagu/` or its results, please also cite the preprint:
+
+```bibtex
+@misc{seiranian2026uncertaintygate,
+  title     = {Revisiting the Uncertainty Gate in Lagrangian Safe Reinforcement Learning: An Ablation of a {Lag-U} Reimplementation on {Safety-Gymnasium}},
+  author    = {Seiranian, Michael},
+  year      = {2026},
+  publisher = {Zenodo},
+  note      = {Preprint, version v1},
+  doi       = {10.5281/zenodo.24449245}
 }
 ```
 
