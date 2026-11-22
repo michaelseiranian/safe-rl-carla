@@ -1,0 +1,60 @@
+EXPLORATORY: addendum of 2026-11-16 (prereg.md section 16, item 17). Outside the Holm family.
+Runs: lagu_nogate-lit-desc (10), lagu-lit-desc (10), lagu_nogate-lit (10); all complete with a held-out file; resumed runs: none.
+
+K1. Cost critic on held-out episodes (prediction ratio = sum of predictions / sum of discounted cost incurred)
+  lagu_nogate-lit-desc   ratio 0.521 [0.429, 0.657]  per run 0.376 to 0.945  gap +0.444  lambda: largest median 0.078 at 0.85M, largest 16.251, time-average mean 0.7365
+  lagu-lit-desc          ratio 0.526 [0.434, 0.657]  per run 0.368 to 0.913  gap +0.485  lambda: largest median 0.057 at 0.90M, largest 17.577, time-average mean 0.7758
+  lagu_nogate-lit        ratio 0.438 [0.386, 0.476]  per run 0.222 to 0.530  gap +0.011  lambda: largest median 0.064 at 0.85M, largest 0.202, time-average mean 0.0380
+  per-run ratio, lagu_nogate-lit-desc minus lagu_nogate-lit, paired by seed: +0.056 [-0.024, +0.170]
+
+K2. Held-out return and cost
+== lagu_nogate-lit-desc - lagu_nogate-lit  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [1000000]
+  pairs 10 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+  return A 22.98  B 26.98  A-B -4.00  95% [-9.46, -0.33]  90% [-8.57, -0.51]  Wilcoxon p=0.0273  TOST(+-2.5) no
+  cost   A 52.42  B 50.82  A-B 1.60  95% [-2.95, 8.52]  90% [-2.57, 7.49]  Wilcoxon p=0.6953  TOST(+-5.0) no
+  collapses (return < 5 or diverged): A 1  B 0  Fisher p=1.0000
+  verdict: Hurts
+  sensitivity: no pair contains a resumed run
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                 22.945    27.074    -4.129  [-9.440, -0.601]    0.006  10
+    window_cost                   49.174    53.804    -4.630  [-19.660, 5.826]    0.846  10
+    cum_cost                   53472.600 53605.400  -132.800  [-2281.270, 2735.700]  0.492  10
+    cum_cost_500k              26467.800 26876.200  -408.400  [-1473.700, 769.512]  0.492  10
+    lambda_avg                     0.737     0.038     0.699  [-0.001, 2.085]     0.131  10
+    lambda_shadow                  1.691     0.061     1.630  [-0.011, 4.871]     0.557  10
+    engagement                     0.000     0.000     0.000  [0.000, 0.000]      1.000  10
+    would_engage                   0.110     0.034     0.075  [0.011, 0.160]      0.049  10
+    qc_avg                         2.944     2.511     0.433  [-0.028, 1.311]     0.625  10
+    calib                          0.495     0.439     0.056  [-0.024, 0.170]     0.625  10
+
+K3. Gate ablation in this configuration
+== lagu-lit-desc - lagu_nogate-lit-desc  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [1000000]
+  pairs 10 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109]
+  return A 24.38  B 22.98  A-B 1.40  95% [0.09, 3.42]  90% [0.19, 3.11]  Wilcoxon p=0.1289  TOST(+-2.5) no
+  cost   A 52.32  B 52.42  A-B -0.10  95% [-3.07, 2.48]  90% [-2.51, 2.13]  Wilcoxon p=0.9102  TOST(+-5.0) yes
+  collapses (return < 5 or diverged): A 1  B 1  Fisher p=1.0000
+  verdict: Helps
+  sensitivity: no pair contains a resumed run
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                 24.328    22.945     1.382  [0.195, 3.220]      0.027  10
+    window_cost                   48.368    49.174    -0.806  [-5.890, 4.348]     0.734  10
+    cum_cost                   53688.300 53472.600   215.700  [-822.525, 1511.307]  0.695  10
+    cum_cost_500k              27264.000 26467.800   796.200  [26.595, 1736.800]  0.160  10
+    lambda_avg                     0.776     0.737     0.039  [-0.022, 0.117]     0.625  10
+    lambda_shadow                  1.625     1.691    -0.066  [-0.137, -0.013]    0.037  10
+    engagement                     0.311     0.000     0.311  [0.220, 0.392]      0.002  10
+    would_engage                   0.053     0.110    -0.056  [-0.158, 0.012]     0.557  10
+    qc_avg                         2.916     2.944    -0.028  [-0.066, 0.008]     0.375  10
+    calib                          0.506     0.495     0.012  [-0.024, 0.051]     0.846  10
+  time-averaged lambda: 0.7758 vs 0.7365; median paired difference -0.0039; one-sided Wilcoxon p 0.722
+  25k-300k   firing share 0.311 [0.220, 0.392]   budget(all) 0.928 [0.912, 0.946] of delta0
+  300k-1M    firing share 0.084 [0.038, 0.147]   budget(all) 0.962 [0.925, 0.988] of delta0
+  whole run  firing share 0.127 [0.098, 0.163]   budget(all) 0.952 [0.929, 0.969] of delta0
+
+K4. Runs with held-out cost <= 25
+  lagu_nogate-lit-desc   0 of 10 (collapsed runs: 1)
+  lagu-lit-desc          0 of 10 (collapsed runs: 1)
+  lagu_nogate-lit        0 of 10 (collapsed runs: 0)
+
+Predictions (stated before the runs; not tests): Q1 held; Q2 held; Q3 held; Q4 did not hold
+Contingent step: the single-change arms are not run (ratio difference [-0.024, +0.170], cost difference [-2.946, +8.521]).

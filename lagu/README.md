@@ -46,8 +46,8 @@ deleted once a run is finished and analysed.
 | Exploratory update | maximise Q_bar + sqrt(Q_eu) with prob c(x) = max(0.1, 1 - x/3e5), x = the vehicle's incremental training steps (Eq. 13, 15) | same, x = environment steps |
 | Adaptive constraint | delta_ada = delta0 if sqrt(Q_eu)/Q_bar < T else delta0 T / ratio, T = 0.07 (Eq. 16) | differs in one detail: the port divides by abs(Q_bar) + 1e-6, Eq. 16 by the signed Q_bar. Under the literal recipe Q_bar > 0 on almost every state, so this changes nothing; under the `tt` recipe Q_bar <= 0 on about 62-71% of on-policy states and abs(Q_bar) makes the gate fire far more often (results/paper/gate_dose, exploratory). `--gate-grad 1` lets the actor gradient flow through delta_ada via sqrt(Q_eu) only (the paper does not say; default detached, in which case delta_ada is a constant in Eq. 17 and the gate acts on the policy only through lambda) |
 | Dual update | lambda += 1e-5 E[Q_c - delta] (Eq. 9, 18), in critic units | `--dual statewise` (default), batch mean, clipped at 0. `--dual episodic` is OmniSafe's convention (Adam on lambda (J_c - limit), J_c = mean realised cost of the last `--jc-window` training episodes). `--dual fixed` holds lambda at `--lambda-init` |
-| Cost critic | single critic, Eq. 14 | single by default; `--cost-twin 1 --cost-clamp 1` gives a pessimistic max-of-twins critic (results/lr_sweep2: it overestimates and collapses the policy) |
-| Networks | two hidden layers of 256, Adam 3e-4 for policy, value and cost, gamma 0.99, Glorot init | same, PyTorch default init (identical for every arm) |
+| Cost critic | single critic, Eq. 14: target c + gamma Q_c'(s', pi'(s')) with no smoothing noise | single by default. The port adds the target-smoothing noise of Eq. 12 to the cost target as well; `--cost-target-noise 0` gives Eq. 14 as printed. `--cost-twin 1 --cost-clamp 1` gives a pessimistic max-of-twins critic (results/lr_sweep2: it overestimates and collapses the policy) |
+| Networks | two hidden layers of 256, Adam 3e-4 for policy, value and cost, gamma 0.99, "glorot initialization" (variant not named) | same, PyTorch default init (identical for every arm); `--init glorot` gives Glorot-uniform weights and zero biases in every network |
 | Action noise | cancelled for Lag-U | cancelled for Lag-U arms; sigma = 0.1 for td3lag |
 | delta0 | 0.1 (MetaDrive) | cost_limit / horizon / (1 - gamma) = 2.5 for limit 25 over 1000 steps |
 | Simulator | MetaDrive | Safety-Gymnasium 1.0.0 |
@@ -55,6 +55,14 @@ deleted once a run is finished and analysed.
 
 Not in the paper, chosen here: policy delay 2, target smoothing 0.2/0.5, Polyak 0.005, batch 256,
 10k random warm-up steps, replay 500k.
+
+Both switches were run on 16 November 2026 (`results/addendum2`; `prereg.md` section 16, items 17
+and 18; exploratory): the literal recipe with `--cost-target-noise 0 --init glorot`, no gate and the
+signed gate, seeds 100-109, 1M steps. The cost critic's held-out calibration did not change detectably
+(0.521 against 0.438 for the October no-gate runs; paired difference +0.056, 95% [-0.024, +0.170]) and
+no run ended at or below the cost limit. With these settings the policy on seed 101 saturated and
+never learned, in both arms, so the configuration closest to the paper's description trained less
+reliably here than the port's defaults.
 
 `--recipe omnisafe` reproduces OmniSafe 0.5.0's SafetyPointGoal1 TD3Lag settings, read from its
 source: actor lr 5e-6, critic lr 1e-3, gradient clip 40, actor loss / (1 + lambda), cost target from

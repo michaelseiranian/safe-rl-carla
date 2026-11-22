@@ -218,3 +218,91 @@ def test_values_batch_matches_values_at():
     for i in range(4):
         b, _, c = ag.values_at(o[i])
         assert abs(b - qb[i]) < 1e-5 and abs(c - qc[i]) < 1e-5
+
+
+def test_gate_ratio_signed_form_turns_the_gate_off_where_qbar_is_not_positive():
+    std = torch.tensor([0.5, 0.5, 0.5, 0.5])
+    qbar = torch.tensor([-1.0, 0.0, 2.0, 1e-3])
+    ag, cfg = make(delta0=2.5, T=0.07)
+    absr = ag.gate_ratio(std, qbar)
+    assert torch.equal(absr, std / (qbar.abs() + cfg.ratio_eps))       # default: |Q_bar|, unchanged
+    sg, scfg = make(delta0=2.5, T=0.07, signed_ratio=True)
+    sr = sg.gate_ratio(std, qbar)
+    assert sr[0] == 0 and sr[1] == 0                                   # Q_bar < 0 and Q_bar = 0: off
+    assert torch.equal(sr[2:], absr[2:])                               # Q_bar > 0: same as |Q_bar|
+    d = sg.adaptive_delta(sr)
+    assert torch.equal(d[:2], torch.full((2,), 2.5))                   # budget stays at delta0
+    assert d[3] < 2.5                                                  # small positive Q_bar tightens
+
+
+def test_signed_ratio_defaults_off_and_leaves_the_gated_update_unchanged():
+    def trained(**kw):
+        ag, _ = make(**kw)
+        torch.manual_seed(1)                  # the target-smoothing noise uses the global generator
+        for i in range(4):
+            ag.update(batch(seed=i))
+        return ag
+    base, same = trained(), trained(signed_ratio=False)
+    assert base.cfg.signed_ratio is False
+    for p, q in zip(base.actor.parameters(), same.actor.parameters()):
+        assert torch.equal(p, q)
+
+
+def test_cost_target_noise_off_is_eq14_and_the_default_keeps_the_noise():
+    import copy
+    import torch.nn.functional as F
+    o, a, r, c, o2, d = batch(cost=0.3, seed=3)
+
+    def first_cost_loss(**kw):
+        ag, cfg = make(**kw)
+        before = copy.deepcopy(ag)
+        torch.manual_seed(1)                  # the target-smoothing noise uses the global generator
+        ag.update((o, a, r, c, o2, d))
+        with torch.no_grad():                 # Eq. 14: c + gamma * Q_psi'(s', pi_theta'(s')), no noise
+            a2 = before.actor_targ(o2)
+            target = c + cfg.gamma * (1.0 - d) * before.cost_targ(torch.cat([o2, a2], dim=-1)).squeeze(-1)
+            eq14 = float(F.mse_loss(before.cost(torch.cat([o, a], dim=-1)).squeeze(-1), target))
+        return ag.stats["c_loss"], eq14, cfg
+
+    loss, eq14, cfg = first_cost_loss(cost_target_noise=False)
+    assert not cfg.cost_target_noise
+    assert abs(loss - eq14) < 1e-6            # the printed Eq. 14, exactly
+    loss, eq14, cfg = first_cost_loss()
+    assert cfg.cost_target_noise is True      # default: the port's smoothed target
+    assert abs(loss - eq14) > 1e-6
+
+
+def test_new_switches_default_to_the_ported_behaviour():
+    def trained(**kw):
+        ag, _ = make(**kw)
+        torch.manual_seed(1)
+        for i in range(4):
+            ag.update(batch(seed=i))
+        return ag
+    base, same = trained(), trained(cost_target_noise=True, init="default")
+    assert base.cfg.init == "default"
+    for net in ("actor", "members", "cost"):
+        for p, q in zip(getattr(base, net).parameters(), getattr(same, net).parameters()):
+            assert torch.equal(p, q)
+    other = trained(cost_target_noise=False)   # the switch does change training when it is used
+    assert any(not torch.equal(p, q) for p, q in zip(base.cost.parameters(), other.cost.parameters()))
+
+
+def test_glorot_init_gives_bounded_weights_zero_biases_and_equal_targets():
+    import math
+    import pytest
+    ag, _ = make(init="glorot")
+    linears = [m for net in (ag.actor, ag.members, ag.cost) for m in net.modules() if isinstance(m, torch.nn.Linear)]
+    assert len(linears) == 3 * (1 + 2 * ag.cfg.M + 1)          # actor, M twin pairs, cost critic
+    for m in linears:
+        bound = math.sqrt(6.0 / (m.in_features + m.out_features))
+        assert float(m.weight.abs().max()) <= bound + 1e-7
+        assert float(m.weight.abs().max()) > 0.5 * bound       # really drawn from the Glorot range
+        assert torch.count_nonzero(m.bias) == 0
+    for online, target in ((ag.actor, ag.actor_targ), (ag.members, ag.members_targ), (ag.cost, ag.cost_targ)):
+        for p, q in zip(online.parameters(), target.parameters()):
+            assert torch.equal(p, q)                            # targets are copies of the re-initialised nets
+    default, _ = make()
+    assert any(torch.count_nonzero(m.bias) > 0 for m in default.actor.modules() if isinstance(m, torch.nn.Linear))
+    with pytest.raises(ValueError):
+        make(init="orthogonal")

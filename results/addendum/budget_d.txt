@@ -1,0 +1,2 @@
+lagu-tt-signed SafetyPointGoal1-v0 seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]: D = 2.179619; engagement over 25k-300k = 0.3747; G2 branch: enqueue E2
+2.17962

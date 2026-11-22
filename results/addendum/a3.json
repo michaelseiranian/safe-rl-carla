@@ -1,0 +1,33 @@
+{
+ "h2": {
+  "SafetyPointGoal1-v0": {
+   "a": "lagu-tt-signed",
+   "b": "lagu_nogate-tt",
+   "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114
+   ],
+   "engagement_a": 0.37471930278178844,
+   "engagement_b": 0.0,
+   "lambda_a": 0.26287034819071037,
+   "lambda_b": 197.14934515268973,
+   "median_diff": -0.01359804966431552,
+   "n": 15,
+   "p_one_sided": 0.789398193359375,
+   "status": "refuted_lambda"
+  }
+ }
+}

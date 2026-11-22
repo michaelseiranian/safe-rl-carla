@@ -1,0 +1,2 @@
+== H2 lagu-tt-signed vs lagu_nogate-tt SafetyPointGoal1-v0: engagement(A, 25k-300k) 0.375; time-avg lambda A 0.2629 B 197.1493, median diff -0.0136, one-sided Wilcoxon p=0.7894 (n=15, unadjusted) -> refuted_lambda
+wrote results/addendum/a3.json

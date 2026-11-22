@@ -1,0 +1,75 @@
+EXPLORATORY: addendum of 2026-11-10 (prereg.md section 16, item 15). Outside the Holm family.
+All 23 addendum runs are complete and have a held-out file at their own end step; resumed runs: none.
+
+A. Held-out endpoint per seed (return / cost; * = collapsed: return < 5 or diverged), seeds 100-114
+  seed       signed gate      |Q_bar| gate           no gate
+   100    16.44 / 37.63      8.46 / 15.63     23.20 / 34.94 
+   101     1.22 / 72.84*    16.86 / 43.19      8.71 / 27.64 
+   102    20.35 / 39.54      2.83 / 18.44*    23.44 / 40.09 
+   103    10.88 / 18.00     12.15 / 24.32      0.02 / 56.40*
+   104    18.18 / 28.59      0.50 / 19.00*    19.12 / 29.76 
+   105     8.58 / 15.03     11.06 / 23.85     21.76 / 39.48 
+   106    17.67 / 45.91      0.06 /127.30*    15.28 / 28.51 
+   107    -0.00 / 22.95*    -1.47 / 10.66*    19.72 / 38.27 
+   108     1.52 / 80.95*    11.25 / 33.75     22.41 / 41.97 
+   109     9.23 / 15.03      2.19 /  1.71*    14.64 / 24.96 
+   110    19.36 / 40.39      2.76 / 36.94*    21.93 / 45.02 
+   111    17.06 / 36.54      0.03 / 17.09*    17.50 / 42.33 
+   112     0.49 / 49.46*     0.36 / 71.50*    25.25 / 37.82 
+   113    18.25 / 32.03     14.14 / 32.87     -0.15 / 73.63*
+   114     2.99 / 10.94*     0.16 / 40.68*     1.04 /  5.76*
+  lagu-tt-signed   mean return  10.81  mean cost  36.39  collapsed  5/15  cost <= 25: 5/15 (3 not collapsed)  time-avg lambda mean 0.2629 median 0.2593
+  lagu-tt          mean return   5.42  mean cost  34.46  collapsed  9/15  cost <= 25: 8/15 (3 not collapsed)  time-avg lambda mean 0.3160 median 0.2570
+  lagu_nogate-tt   mean return  15.59  mean cost  37.77  collapsed  3/15  cost <= 25: 2/15 (1 not collapsed)  time-avg lambda mean 197.1493 median 0.2445
+
+A3. Dose of the two gates, seeds 100-114 (pooled over seeds; [95% bootstrap over seeds])
+  arm              window                 engagement         budget(all)/d0        budget(risk)/d0
+  lagu-tt-signed   25k-300k     0.375 [0.272, 0.474]   0.880 [0.850, 0.910]   0.765 [0.707, 0.825]
+  lagu-tt-signed   300k-1M      0.221 [0.172, 0.266]   0.855 [0.828, 0.885]   0.839 [0.809, 0.872]
+  lagu-tt-signed   1M-2M        0.169 [0.104, 0.237]   0.881 [0.835, 0.927]   0.868 [0.817, 0.919]
+  lagu-tt-signed   whole run    0.207 [0.152, 0.257]   0.872 [0.842, 0.905]   0.848 [0.812, 0.887]
+  lagu-tt          25k-300k     0.850 [0.801, 0.893]   0.710 [0.675, 0.741]   0.433 [0.364, 0.495]
+  lagu-tt          300k-1M      0.874 [0.832, 0.911]   0.467 [0.425, 0.514]   0.408 [0.361, 0.460]
+  lagu-tt          1M-2M        0.951 [0.909, 0.977]   0.360 [0.316, 0.414]   0.289 [0.240, 0.349]
+  lagu-tt          whole run    0.913 [0.875, 0.942]   0.449 [0.411, 0.494]   0.346 [0.302, 0.400]
+  [extra] 50k-step logging intervals after 300k with mean Q_bar <= 0, and the median of that mean:
+    lagu-tt-signed    88.6% of 510 rows; median -0.693
+    lagu-tt           97.6% of 510 rows; median -1.592
+    lagu_nogate-tt    71.6% of 510 rows; median -0.467
+
+B1. Seeds 115-119, held-out endpoint (return / cost; * = collapsed)
+  seed      |Q_bar| gate   constant budget     no gate (new)
+   115    -0.03 / 45.41*    -9.52 /  1.23*     0.57 / 69.68*
+   116    -0.03 / 18.31*     0.32 /  1.78*    22.56 / 39.27 
+   117     2.20 /  4.38*     2.38 /  3.40*    25.03 / 41.54 
+   118     0.53 / 69.52*     0.06 / 74.21*    13.04 / 25.21 
+   119     0.75 /  2.52*     4.58 /  7.04*     5.10 / 70.12 
+  collapsed no-gate runs: 1 of 5 on seeds 115-119 against 3 of 15 on seeds 100-114; two-sided Fisher exact p = 1.0000
+  collapsed on seeds 115-119 by arm: {'lagu-tt': 5, 'lagu_nogate-tt-match': 5, 'lagu_nogate-tt': 1}
+
+C1. td3lag-omni (OmniSafe's configuration) at 3M steps, seeds 0-2
+  seed     held-out ret / cost    in-training ret / cost  final lambda
+     0      19.96 /  17.03         20.30 /  23.82          0.1837
+     1      21.75 /  22.96         20.88 /  29.98          0.3151
+     2       7.16 /  20.11          7.65 /  35.81          0.3979
+  heldout      return 16.29 +- 7.96   cost 20.03 +- 2.97   (mean +- sd, ddof 1; collapsed 0/3; cost <= 25: 3/3)
+  in_training  return 16.28 +- 7.48   cost 29.87 +- 6.00   (mean +- sd, ddof 1; collapsed 0/3; cost <= 25: 1/3)
+  OmniSafe      return 25.27 +- 2.74   cost 28.00 +- 15.75   (as printed in its table; another protocol)
+  [extra] in-training return / cost / lambda by 500k block (mean of the rows in each block):
+    seed 0: 0.5M  24.4/ 64.5/0.05  1.0M  22.2/ 40.6/0.29  1.5M   9.8/ 21.6/0.49  2.0M  12.5/ 29.1/0.45  2.5M  15.0/ 17.6/0.32  3.0M  21.3/ 22.8/0.23
+    seed 1: 0.5M  25.0/ 55.5/0.05  1.0M  25.6/ 43.4/0.29  1.5M  13.7/ 36.2/0.49  2.0M  15.0/ 19.8/0.36  2.5M  20.0/ 26.3/0.31  3.0M  20.5/ 25.7/0.34
+    seed 2: 0.5M  24.1/ 68.6/0.05  1.0M  25.2/ 47.8/0.29  1.5M  13.3/ 24.1/0.49  2.0M  11.3/ 16.3/0.36  2.5M  10.8/ 15.6/0.34  3.0M   9.4/ 44.8/0.39
+
+C2. The same runs up to 1M steps against the E9.6 runs (results/pareto, same seeds)
+  seed 0: 20 of 20 rows identical in 30 columns (first differing step None); max |diff| return 0, cost 0, lambda 0; 0.8M-1M window: new 20.72 / 35.98, E9.6 20.72 / 35.98
+  seed 1: 20 of 20 rows identical in 30 columns (first differing step None); max |diff| return 0, cost 0, lambda 0; 0.8M-1M window: new 24.30 / 39.40, E9.6 24.30 / 39.40
+  seed 2: 20 of 20 rows identical in 42 columns (first differing step None); max |diff| return 0, cost 0, lambda 0; 0.8M-1M window: new 24.68 / 47.98, E9.6 24.68 / 47.98
+  0.8M-1M in-training window, new : return 23.23 +- 2.19   cost 41.12 +- 6.18
+  0.8M-1M in-training window, e96 : return 23.23 +- 2.19   cost 41.12 +- 6.18
+  cfg keys that differ between the two sets of runs: ['signed_ratio']
+
+Predictions of the addendum (stated before the runs; not tests)
+  P1 signed whole-run budget(all) 0.872 d0 above the |Q_bar| gate's 0.449 d0: holds
+  P2 A1 return difference -4.78 (95% [-10.60, 0.81]) closer to 0 than -10.17: holds
+  P3 at least 3 of 5 no-gate runs on seeds 115-119 collapse (the reading that the collapses belong to the seeds): 1 of 5 -> not supported
+  P4 in-training return at 3M 16.28 within 2.74 of 25.27: fails

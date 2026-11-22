@@ -580,3 +580,260 @@ Filled in at the gates; each entry is committed before the next wave that depend
     SUPPORTED (1.28). Descriptive table: under the literal recipe the trained λ stays at about
     0.3-0.6 of λ* throughout training; under the E1 recipe it is above λ* in 9-13 of 15 runs at
     every 250k checkpoint.
+
+**2026-11-10**
+
+15. *Addendum after the TMLR desk rejection (EXPLORATORY; declared before any of these runs started).*
+    Two independent readings of the rewritten paper raised three questions this plan cannot answer:
+    whether the H3 result holds for the gate as Eq. 16 prints it (with the signed Q̄; the port divides
+    by |Q̄|, and Q̄ ≤ 0 on most slow-policy states); whether the collapse of all ten runs on seeds
+    115-119 (`lagu-tt` and `lagu_nogate-tt-match`) is a property of those seeds (no `lagu_nogate-tt`
+    run exists there); and whether the port reproduces OmniSafe's published TD3-Lag result at 3M
+    steps. Three exploratory experiments address them. None enters the Holm family or changes a
+    confirmatory result, and all are reported whatever their direction, in a new dated item of this
+    section and in the paper.
+    - *Code.* `Config.signed_ratio` (default False) and `--signed-ratio` (`lagu/agent.py`,
+      `lagu/train.py`): the gate divides by the signed Q̄; where Q̄ ≤ 0 the ratio is set to 0, so the
+      gate stays off (Eq. 16 is undefined at Q̄ = 0). `LagU.gate_ratio` computes both forms. The
+      default |Q̄| path is unchanged: all 110 tests pass, including the golden regression test, which
+      hashes every network of every arm after 300 updates; two new tests cover the signed form.
+    - *Environment.* The original `.venv` no longer exists. It was rebuilt from
+      `lagu/requirements.txt`: CPython 3.10.22, torch 2.7.1, numpy 1.23.5, gymnasium 0.28.1,
+      mujoco 2.3.3, safety-gymnasium 1.0.0. A 100k-step replay of `lagu_nogate-tt` s100 with the
+      October settings (output `results/addendum_check/`, committed here) reproduced the October
+      rows at 50k and 100k exactly: every logged column except speed (`sps`) and the resume flag
+      is identical. The rebuilt environment gives the same training computation on this machine.
+    - *Runs* (`results/addendum/`, power-aware queue, at most 12 at once, checkpoints every 100k,
+      evaluation every 50k):
+      (A) `lagu-tt-signed`: arm `lagu`, two-timescale recipe (actor 5e-6, critics 1e-3, λ 2e-6),
+          `--signed-ratio 1`, seeds 100-114, 2M steps;
+      (B) `lagu_nogate-tt`: the same recipe, seeds 115-119, 2M steps;
+      (C) `td3lag-omni`: arm `td3lag`, `--recipe omnisafe`, seeds 0-2, 3M steps.
+    - *Analyses.* Held-out endpoint from `python -m lagu.evaluate results/addendum` (5 snapshots over
+      the last 20% of each run, 20 layouts each); paired 95% bootstrap intervals (10,000 resamples,
+      seed 0); verdict labels descriptive. Each contrast is computed only after checking that every
+      run in it has a held-out file (item 5).
+      (A1) `lagu-tt-signed` vs `lagu_nogate-tt` (`results/gate`), seeds 100-114: Δreturn, Δcost,
+           collapse counts, verdict label.
+      (A2) `lagu-tt-signed` vs `lagu-tt` (the |Q̄| gate), seeds 100-114.
+      (A3) The signed gate's engagement over 25k-300k, whole-run budget(all) and time-averaged λ.
+      (B1) Collapse count of `lagu_nogate-tt` on seeds 115-119, with Fisher's exact test against its
+           3 of 15 on seeds 100-114; and the E1 contrast (`lagu-tt` vs `lagu_nogate-tt`) on the 20
+           seeds 100-119.
+      (C1) `td3lag-omni` at 3M: held-out means and the in-training window over the last 20%, set
+           beside OmniSafe's 25.27 ± 2.74 return and 28.00 ± 15.75 cost (a different protocol;
+           section 14). (C2) Its rows up to 1M against E9.6's runs (`results/pareto`, same seeds).
+      Commands:
+      ```
+      python -m lagu.evaluate results/addendum
+      python -m lagu.analyze results/addendum results/gate --pair lagu-tt-signed lagu_nogate-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 --json results/addendum/a1.json
+      python -m lagu.analyze results/addendum results/gate --pair lagu-tt-signed lagu-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 --json results/addendum/a2.json
+      python -m lagu.analyze results/addendum results/gate --h2 lagu-tt-signed lagu_nogate-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 --json results/addendum/a3.json
+      python -m lagu.analyze results/addendum --budget-D lagu-tt-signed
+      python -m lagu.analyze results/addendum results/gate --pair lagu-tt lagu_nogate-tt --seeds 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 --json results/addendum/b1.json
+      ```
+    - *Predictions* (stated now; they are not tests): (P1) the signed gate's whole-run budget(all) is
+      above the |Q̄| gate's 0.449 δ0, because Q̄ ≤ 0 on most slow-policy states; (P2) the A1 return
+      difference is closer to 0 than -10.17; (P3) if the collapses on seeds 115-119 are a property of
+      those seeds, at least 3 of the 5 no-gate runs collapse; (P4) C1's in-training return lies
+      within 2.74 of 25.27.
+
+**2026-11-11**
+
+16. *Addendum results (EXPLORATORY; item 15).* Computed 2026-11-11 after `lagu.evaluate` wrote a
+    held-out file for each of the 23 addendum runs. Every run reached its declared length, none was
+    resumed and no log reports an error; the queue froze training once on battery power (17:09-17:26
+    UTC on 2026-11-10). Each held-out file covers 5 snapshots over the last 20% of its run, 20
+    episodes each. The declared commands wrote `a1.json`, `a2.json`, `a3.json` and `b1.json`; the
+    printed output of all five is in matching `.txt` files (`budget_d.txt` for `--budget-D`).
+    `results/addendum/make.py` (output `extra.txt`, `extra.json`) adds the per-seed tables, the
+    dose table, C1 and C2, and reproduces the October values it shares with the ledger (the |Q̄|
+    gate's dose and collapse counts, the shares of intervals with Q̄ ≤ 0).
+    Paired 95% bootstrap intervals over seeds; labels descriptive; no multiplicity correction.
+    - (A1) Signed gate vs `lagu_nogate-tt`, seeds 100-114: return 10.81 vs 15.59, difference -4.78,
+      95% [-10.60, 0.81]; cost 36.39 vs 37.77, difference -1.38, 95% [-12.92, 10.87]; collapsed runs
+      5 vs 3 (Fisher p = 0.68). Label: Inconclusive.
+    - (A2) Signed gate vs the |Q̄| gate (`lagu-tt`): return +5.39, 95% [0.08, 10.36]; cost +1.93,
+      95% [-14.39, 15.72]; collapsed runs 5 vs 9 (Fisher p = 0.27). Label: Inconclusive.
+    - (A3) The signed gate fired on 0.375 of samples over 25k-300k (the |Q̄| gate: 0.850) and on
+      0.207 over the whole run (0.913). Its whole-run budget(all) was 0.872 δ0, 95% [0.842, 0.905]
+      (D = 2.17962), against 0.449 for the |Q̄| gate. Time-averaged λ did not rise above the no-gate
+      agent's: median difference -0.014, one-sided Wilcoxon p = 0.79 (H2's rule would read
+      refuted_lambda). Q̄ averaged over a 50k-step logging interval was ≤ 0 in 88.6% of the 510
+      intervals after 300k (|Q̄| gate 97.6%, no gate 71.6%).
+    - (B1) `lagu_nogate-tt` on seeds 115-119: 1 of 5 runs collapsed (seed 115; seed 119 returned
+      5.10, just above the threshold), against 3 of 15 on seeds 100-114 (Fisher p = 1.00). All 5
+      `lagu-tt` and all 5 `lagu_nogate-tt-match` runs on these seeds collapsed. E1 contrast on the 20
+      seeds 100-119: return 4.24 vs 15.01, difference -10.77, 95% [-15.53, -5.44]; cost difference
+      -7.77, 95% [-22.40, 8.53]; collapsed runs 14 vs 4 (Fisher p = 0.0036). Label: Hurts. Without
+      the 12 pairs that contain a resumed run (8 pairs left): return difference -13.81, 95% [-19.06,
+      -8.39].
+    - (C1) `td3lag-omni` at 3M, seeds 0-2 (mean ± sd): held-out return 16.29 ± 7.96 and cost 20.03
+      ± 2.97, every run ≤ 25; in-training window over the last 20%, return 16.28 ± 7.48 and cost
+      29.87 ± 6.00. Seed 2 trails (held-out return 7.16; seeds 0 and 1: 19.96 and 21.75). OmniSafe:
+      25.27 ± 2.74 and 28.00 ± 15.75 (another protocol; section 14).
+    - (C2) Up to 1M the three runs reproduce E9.6's logged rows exactly (20 of 20 rows per seed, in
+      every column the two CSVs share except `sps` and `resumed`). Their saved configurations differ
+      only in `signed_ratio`, a key added on 2026-11-10 and off in these runs.
+    - *Predictions.* P1 holds (0.872 > 0.449 δ0). P2 holds for the point estimate (-4.78), but its
+      interval reaches -10.60. P3 is not supported: for the no-gate agent, the collapses on seeds
+      115-119 are not a property of those seeds. P4 fails: the in-training return is 8.99 below
+      25.27, while the in-training cost is within OmniSafe's range.
+
+**2026-11-16**
+
+17. *Second addendum: the configuration closest to the paper's description, with its learning rates
+    (EXPLORATORY; declared before any of these runs started).* Three independent readings of the
+    paper as updated on 15-16 November raised two questions that the existing runs cannot answer.
+    (a) Does the cost critic's under-prediction under the literal recipe (H5: calibration 0.44 to
+    0.46, held-out cost twice the limit) depend on the two places where the port's networks differ
+    from the paper's description: the smoothing noise that the port adds to the cost critic's
+    target, which Eq. 14 does not have, and PyTorch's default initialisation instead of Glorot's?
+    (b) What does the gate as Eq. 16 prints it do under the literal recipe, where only the |Q̄|
+    gate was run? Two exploratory arms address them. Neither enters the Holm family or changes a
+    confirmatory result, and both are reported whatever their direction, in a new dated item of
+    this section and in the paper.
+    - *Code.* `Config.cost_target_noise` (default True) and `--cost-target-noise` (`lagu/agent.py`,
+      `lagu/train.py`): with 0, the cost critic's target is c + γ Q_ψ'(s', π_θ'(s')), the target
+      policy's action without smoothing noise, as Eq. 14 prints it. `Config.init` (default
+      "default") and `--init glorot`: every linear layer of every network gets Glorot-uniform
+      weights and zero biases before its target copy is made. The paper says "glorot
+      initialization" without naming the variant; the uniform variant with zero biases is our
+      assumption. With both switches at their defaults the code path is unchanged: all 113 tests
+      pass, including the golden regression test, which hashes every network of every arm after 300
+      updates; three new tests cover the switches.
+    - *Reproduction check.* A 100k-step replay of `lagu_nogate-lit` s100 with the October command and the
+      modified code (output `results/addendum2_check/`, committed here) reproduced the October
+      rows at 50k and 100k exactly: all 42 logged columns other than speed (`sps`) and the resume
+      flag are identical. Its saved configuration differs from October's only in the keys added
+      since (`signed_ratio`, `cost_target_noise`, `init`), all at their defaults.
+    - *Runs* (`results/addendum2/`, power-aware queue, at most 12 at once, checkpoints every 100k,
+      evaluation every 50k). Literal recipe (3e-4 for policy and critics, λ 1e-5), SafetyPointGoal1,
+      seeds 100-109, 1M steps, variant
+      `lit-desc:ckpt_every=100000,drop_ckpt=1,signed_ratio=1,cost_target_noise=0,init=glorot` (the
+      October `lit` variant, `lit:ckpt_every=100000,drop_ckpt=1`, plus the three switches):
+      (D) `lagu_nogate-lit-desc`: arm `lagu_nogate`;
+      (G) `lagu-lit-desc`: arm `lagu`, so the gate of Eq. 16 as printed (signed Q̄), detached.
+      In the no-gate arm `signed_ratio` does not touch training (the gate is off); it only makes the
+      logged `would_engage` column report where the signed gate would have fired. What still
+      differs from the paper's description in these arms: the simulator and δ0; the detached gate,
+      on which the paper is silent; the action at which the gate and the dual are evaluated, which
+      is our reading; the Glorot variant; and the settings the paper does not report (policy delay
+      2, target smoothing 0.2/0.5, Polyak 0.005, batch 256, 10k random warm-up steps, replay 500k).
+    - *Analyses.* Held-out endpoint from `python -m lagu.evaluate results/addendum2` (5 snapshots
+      over the last 20% of each run, 20 layouts each); paired 95% bootstrap intervals (10,000
+      resamples, seed 0); verdict labels descriptive. `results/addendum2/make.py`, committed with
+      this item, computes everything below and refuses to run unless every run is complete and has
+      a held-out file (item 5). It was run once before the runs with `--selftest`, on stand-in
+      October runs, to exercise its code; that output is not a result.
+      (K1) Cost critic, D against the October `lagu_nogate-lit` runs (`results/gate_literal`, same
+           seeds): pooled held-out calibration sum(qc_traj)/sum(mc_cost_traj) with its 95% interval
+           for each arm; the mean paired difference of the per-run calibrations with its 95%
+           interval; the mean gap E[Q_c - δ]; the multiplier's largest median over runs at a logged
+           row, its largest value in any run and its mean time average.
+      (K2) D against `lagu_nogate-lit`: Δreturn, Δcost, collapse counts.
+      (K3) Gate ablation in this configuration, G against D: Δreturn, Δcost, collapse counts; the
+           time-averaged λ (H2's statistic); the signed gate's engagement and budget(all) over
+           25k-300k, 300k-1M and the whole run.
+      (K4) Runs with held-out cost ≤ 25, per arm.
+      Commands:
+      ```
+      python -m lagu.launch --out results/addendum2 --arms lagu lagu_nogate --seeds 100 101 102 103 104 105 106 107 108 109 --steps 1000000 --eval-every 50000 --variant lit-desc:ckpt_every=100000,drop_ckpt=1,signed_ratio=1,cost_target_noise=0,init=glorot --max-procs 12
+      python -m lagu.evaluate results/addendum2
+      python results/addendum2/make.py
+      ```
+    - *Contingent step.* If the 95% interval of K1's paired difference in calibration excludes
+      zero, or that of K2's difference in held-out cost does, two single-change arms are run to
+      attribute the change: `lagu_nogate-lit-eq14` (the `lit` variant plus `cost_target_noise=0`)
+      and `lagu_nogate-lit-glorot` (the `lit` variant plus `init=glorot`), seeds 100-109, 1M steps,
+      each compared with `lagu_nogate-lit` by K1 and K2. If both intervals include zero, they are not
+      run.
+    - *Predictions* (stated now; they are not tests): (Q1) D's pooled calibration is below 0.65,
+      so the under-prediction does not come from the two differences; (Q2) D's mean held-out cost
+      exceeds 25 and no D run ends at or below 25; (Q3) the 95% interval of K2's difference in
+      held-out cost includes zero; (Q4) the 95% intervals of K3's differences in return and in cost
+      both include zero, and the signed gate's whole-run budget(all) is above 0.9 δ0.
+
+18. *Second addendum results (EXPLORATORY; item 17).* Computed 2026-11-16 at 20:21 UTC, after
+    `lagu.evaluate` wrote a held-out file for each of the 20 runs. Item 17, the code and
+    `results/addendum2/make.py` were public as commit 19cb141 (pushed at 05:37:32 UTC) before the
+    first run started (05:37:42 UTC). Every run reached 1M steps (the last at 20:15 UTC), none was
+    resumed and no log reports an error. The saved configuration of each D run differs from that
+    of the October `lagu_nogate-lit` run on the same seed only in the three switches, the output
+    directory and the tag; each G run differs from its D run only in `use_gate`. Each held-out
+    file covers 5 snapshots over the last 20% of its run, 20 episodes each. `make.py` wrote
+    `k.txt` and `k.json`; a separate recomputation from the result files gave the same values.
+    Paired 95% bootstrap intervals over seeds; labels descriptive; no multiplicity correction.
+    - (K1) Pooled held-out calibration: D 0.521, 95% [0.429, 0.657], per run 0.376 to 0.945;
+      October `lagu_nogate-lit` 0.438, 95% [0.386, 0.476], per run 0.222 to 0.530. Mean paired
+      difference of the per-run calibrations: +0.056, 95% [-0.024, +0.170]. Mean gap E[Q_c - δ]:
+      +0.444 against +0.011. Multiplier: largest median over runs 0.078 at 0.85M (October: 0.064
+      at 0.85M); largest value in any run 16.25 (0.202); mean time average 0.737 (0.038).
+    - (K2) D against `lagu_nogate-lit`: return 22.98 vs 26.98, difference -4.00, 95% [-9.46,
+      -0.33] (Wilcoxon p = 0.027); cost 52.42 vs 50.82, difference +1.60, 95% [-2.95, +8.52]
+      (p = 0.70); collapsed runs 1 vs 0 (Fisher p = 1.00). Label: Hurts. Secondary endpoints whose
+      95% interval excludes zero: in-training window return -4.13 [-9.44, -0.60] (p = 0.006);
+      `would_engage` +0.075 [0.011, 0.160] (p = 0.049; the two arms log different ratios, signed
+      and |Q̄|). All secondary rows are in `k.txt`.
+    - (K3) G against D: return 24.38 vs 22.98, difference +1.40, 95% [0.09, 3.42] (Wilcoxon
+      p = 0.13); cost 52.32 vs 52.42, difference -0.10, 95% [-3.07, +2.48], 90% [-2.51, +2.13],
+      inside the margin of ±5; collapsed runs 1 vs 1. Label: Helps. Time-averaged λ: 0.776 vs
+      0.737, median paired difference -0.004, one-sided Wilcoxon p = 0.72 (H2's rule would read
+      refuted_lambda). The signed gate fired on 0.311 of samples over 25k-300k, 95% [0.220, 0.392],
+      on 0.084 over 300k-1M [0.038, 0.147] and on 0.127 over the whole run [0.098, 0.163]; its
+      budget(all) was 0.928, 0.962 and 0.952 δ0 on the same windows (whole run: 95% [0.929,
+      0.969]). Secondary endpoints whose 95% interval excludes zero, besides engagement:
+      in-training window return +1.38 [0.19, 3.22] (Wilcoxon p = 0.027); cumulative training cost
+      at 500k +796 [27, 1737] (p = 0.16; 27264 vs 26468); `lambda_shadow` -0.066 [-0.137, -0.013]
+      (p = 0.037). The Wilcoxon tests of K3's return (p = 0.13) and cost (p = 0.91) rest on 9
+      non-zero differences, because the two runs on seed 101 are identical.
+    - (K4) Runs with held-out cost ≤ 25: 0 of 10 in D, in G and in `lagu_nogate-lit`. Lowest
+      cost of a run: 46.46 (D), 42.04 (G), 46.07 (`lagu_nogate-lit`).
+    - *Contingent step.* Neither interval excludes zero (calibration [-0.024, +0.170]; cost
+      [-2.95, +8.52]), so the two single-change arms are not run.
+    - *Predictions.* Q1 holds (0.521 < 0.65; the upper end of its interval, 0.657, is above
+      0.65). Q2 holds (mean 52.42; lowest run 46.46). Q3 holds. Q4 fails: K3's interval for
+      return excludes zero. Its other two parts hold (the cost interval includes zero; budget(all)
+      0.952 > 0.9 δ0).
+    - *Not planned: what stands behind the differences* (`results/addendum2/extra.py`, written
+      after `k.txt` was read; output `extra.txt`, `extra.json`; descriptive, no declared number is
+      replaced).
+      (i) Seed 101, in D and in G: the policy never learned. Training return stayed between
+      -0.25 and +0.13 at all 20 logged rows; the in-training evaluation returned the same values
+      (return 0.04, cost 4.2) at every row from 100k on; held-out return -0.04 and cost 78.21 in
+      both arms; λ rose to 16.25 (D) and 17.58 (G). The policy network's output was the same in
+      every state: over 4096 fixed inputs the standard deviation of each action component was at
+      most 0.003 at the saved steps 50k, 100k and 1M (seed 100: 0.20 to 0.99). The October runs
+      on seed 101, with PyTorch's default initialisation, reached a training return above 10 at
+      50k. Seed 104 also began with a training return near zero in both arms, and recovered
+      (training return ≥ 10 from 150k in D and from 300k in G; λ peaked at 0.65 and 2.24). In the October runs every seed
+      reached a training return of 10 by 100k.
+      (ii) Seed 109 in D: from 500k on, training return 16.1 to 19.8 with λ between 0.156 and
+      0.226; held-out return 16.70 and cost 49.33. G on seed 109: 26.28 and 50.67, λ at most
+      0.088.
+      (iii) K3's return differences per seed (100 to 109): +0.75, 0.00, -0.51, -0.24, +0.61,
+      +0.01, +2.57, -0.23, +1.49, +9.58. Without seed 109: +0.49, 95% [-0.06, +1.15] (9 pairs).
+      K2's return difference without seeds 101 and 109: -0.53, 95% [-1.16, +0.02] (8 pairs);
+      without seed 101 only: -1.57, 95% [-3.77, -0.13]. K2's cost difference without seed 101:
+      -1.50, 95% [-3.53, +0.43].
+      (iv) Calibration without seed 101 (9 runs): D 0.445, 95% [0.423, 0.466], per run 0.376
+      to 0.492; `lagu_nogate-lit` 0.438 [0.382, 0.480]; mean paired difference +0.006, 95%
+      [-0.036, +0.051]. The run on seed 101 raises D's pooled value because its policy incurs the
+      most cost (78.21) and its critic predicts that cost closely (0.945).
+      (v) The multiplier's time average, median over runs: D 0.033, G 0.032, `lagu_nogate-lit`
+      0.031. Median paired difference: D minus `lagu_nogate-lit` +0.004, 95% [-0.002, +0.032]; G
+      minus D -0.004, 95% [-0.007, +0.110] (percentile bootstrap of the median).
+      (vi) For comparison, the |Q̄| gate of October under the same recipe (`lagu-lit`) fired on
+      0.467 of samples over 25k-300k and on 0.143 over the whole run, with a whole-run
+      budget(all) of 0.950 δ0.
+      (vii) Added 2026-11-16 21:15 UTC (2026-11-17 local time; `extra.txt` blocks X8 and X9), after an independent reader of the
+      paper pointed out that item (iii) gave only the leave-out that weakens K3's return result.
+      K3's return difference without seed 101: +1.56, 95% [0.10, 3.71]; without seeds 101 and 109:
+      +0.56 [-0.06, 1.28]. K3's in-training window return per seed: +0.04, 0.00, -0.56, +0.38,
+      +1.12, +0.86, +2.42, +0.02, +0.72, +8.82; without seed 109: +0.56 [0.07, 1.13] (Wilcoxon
+      p = 0.055 on 8 non-zero differences). K2's in-training window return without seeds 101 and
+      109: -0.77 [-1.29, -0.31]. With 1,000 other bootstrap seeds, the lower end of K3's return
+      interval lay between +0.05 and +0.10 and the upper end of K2's between -0.38 and -0.30, so
+      both intervals excluded zero for every seed tried. Reading: the sign of K3's return
+      difference does not rest on one seed pair (6 of the 9 non-zero held-out differences and 8 of
+      the 9 in-training differences are positive); its size does.

@@ -1,0 +1,24 @@
+== lagu-tt-signed - lagu-tt  SafetyPointGoal1-v0  paired by seed; endpoint: heldout; N [2000000]
+  pairs 15 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  return A 10.81  B 5.42  A-B 5.39  95% [0.08, 10.36]  90% [0.95, 9.61]  Wilcoxon p=0.0479  TOST(+-2.5) no
+  cost   A 36.39  B 34.46  A-B 1.93  95% [-14.39, 15.72]  90% [-11.62, 13.73]  Wilcoxon p=0.4887  TOST(+-5.0) no
+  collapses (return < 5 or diverged): A 5  B 9  Fisher p=0.2723
+  verdict: Inconclusive
+  sensitivity without the pairs containing a resumed run (seeds [109, 110, 111, 112, 113, 114]):
+    pairs 9 (left out, non-finite: 0)  seeds [100, 101, 102, 103, 104, 105, 106, 107, 108]
+    return A 10.54  B 6.86  A-B 3.68  95% [-3.82, 11.06]  90% [-2.69, 9.98]  Wilcoxon p=0.4258  TOST(+-2.5) no
+    cost   A 40.16  B 35.13  A-B 5.03  95% [-19.55, 24.26]  90% [-15.55, 21.60]  Wilcoxon p=0.2500  TOST(+-5.0) no
+    collapses (return < 5 or diverged): A 3  B 4  Fisher p=1.0000
+    verdict: Inconclusive
+  secondary (A - B, paired)              A         B       A-B  95% CI              p      n
+    window_return                 11.354     5.496     5.858  [-0.029, 11.384]    0.064  15
+    window_cost                   33.127    28.071     5.056  [-6.368, 15.125]    0.188  15
+    cum_cost                   69557.000 73937.933 -4380.933  [-19157.075, 9235.540]  0.804  15
+    cum_cost_500k              19091.133 17903.000  1188.133  [-2337.672, 4395.415]  0.188  15
+    lambda_avg                     0.263     0.316    -0.053  [-0.151, 0.034]     0.679  15
+    lambda_shadow                  0.070     0.012     0.058  [0.004, 0.128]      0.040  15
+    engagement                     0.374     0.850    -0.475  [-0.595, -0.366]    0.000  15
+    would_engage                   0.166     0.952    -0.786  [-0.873, -0.695]    0.000  15
+    qc_avg                         2.057     0.662     1.395  [0.870, 1.984]      0.000  15
+    calib                          0.690     0.912    -0.221  [-1.351, 0.590]     0.639  15
+wrote results/addendum/a2.json
